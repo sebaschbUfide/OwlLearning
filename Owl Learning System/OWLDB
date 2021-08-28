@@ -1,0 +1,163 @@
+use owldb;
+
+CREATE TABLE `course_assignment` (
+  `prof_asign_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `status` char(1) NOT NULL,
+  PRIMARY KEY (`prof_asign_id`),
+  KEY `user_assign_fk_idx` (`user_id`),
+  KEY `course_assing_fk_idx` (`course_id`),
+  CONSTRAINT `course_assing_fk` FOREIGN KEY (`course_id`) REFERENCES `courses` (`course_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `user_assign_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
+) ;
+
+CREATE TABLE `course_schedule` (
+  `course_sh_id` int(11) NOT NULL AUTO_INCREMENT,
+  `course_id` int(11) NOT NULL,
+  `schedule_id` int(11) NOT NULL,
+  PRIMARY KEY (`course_sh_id`),
+  KEY `course_cs_fk_idx` (`course_id`),
+  KEY `schedule_cs_fk_idx` (`schedule_id`),
+  CONSTRAINT `course_cs_fk` FOREIGN KEY (`course_id`) REFERENCES `courses` (`course_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `schedule_cs_fk` FOREIGN KEY (`schedule_id`) REFERENCES `schedules` (`schedule_id`) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE `course_type` (
+  `course_type_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`course_type_id`)
+) ;
+
+CREATE TABLE `courses` (
+  `course_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `description` varchar(45) NOT NULL,
+  `duration` int(11) NOT NULL,
+  `cost` decimal(7,2) NOT NULL,
+  `type` int(11) NOT NULL,
+  PRIMARY KEY (`course_id`),
+  KEY `name_fk_idx` (`type`),
+  CONSTRAINT `name_fk` FOREIGN KEY (`type`) REFERENCES `course_type` (`course_type_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `logs` (
+  `log_id` int(11) NOT NULL AUTO_INCREMENT,
+  `action` varchar(45) NOT NULL,
+  `module` varchar(45) NOT NULL,
+  `user` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`log_id`),
+  KEY `user_logs_fk_idx` (`user`),
+  CONSTRAINT `user_logs_fk` FOREIGN KEY (`user`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ;
+
+CREATE TABLE `module_vt` (
+  `module_VT_id` int(11) NOT NULL AUTO_INCREMENT,
+  `star_time` datetime NOT NULL,
+  `end_time` datetime NOT NULL,
+  `min_grade` int(11) NOT NULL,
+  `module` int(11) NOT NULL,
+  `virtual_test` int(11) NOT NULL,
+  PRIMARY KEY (`module_VT_id`),
+  KEY `module_id_fk_idx` (`module`),
+  KEY `virtual_test_id_fk_idx` (`virtual_test`),
+  CONSTRAINT `module_id_fk` FOREIGN KEY (`module`) REFERENCES `modules` (`module_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `virtual_test_id_fk` FOREIGN KEY (`virtual_test`) REFERENCES `virtual_tests` (`virtual_test_id`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ;
+
+CREATE TABLE `modules` (
+  `module_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `description` varchar(45) NOT NULL,
+  `course` int(11) NOT NULL,
+  PRIMARY KEY (`module_id`),
+  KEY `course_module_fk_idx` (`course`),
+  CONSTRAINT `course_module_fk` FOREIGN KEY (`course`) REFERENCES `courses` (`course_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `pass_verif_code` (
+  `pass_verif_code` int(11) NOT NULL AUTO_INCREMENT,
+  `verification_code` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`pass_verif_code`),
+  KEY `user_fk_idx` (`user_id`),
+  CONSTRAINT `user_pvc_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE `question_vt` (
+  `question_vt_id` int(11) NOT NULL AUTO_INCREMENT,
+  `question` int(11) NOT NULL,
+  `virtual_test` int(11) NOT NULL,
+  PRIMARY KEY (`question_vt_id`),
+  KEY `question_id_fk_idx` (`question`),
+  KEY `vt_q_id_fk_idx` (`virtual_test`),
+  CONSTRAINT `question_id_fk` FOREIGN KEY (`question`) REFERENCES `questions` (`question_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `vt_q_id_fk` FOREIGN KEY (`virtual_test`) REFERENCES `virtual_tests` (`virtual_test_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ;
+
+CREATE TABLE `questions` (
+  `question_id` int(11) NOT NULL AUTO_INCREMENT,
+  `question` varchar(45) NOT NULL,
+  `answer1` varchar(45) NOT NULL,
+  `answer2` varchar(45) NOT NULL,
+  `answer3` varchar(45) NOT NULL,
+  `answer4` varchar(45) NOT NULL,
+  `correct_answer` int(11) NOT NULL,
+  PRIMARY KEY (`question_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `role_user` (
+  `role_user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL,
+  PRIMARY KEY (`role_user_id`),
+  KEY `user_fk_idx` (`user_id`),
+  KEY `role_fk_idx` (`role_id`),
+  CONSTRAINT `role_fk` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`),
+  CONSTRAINT `user_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
+) ;
+
+CREATE TABLE `roles` (
+  `role_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`role_id`)
+);
+
+CREATE TABLE `schedules` (
+  `schedule_id` int(11) NOT NULL AUTO_INCREMENT,
+  `day` varchar(9) NOT NULL,
+  `star_time` time NOT NULL,
+  `end_time` time NOT NULL,
+  PRIMARY KEY (`schedule_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `test_type` (
+  `test_type_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`test_type_id`)
+);
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `dni` varchar(12) NOT NULL,
+  `first_name` varchar(45) NOT NULL,
+  `last_name` varchar(45) NOT NULL,
+  `phone_number` varchar(9) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `dni_UNIQUE` (`dni`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `virtual_tests` (
+  `virtual_test_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `duration` int(11) NOT NULL,
+  `instructions` varchar(255) NOT NULL,
+  `type` int(11) NOT NULL,
+  PRIMARY KEY (`virtual_test_id`),
+  KEY `test_type_fk_idx` (`type`),
+  CONSTRAINT `test_type_fk` FOREIGN KEY (`type`) REFERENCES `test_type` (`test_type_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

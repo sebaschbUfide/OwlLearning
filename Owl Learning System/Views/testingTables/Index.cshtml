@@ -1,0 +1,101 @@
+﻿@*@model IEnumerable<mysqltest.Models.users>*@
+@using mysqltest.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<users>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+    <link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+    <link href="~/css/bootstrap4/main_styles.css" rel="stylesheet" type="text/css">
+    <link href="~/css/Pagination.css" rel="stylesheet" />
+
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                dni
+            </th>
+            <th>
+                first_name
+            </th>
+            <th>
+                last_name
+            </th>
+            <th>
+                phone_number
+            </th>
+            <th>
+                email
+            </th>
+            <th>
+                password
+            </th>
+            <th>
+                status
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dni)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.first_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.last_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone_number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.user_id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.user_id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.user_id })
+                </td>
+
+            </tr>
+        }
+
+    </table>
+
+
+    <div class="row g-0" style="margin-left:1%;">
+        <div class="col-md-8">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+        </div>
+        <div class="col-md-4">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        </div>
+    </div>
+
+</body>
+</html>

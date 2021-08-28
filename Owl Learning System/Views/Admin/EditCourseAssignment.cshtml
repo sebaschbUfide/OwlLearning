@@ -1,0 +1,82 @@
+﻿@model mysqltest.Models.course_assignment
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Editar Asignación de Curso</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+    <link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+    <link href="~/css/bootstrap4/main_styles.css" rel="stylesheet" type="text/css" />
+
+</head>
+<!-- header -->
+
+<header class="header d-flex flex-row">
+
+    <div class="header_content d-flex flex-row align-items-center">
+        <!-- Logo -->
+        <div class="logo_container">
+            <div class="logoA">
+                <img src="~/images/logo.png" width="140px" />
+            </div>
+        </div>
+        <nav class="main_nav_container">
+            <div class="main_nav">
+                <ul class="main_nav_list">
+                   
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+</header>
+
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="container-fluid" style="margin-top: 3%;">
+
+            <div class="jumbotron jumbotron-fluid" style="background-color: #667b68;">
+                <div class="container">
+
+                    <div class="form-horizontal">
+                        <h2 style="color: #EAE5E0;">Editar Estado de la Asignación de Curso</h2>
+                        <hr />
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.course_assign_id)
+
+                        <div class="form-group">
+                            <h3 class="control-label col-md-2">Estado</h3>
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.status, new SelectList(ViewBag.status), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10" style="margin-top:7%">
+                                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("CoursesAssignedInd","Admin", new { id = Model.user_id })">Regresar</a>
+                                <input style=" margin-left: 25%" type="submit" value="Editar" class="btn btn-outline-dark" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+
+</body>
+</html>

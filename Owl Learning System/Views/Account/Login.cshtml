@@ -1,0 +1,79 @@
+﻿@model mysqltest.Models.users
+@Html.Partial("_loginlayout")
+@{
+
+    Layout = null;
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
+</head>
+<body>
+   
+    @using (Html.BeginForm())
+    {
+        <section class="ftco-section pt-5 mt-5">
+            <div class="container">
+
+                <div class="row justify-content-center" ;">
+                    <div class="col-md-6 col-lg-5">
+                        <div class="login-wrap py-5">
+                            <h3 class="text-center mb-0">Inicio de sesion</h3>
+                            <p class="text-center">Inicie sesión ingresando la información a continuación</p>
+                            <form action="#" class="login-form">
+
+                                <div class="col-lg-auto col-md-8 px-lg-3 px-0">
+                                    <div class=" ml-lg-5">
+                                        <div class="form-group">
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Correo" } })
+                                                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-10">
+                                                @Html.PasswordFor(model => model.password, new { @class = "form-control", placeholder = "Contraseña" })
+                                                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group error">
+                                            @if (@ViewBag.Failedcount != null)
+                                            {
+                                                <label> Failed Attempt count is: @ViewBag.Failedcount</label>
+                                            }
+
+                                            @if (@ViewBag.NotValidUser != null)
+                                            {
+
+                                                <label> @ViewBag.NotValidUser</label>
+                                            }
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+
+                                                <input type="submit" value="Login" class="btn form-control btn-primary rounded submit px-3" />
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-auto">
+                                            <a href="~/Account/ValidationCode" class="">¿Olvidó su contraseña?</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+
+
+</body>
+</html>

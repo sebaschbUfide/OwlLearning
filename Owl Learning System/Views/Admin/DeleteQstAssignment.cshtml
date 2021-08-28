@@ -1,0 +1,71 @@
+﻿@model mysqltest.Models.question_vt
+@Html.Partial("_Crudslayout")
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Eliminar Asignación de Pregunta</title>
+    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
+</head>
+<body style="background-color: #ffffff;">
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.question_vt_id)
+
+        <div class="form-actions no-color">
+
+            <div class="container-fluid" style="margin-top: 3%;">
+
+
+                <div class="jumbotron jumbotron-fluid" style="background-color: #667b68;">
+                    <div class="container">
+
+                        <div class="form-horizontal">
+                            <h2 style="color: #EAE5E0;">Eliminar Asignacion de Pregunta a Prueba</h2>
+                        </div>
+
+
+                        <hr />
+
+                        <table class="table table-striped table-bordered" style="background-color: #EAE5E0;">
+                            <thead class="thead-light">
+                                <tr class="text-center">
+                                    <th>Prueba</th>
+                                    <th>Pregunta</th>
+                                </tr>
+                            </thead>
+
+                            <tr class="text-center">
+                                <td>
+                                    @ViewBag.question
+                                </td>
+                                <td>
+                                    @ViewBag.vt
+                                </td>
+                            </tr>
+
+                        </table>
+
+                        <div class="form-group">
+                            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("QuestionsAssignedInd","Admin", new { id = @ViewBag.vtid})">Regresar</a>
+                            <input style="type=" submit" value="Eliminar" class="btn btn-danger" />
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    }
+</body>
+</html>

@@ -1,0 +1,130 @@
+﻿@Html.Partial("_adminLayout")
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- css files -->
+    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
+    <link href="~/css/index Admin/IndexCss.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+    <link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+
+    <!-- //css files -->
+</head>
+<body>
+
+
+    @**<header class="header d-flex flex-row">
+
+            <div class="header_content d-flex flex-row align-items-center">
+                <!-- Logo -->
+                <div class="logo_container">
+
+                    <div class="logoA">
+                        <img src="~/images/logo.png" width="160px" />
+                    </div>
+                </div>
+
+                <!-- Main Navigation -->
+
+                <nav class="main_nav_container">
+                    <div class="main_nav">
+                        <ul class="main_nav_list">
+                            <li class="main_nav_item"><a href="@Url.Action("index", "Home")">Inicio</a></li>
+
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>
+
+            <div class="header_side d-flex flex-row justify-content-center ">
+                <div>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <form class="form-inline">
+
+                            <a href="@Url.Action("Salir", "Account")" class="main_nav_item btn btn-outline-danger">Salir</a>
+                        </form>
+                    }
+
+                    else
+                    {
+                        <form class="form-inline">
+                            <div>
+                                <a class="main_nav_item btn btn-outline-light" href="~/Account/Login">Iniciar Sesion</a>
+                            </div>
+                            &nbsp;&nbsp;
+                            <div>
+                                <a class="nav-link btn btn-outline-light" href="~/Account/Registration">Registrarme</a>
+                            </div>
+                        </form>
+                    }
+                </div>
+            </div>
+
+
+        </header>*@
+
+
+
+
+    <div class="card-deck" style="margin:2%;">
+         <div class="card">
+             <img class="card-img-top" src="~/images/Owl_Principiante.jpeg">
+             <div class="card-body">
+                 <h2  class="card-title">Cursos</h2>
+                 <ul>
+                
+                 <li><a  class="list-group-item list-group-item-action" href="@Url.Action("Index","Courses")">Lista de cursos</a></li>
+                 @if (ViewBag.role == 1)
+                 {
+                     <li><a class="list-group-item list-group-item-action" href="@Url.Action("Index","CourseType")">Tipos de curso</a></li>
+                     <li><a class="list-group-item list-group-item-action"href="@Url.Action("Index","Schedule")">Horarios</a></li>
+                 }
+                 </ul>
+             </div>
+         </div>
+         <div class="card">
+             <img class="card-img-top" src="~/images/Owl_Intermedio.jpeg">
+             <div class="card-body">
+                 <h2 class="card-title">Modulos</h2>
+                 <ul>
+                     <li><a  class="list-group-item list-group-item-action" href="@Url.Action("Index","Module")">Lista de Módulos</a></li>
+                     <li><a  class="list-group-item list-group-item-action"href="@Url.Action("Index","VirtualTest")">Pruebas Virtuales</a></li>
+                     <li><a  class="list-group-item list-group-item-action" href="@Url.Action("Index","Questions")">Preguntas</a></li>
+
+                     @if (ViewBag.role == 1)
+                     {
+                         <li><a  class="list-group-item list-group-item-action"href="@Url.Action("Index","TestType")">Tipos de prueba</a></li>
+                         <li><a  class="list-group-item list-group-item-action" href="@Url.Action("FilesList","Admin")">Material Didactico</a></li>
+                         <li><a  class="list-group-item list-group-item-action"href="@Url.Action("CheckMedia","Admin")">Videos</a></li>
+                     }
+                     </ul>
+                </div>
+         </div>
+         <div class="card">
+             <img class="card-img-top" src="~/images/Owl_avanzado02.jpeg">
+             <div class="card-body">
+                 <h2 class="card-title">Usuarios</h2>
+                 <ul>
+                 
+                 @if (ViewBag.role == 1)
+                 {
+                     <li><a c class="list-group-item list-group-item-action"href="@Url.Action("IndexAdmin","User")">Administradores</a></li>
+                     <li><a  class="list-group-item list-group-item-action"href="@Url.Action("IndexProf","User")">Profesores</a></li>
+                     <li><a  class="list-group-item list-group-item-action"href="@Url.Action("IndexStudent","User")">Estudiantes</a></li>
+                 }
+                 else
+                 {
+                     <li><a href="#">No puedes acceder a esta Sección</a></li>
+                 }
+                 </ul>
+             </div>
+         </div>
+    </div>
+
+</body>
+</html>

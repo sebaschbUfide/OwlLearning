@@ -1,0 +1,1837 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="owldbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="answer_vt">
+          <Key>
+            <PropertyRef Name="answer_vt_id" />
+          </Key>
+          <Property Name="answer_vt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="question_vt_id" Type="int" Nullable="false" />
+          <Property Name="question_id" Type="int" Nullable="false" />
+          <Property Name="got_answer" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="course_assignment">
+          <Key>
+            <PropertyRef Name="course_assign_id" />
+          </Key>
+          <Property Name="course_assign_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="course_id" Type="int" Nullable="false" />
+          <Property Name="schedule_id" Type="int" />
+          <Property Name="status" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="enrollTime" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="course_schedule">
+          <Key>
+            <PropertyRef Name="course_sh_id" />
+          </Key>
+          <Property Name="course_sh_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="course_id" Type="int" Nullable="false" />
+          <Property Name="schedule_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="course_type">
+          <Key>
+            <PropertyRef Name="course_type_id" />
+          </Key>
+          <Property Name="course_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="courses">
+          <Key>
+            <PropertyRef Name="course_id" />
+          </Key>
+          <Property Name="course_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="duration" Type="int" Nullable="false" />
+          <Property Name="cost" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="type" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FC_Module">
+          <Key>
+            <PropertyRef Name="idFC_Module" />
+          </Key>
+          <Property Name="idFC_Module" Type="int" Nullable="false" />
+          <Property Name="module_id" Type="int" />
+          <Property Name="idFile" Type="int" />
+        </EntityType>
+        <EntityType Name="FileControl">
+          <Key>
+            <PropertyRef Name="idFile" />
+          </Key>
+          <Property Name="idFile" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="45" />
+          <Property Name="FileType" Type="varchar" MaxLength="45" />
+          <Property Name="FilePath" Type="varchar" MaxLength="250" />
+          <Property Name="uploadDate" Type="datetime" Precision="0" />
+          <Property Name="Status" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="logs">
+          <Key>
+            <PropertyRef Name="log_id" />
+          </Key>
+          <Property Name="log_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="action" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="module" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="user" Type="int" Nullable="false" />
+          <Property Name="date" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mod_Content">
+          <Key>
+            <PropertyRef Name="idMod_Content" />
+          </Key>
+          <Property Name="idMod_Content" Type="int" Nullable="false" />
+          <Property Name="module_id" Type="int" Nullable="false" />
+          <Property Name="idFC_Module" Type="int" Nullable="false" />
+          <Property Name="idMMod" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="module_vt">
+          <Key>
+            <PropertyRef Name="module_VT_id" />
+          </Key>
+          <Property Name="module_VT_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="star_time" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="end_time" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="min_grade" Type="int" Nullable="false" />
+          <Property Name="module" Type="int" Nullable="false" />
+          <Property Name="virtual_test" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="modules">
+          <Key>
+            <PropertyRef Name="module_id" />
+          </Key>
+          <Property Name="module_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="course" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Multi_Modulo">
+          <Key>
+            <PropertyRef Name="idMMod" />
+          </Key>
+          <Property Name="idMMod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idMultimedia" Type="int" />
+          <Property Name="module_id" Type="int" />
+        </EntityType>
+        <EntityType Name="multimedia">
+          <Key>
+            <PropertyRef Name="idMultimedia" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="Tema" />
+          </Key>
+          <Property Name="idMultimedia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Tema" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="URL" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pass_verif_code">
+          <Key>
+            <PropertyRef Name="pass_verif_code" />
+          </Key>
+          <Property Name="pass_verif_code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="verification_code" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="question_vt">
+          <Key>
+            <PropertyRef Name="question_vt_id" />
+          </Key>
+          <Property Name="question_vt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="question" Type="int" Nullable="false" />
+          <Property Name="virtual_test" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="questions">
+          <Key>
+            <PropertyRef Name="question_id" />
+          </Key>
+          <Property Name="question_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="question" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="answer1" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="answer2" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="answer3" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="answer4" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="correct_answer" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="role_user">
+          <Key>
+            <PropertyRef Name="role_user_id" />
+          </Key>
+          <Property Name="role_user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="role_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="schedules">
+          <Key>
+            <PropertyRef Name="schedule_id" />
+          </Key>
+          <Property Name="schedule_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="day" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="star_time" Type="time" Precision="0" Nullable="false" />
+          <Property Name="end_time" Type="time" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="test_type">
+          <Key>
+            <PropertyRef Name="test_type_id" />
+          </Key>
+          <Property Name="test_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dni" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="phone_number" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="status" Type="bool" />
+        </EntityType>
+        <EntityType Name="virtual_tests">
+          <Key>
+            <PropertyRef Name="virtual_test_id" />
+          </Key>
+          <Property Name="virtual_test_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="duration" Type="int" Nullable="false" />
+          <Property Name="instructions" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="type" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vt_scored_record">
+          <Key>
+            <PropertyRef Name="vt_scored_record_id" />
+          </Key>
+          <Property Name="vt_scored_record_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="vt_id" Type="int" Nullable="false" />
+          <Property Name="total_questions" Type="int" Nullable="false" />
+          <Property Name="correct_got_answer" Type="int" Nullable="false" />
+          <Property Name="score" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="record_date" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <Association Name="answer_vt_ibfk_1">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="answer_vt" Type="Self.answer_vt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="answer_vt">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="answer_vt_ibfk_2">
+          <End Role="question_vt" Type="Self.question_vt" Multiplicity="1" />
+          <End Role="answer_vt" Type="Self.answer_vt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="question_vt">
+              <PropertyRef Name="question_vt_id" />
+            </Principal>
+            <Dependent Role="answer_vt">
+              <PropertyRef Name="question_vt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="answer_vt_ibfk_3">
+          <End Role="questions" Type="Self.questions" Multiplicity="1" />
+          <End Role="answer_vt" Type="Self.answer_vt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="questions">
+              <PropertyRef Name="question_id" />
+            </Principal>
+            <Dependent Role="answer_vt">
+              <PropertyRef Name="question_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="course_assignment_ibfk_1">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="course_assignment" Type="Self.course_assignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="course_assignment">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="course_assignment_ibfk_2">
+          <End Role="courses" Type="Self.courses" Multiplicity="1" />
+          <End Role="course_assignment" Type="Self.course_assignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="course_id" />
+            </Principal>
+            <Dependent Role="course_assignment">
+              <PropertyRef Name="course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="course_assignment_ibfk_3">
+          <End Role="schedules" Type="Self.schedules" Multiplicity="0..1" />
+          <End Role="course_assignment" Type="Self.course_assignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="schedules">
+              <PropertyRef Name="schedule_id" />
+            </Principal>
+            <Dependent Role="course_assignment">
+              <PropertyRef Name="schedule_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="course_cs_fk">
+          <End Role="courses" Type="Self.courses" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="course_schedule" Type="Self.course_schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="course_id" />
+            </Principal>
+            <Dependent Role="course_schedule">
+              <PropertyRef Name="course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="course_module_fk">
+          <End Role="courses" Type="Self.courses" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="modules" Type="Self.modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="course_id" />
+            </Principal>
+            <Dependent Role="modules">
+              <PropertyRef Name="course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FC_Module_ibfk_1">
+          <End Role="FileControl" Type="Self.FileControl" Multiplicity="0..1" />
+          <End Role="FC_Module" Type="Self.FC_Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FileControl">
+              <PropertyRef Name="idFile" />
+            </Principal>
+            <Dependent Role="FC_Module">
+              <PropertyRef Name="idFile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FC_Module_ibfk_2">
+          <End Role="modules" Type="Self.modules" Multiplicity="0..1" />
+          <End Role="FC_Module" Type="Self.FC_Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modules">
+              <PropertyRef Name="module_id" />
+            </Principal>
+            <Dependent Role="FC_Module">
+              <PropertyRef Name="module_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Mod_Content_ibfk_1">
+          <End Role="FC_Module" Type="Self.FC_Module" Multiplicity="1" />
+          <End Role="Mod_Content" Type="Self.Mod_Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FC_Module">
+              <PropertyRef Name="idFC_Module" />
+            </Principal>
+            <Dependent Role="Mod_Content">
+              <PropertyRef Name="idFC_Module" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Mod_Content_ibfk_2">
+          <End Role="modules" Type="Self.modules" Multiplicity="1" />
+          <End Role="Mod_Content" Type="Self.Mod_Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modules">
+              <PropertyRef Name="module_id" />
+            </Principal>
+            <Dependent Role="Mod_Content">
+              <PropertyRef Name="module_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Mod_Content_ibfk_3">
+          <End Role="Multi_Modulo" Type="Self.Multi_Modulo" Multiplicity="1" />
+          <End Role="Mod_Content" Type="Self.Mod_Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multi_Modulo">
+              <PropertyRef Name="idMMod" />
+            </Principal>
+            <Dependent Role="Mod_Content">
+              <PropertyRef Name="idMMod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="module_id_fk">
+          <End Role="modules" Type="Self.modules" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="module_vt" Type="Self.module_vt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modules">
+              <PropertyRef Name="module_id" />
+            </Principal>
+            <Dependent Role="module_vt">
+              <PropertyRef Name="module" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errores durante la generación:
+advertencia 6035: La relación 'Multi_Modulo_ibfk_1' tiene columnas que no forman parte de la clave de la tabla en el lado principal de la relación. Se excluyó la relación.
+        <Association Name="Multi_Modulo_ibfk_1" />-->
+        <Association Name="Multi_Modulo_ibfk_2">
+          <End Role="modules" Type="Self.modules" Multiplicity="0..1" />
+          <End Role="Multi_Modulo" Type="Self.Multi_Modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modules">
+              <PropertyRef Name="module_id" />
+            </Principal>
+            <Dependent Role="Multi_Modulo">
+              <PropertyRef Name="module_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="name_fk">
+          <End Role="course_type" Type="Self.course_type" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="courses" Type="Self.courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course_type">
+              <PropertyRef Name="course_type_id" />
+            </Principal>
+            <Dependent Role="courses">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="question_id_fk">
+          <End Role="questions" Type="Self.questions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="question_vt" Type="Self.question_vt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="questions">
+              <PropertyRef Name="question_id" />
+            </Principal>
+            <Dependent Role="question_vt">
+              <PropertyRef Name="question" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="role_fk">
+          <End Role="roles" Type="Self.roles" Multiplicity="1" />
+          <End Role="role_user" Type="Self.role_user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="role_user">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="schedule_cs_fk">
+          <End Role="schedules" Type="Self.schedules" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="course_schedule" Type="Self.course_schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="schedules">
+              <PropertyRef Name="schedule_id" />
+            </Principal>
+            <Dependent Role="course_schedule">
+              <PropertyRef Name="schedule_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="test_type_fk">
+          <End Role="test_type" Type="Self.test_type" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="virtual_tests" Type="Self.virtual_tests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test_type">
+              <PropertyRef Name="test_type_id" />
+            </Principal>
+            <Dependent Role="virtual_tests">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_fk">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="role_user" Type="Self.role_user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="role_user">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_logs_fk">
+          <End Role="users" Type="Self.users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="logs" Type="Self.logs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="logs">
+              <PropertyRef Name="user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_pvc_fk">
+          <End Role="users" Type="Self.users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pass_verif_code" Type="Self.pass_verif_code" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="pass_verif_code">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="virtual_test_id_fk">
+          <End Role="virtual_tests" Type="Self.virtual_tests" Multiplicity="1" />
+          <End Role="module_vt" Type="Self.module_vt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="virtual_tests">
+              <PropertyRef Name="virtual_test_id" />
+            </Principal>
+            <Dependent Role="module_vt">
+              <PropertyRef Name="virtual_test" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vt_q_id_fk">
+          <End Role="virtual_tests" Type="Self.virtual_tests" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="question_vt" Type="Self.question_vt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="virtual_tests">
+              <PropertyRef Name="virtual_test_id" />
+            </Principal>
+            <Dependent Role="question_vt">
+              <PropertyRef Name="virtual_test" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vt_scored_record_ibfk_1">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="vt_scored_record" Type="Self.vt_scored_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="vt_scored_record">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vt_scored_record_ibfk_2">
+          <End Role="virtual_tests" Type="Self.virtual_tests" Multiplicity="1" />
+          <End Role="vt_scored_record" Type="Self.vt_scored_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="virtual_tests">
+              <PropertyRef Name="virtual_test_id" />
+            </Principal>
+            <Dependent Role="vt_scored_record">
+              <PropertyRef Name="vt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="addUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="owldb">
+          <Parameter Name="dni" Type="varchar" Mode="In" />
+          <Parameter Name="first_name" Type="varchar" Mode="In" />
+          <Parameter Name="last_name" Type="varchar" Mode="In" />
+          <Parameter Name="phone_number" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="asingStudentRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="owldb">
+          <Parameter Name="id_user" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="owldb">
+          <Parameter Name="id_user" Type="int" Mode="In" />
+        </Function>
+        <Function Name="generateVerificationCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="owldb">
+          <Parameter Name="user_email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="getSchedules" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="owldb" />
+        <Function Name="getTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="owldb" />
+        <Function Name="getUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="owldb">
+          <Parameter Name="id_user" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="owldb" />
+        <Function Name="updateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="owldb">
+          <Parameter Name="id_user" Type="int" Mode="In" />
+          <Parameter Name="dni" Type="varchar" Mode="In" />
+          <Parameter Name="first_name" Type="varchar" Mode="In" />
+          <Parameter Name="last_name" Type="varchar" Mode="In" />
+          <Parameter Name="phone_number" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="validateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="owldb">
+          <Parameter Name="u_email" Type="varchar" Mode="In" />
+          <Parameter Name="u_pass" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="owldbModelStoreContainer">
+          <EntitySet Name="answer_vt" EntityType="Self.answer_vt" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="course_assignment" EntityType="Self.course_assignment" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="course_schedule" EntityType="Self.course_schedule" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="course_type" EntityType="Self.course_type" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="courses" EntityType="Self.courses" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="FC_Module" EntityType="Self.FC_Module" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="FileControl" EntityType="Self.FileControl" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="logs" EntityType="Self.logs" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="Mod_Content" EntityType="Self.Mod_Content" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="module_vt" EntityType="Self.module_vt" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="modules" EntityType="Self.modules" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="Multi_Modulo" EntityType="Self.Multi_Modulo" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="multimedia" EntityType="Self.multimedia" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="pass_verif_code" EntityType="Self.pass_verif_code" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="question_vt" EntityType="Self.question_vt" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="questions" EntityType="Self.questions" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="role_user" EntityType="Self.role_user" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="schedules" EntityType="Self.schedules" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="test_type" EntityType="Self.test_type" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="virtual_tests" EntityType="Self.virtual_tests" Schema="owldb" store:Type="Tables" />
+          <EntitySet Name="vt_scored_record" EntityType="Self.vt_scored_record" Schema="owldb" store:Type="Tables" />
+          <AssociationSet Name="answer_vt_ibfk_1" Association="Self.answer_vt_ibfk_1">
+            <End Role="users" EntitySet="users" />
+            <End Role="answer_vt" EntitySet="answer_vt" />
+          </AssociationSet>
+          <AssociationSet Name="answer_vt_ibfk_2" Association="Self.answer_vt_ibfk_2">
+            <End Role="question_vt" EntitySet="question_vt" />
+            <End Role="answer_vt" EntitySet="answer_vt" />
+          </AssociationSet>
+          <AssociationSet Name="answer_vt_ibfk_3" Association="Self.answer_vt_ibfk_3">
+            <End Role="questions" EntitySet="questions" />
+            <End Role="answer_vt" EntitySet="answer_vt" />
+          </AssociationSet>
+          <AssociationSet Name="course_assignment_ibfk_1" Association="Self.course_assignment_ibfk_1">
+            <End Role="users" EntitySet="users" />
+            <End Role="course_assignment" EntitySet="course_assignment" />
+          </AssociationSet>
+          <AssociationSet Name="course_assignment_ibfk_2" Association="Self.course_assignment_ibfk_2">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="course_assignment" EntitySet="course_assignment" />
+          </AssociationSet>
+          <AssociationSet Name="course_assignment_ibfk_3" Association="Self.course_assignment_ibfk_3">
+            <End Role="schedules" EntitySet="schedules" />
+            <End Role="course_assignment" EntitySet="course_assignment" />
+          </AssociationSet>
+          <AssociationSet Name="course_cs_fk" Association="Self.course_cs_fk">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="course_schedule" EntitySet="course_schedule" />
+          </AssociationSet>
+          <AssociationSet Name="course_module_fk" Association="Self.course_module_fk">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="modules" EntitySet="modules" />
+          </AssociationSet>
+          <AssociationSet Name="FC_Module_ibfk_1" Association="Self.FC_Module_ibfk_1">
+            <End Role="FileControl" EntitySet="FileControl" />
+            <End Role="FC_Module" EntitySet="FC_Module" />
+          </AssociationSet>
+          <AssociationSet Name="FC_Module_ibfk_2" Association="Self.FC_Module_ibfk_2">
+            <End Role="modules" EntitySet="modules" />
+            <End Role="FC_Module" EntitySet="FC_Module" />
+          </AssociationSet>
+          <AssociationSet Name="Mod_Content_ibfk_1" Association="Self.Mod_Content_ibfk_1">
+            <End Role="FC_Module" EntitySet="FC_Module" />
+            <End Role="Mod_Content" EntitySet="Mod_Content" />
+          </AssociationSet>
+          <AssociationSet Name="Mod_Content_ibfk_2" Association="Self.Mod_Content_ibfk_2">
+            <End Role="modules" EntitySet="modules" />
+            <End Role="Mod_Content" EntitySet="Mod_Content" />
+          </AssociationSet>
+          <AssociationSet Name="Mod_Content_ibfk_3" Association="Self.Mod_Content_ibfk_3">
+            <End Role="Multi_Modulo" EntitySet="Multi_Modulo" />
+            <End Role="Mod_Content" EntitySet="Mod_Content" />
+          </AssociationSet>
+          <AssociationSet Name="module_id_fk" Association="Self.module_id_fk">
+            <End Role="modules" EntitySet="modules" />
+            <End Role="module_vt" EntitySet="module_vt" />
+          </AssociationSet>
+          <AssociationSet Name="Multi_Modulo_ibfk_2" Association="Self.Multi_Modulo_ibfk_2">
+            <End Role="modules" EntitySet="modules" />
+            <End Role="Multi_Modulo" EntitySet="Multi_Modulo" />
+          </AssociationSet>
+          <AssociationSet Name="name_fk" Association="Self.name_fk">
+            <End Role="course_type" EntitySet="course_type" />
+            <End Role="courses" EntitySet="courses" />
+          </AssociationSet>
+          <AssociationSet Name="question_id_fk" Association="Self.question_id_fk">
+            <End Role="questions" EntitySet="questions" />
+            <End Role="question_vt" EntitySet="question_vt" />
+          </AssociationSet>
+          <AssociationSet Name="role_fk" Association="Self.role_fk">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="role_user" EntitySet="role_user" />
+          </AssociationSet>
+          <AssociationSet Name="schedule_cs_fk" Association="Self.schedule_cs_fk">
+            <End Role="schedules" EntitySet="schedules" />
+            <End Role="course_schedule" EntitySet="course_schedule" />
+          </AssociationSet>
+          <AssociationSet Name="test_type_fk" Association="Self.test_type_fk">
+            <End Role="test_type" EntitySet="test_type" />
+            <End Role="virtual_tests" EntitySet="virtual_tests" />
+          </AssociationSet>
+          <AssociationSet Name="user_fk" Association="Self.user_fk">
+            <End Role="users" EntitySet="users" />
+            <End Role="role_user" EntitySet="role_user" />
+          </AssociationSet>
+          <AssociationSet Name="user_logs_fk" Association="Self.user_logs_fk">
+            <End Role="users" EntitySet="users" />
+            <End Role="logs" EntitySet="logs" />
+          </AssociationSet>
+          <AssociationSet Name="user_pvc_fk" Association="Self.user_pvc_fk">
+            <End Role="users" EntitySet="users" />
+            <End Role="pass_verif_code" EntitySet="pass_verif_code" />
+          </AssociationSet>
+          <AssociationSet Name="virtual_test_id_fk" Association="Self.virtual_test_id_fk">
+            <End Role="virtual_tests" EntitySet="virtual_tests" />
+            <End Role="module_vt" EntitySet="module_vt" />
+          </AssociationSet>
+          <AssociationSet Name="vt_q_id_fk" Association="Self.vt_q_id_fk">
+            <End Role="virtual_tests" EntitySet="virtual_tests" />
+            <End Role="question_vt" EntitySet="question_vt" />
+          </AssociationSet>
+          <AssociationSet Name="vt_scored_record_ibfk_1" Association="Self.vt_scored_record_ibfk_1">
+            <End Role="users" EntitySet="users" />
+            <End Role="vt_scored_record" EntitySet="vt_scored_record" />
+          </AssociationSet>
+          <AssociationSet Name="vt_scored_record_ibfk_2" Association="Self.vt_scored_record_ibfk_2">
+            <End Role="virtual_tests" EntitySet="virtual_tests" />
+            <End Role="vt_scored_record" EntitySet="vt_scored_record" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="owldbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="course_assignment">
+          <Key>
+            <PropertyRef Name="course_assign_id" />
+          </Key>
+          <Property Name="course_id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="course_assign_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="users" Relationship="owldbModel.course_assignment_ibfk_1" FromRole="course_assignment" ToRole="users" />
+          <NavigationProperty Name="courses" Relationship="owldbModel.course_assignment_ibfk_2" FromRole="course_assignment" ToRole="courses" />
+          <Property Name="schedule_id" Type="Int32" />
+          <Property Name="enrollTime" Type="DateTime" />
+          <NavigationProperty Name="schedules" Relationship="owldbModel.course_assignment_ibfk_3" FromRole="course_assignment" ToRole="schedules" />
+        </EntityType>
+        <EntityType Name="course_schedule">
+          <Key>
+            <PropertyRef Name="course_sh_id" />
+          </Key>
+          <Property Name="course_sh_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="course_id" Type="Int32" Nullable="false" />
+          <Property Name="schedule_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="courses" Relationship="Self.course_cs_fk" FromRole="course_schedule" ToRole="courses" />
+          <NavigationProperty Name="schedules" Relationship="Self.schedule_cs_fk" FromRole="course_schedule" ToRole="schedules" />
+        </EntityType>
+        <EntityType Name="course_type">
+          <Key>
+            <PropertyRef Name="course_type_id" />
+          </Key>
+          <Property Name="course_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="courses" Relationship="Self.name_fk" FromRole="course_type" ToRole="courses" />
+        </EntityType>
+        <EntityType Name="courses">
+          <Key>
+            <PropertyRef Name="course_id" />
+          </Key>
+          <Property Name="course_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="duration" Type="Int32" Nullable="false" />
+          <Property Name="cost" Type="Decimal" Nullable="false" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="course_schedule" Relationship="Self.course_cs_fk" FromRole="courses" ToRole="course_schedule" />
+          <NavigationProperty Name="course_type" Relationship="Self.name_fk" FromRole="courses" ToRole="course_type" />
+          <NavigationProperty Name="modules" Relationship="Self.course_module_fk" FromRole="courses" ToRole="modules" />
+          <NavigationProperty Name="course_assignment" Relationship="owldbModel.course_assignment_ibfk_2" FromRole="courses" ToRole="course_assignment" />
+        </EntityType>
+        <EntityType Name="logs">
+          <Key>
+            <PropertyRef Name="log_id" />
+          </Key>
+          <Property Name="log_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="action" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="module" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="users" Relationship="Self.user_logs_fk" FromRole="logs" ToRole="users" />
+        </EntityType>
+        <EntityType Name="module_vt">
+          <Key>
+            <PropertyRef Name="module_VT_id" />
+          </Key>
+          <Property Name="module_VT_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="star_time" Type="DateTime" Nullable="false" />
+          <Property Name="end_time" Type="DateTime" Nullable="false" />
+          <Property Name="min_grade" Type="Int32" Nullable="false" />
+          <Property Name="module" Type="Int32" Nullable="false" />
+          <Property Name="virtual_test" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="modules" Relationship="Self.module_id_fk" FromRole="module_vt" ToRole="modules" />
+          <NavigationProperty Name="virtual_tests" Relationship="Self.virtual_test_id_fk" FromRole="module_vt" ToRole="virtual_tests" />
+        </EntityType>
+        <EntityType Name="modules">
+          <Key>
+            <PropertyRef Name="module_id" />
+          </Key>
+          <Property Name="module_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="course" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="courses" Relationship="Self.course_module_fk" FromRole="modules" ToRole="courses" />
+          <NavigationProperty Name="module_vt" Relationship="Self.module_id_fk" FromRole="modules" ToRole="module_vt" />
+          <NavigationProperty Name="FC_Module" Relationship="owldbModel.FC_Module_ibfk_2" FromRole="modules" ToRole="FC_Module" />
+          <NavigationProperty Name="Mod_Content" Relationship="owldbModel.Mod_Content_ibfk_2" FromRole="modules" ToRole="Mod_Content" />
+          <NavigationProperty Name="Multi_Modulo" Relationship="owldbModel.Multi_Modulo_ibfk_2" FromRole="modules" ToRole="Multi_Modulo" />
+        </EntityType>
+        <EntityType Name="pass_verif_code">
+          <Key>
+            <PropertyRef Name="pass_verif_code1" />
+          </Key>
+          <Property Name="pass_verif_code1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="verification_code" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="users" Relationship="Self.user_pvc_fk" FromRole="pass_verif_code" ToRole="users" />
+        </EntityType>
+        <EntityType Name="question_vt">
+          <Key>
+            <PropertyRef Name="question_vt_id" />
+          </Key>
+          <Property Name="question_vt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="question" Type="Int32" Nullable="false" />
+          <Property Name="virtual_test" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="questions" Relationship="Self.question_id_fk" FromRole="question_vt" ToRole="questions" />
+          <NavigationProperty Name="virtual_tests" Relationship="Self.vt_q_id_fk" FromRole="question_vt" ToRole="virtual_tests" />
+          <NavigationProperty Name="answer_vt" Relationship="owldbModel.answer_vt_ibfk_2" FromRole="question_vt" ToRole="answer_vt" />
+        </EntityType>
+        <EntityType Name="questions">
+          <Key>
+            <PropertyRef Name="question_id" />
+          </Key>
+          <Property Name="question_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="question" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="answer1" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="answer2" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="answer3" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="answer4" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="correct_answer" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="question_vt" Relationship="Self.question_id_fk" FromRole="questions" ToRole="question_vt" />
+          <NavigationProperty Name="answer_vt" Relationship="owldbModel.answer_vt_ibfk_3" FromRole="questions" ToRole="answer_vt" />
+        </EntityType>
+        <EntityType Name="role_user">
+          <Key>
+            <PropertyRef Name="role_user_id" />
+          </Key>
+          <Property Name="role_user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="role_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="roles" Relationship="Self.role_fk" FromRole="role_user" ToRole="roles" />
+          <NavigationProperty Name="users" Relationship="Self.user_fk" FromRole="role_user" ToRole="users" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="role_user" Relationship="Self.role_fk" FromRole="roles" ToRole="role_user" />
+        </EntityType>
+        <EntityType Name="schedules">
+          <Key>
+            <PropertyRef Name="schedule_id" />
+          </Key>
+          <Property Name="schedule_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="day" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="star_time" Type="Time" Nullable="false" />
+          <Property Name="end_time" Type="Time" Nullable="false" />
+          <NavigationProperty Name="course_schedule" Relationship="Self.schedule_cs_fk" FromRole="schedules" ToRole="course_schedule" />
+          <NavigationProperty Name="course_assignment" Relationship="owldbModel.course_assignment_ibfk_3" FromRole="schedules" ToRole="course_assignment" />
+        </EntityType>
+        <EntityType Name="test_type">
+          <Key>
+            <PropertyRef Name="test_type_id" />
+          </Key>
+          <Property Name="test_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="virtual_tests" Relationship="Self.test_type_fk" FromRole="test_type" ToRole="virtual_tests" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dni" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phone_number" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="Boolean" />
+          <NavigationProperty Name="logs" Relationship="Self.user_logs_fk" FromRole="users" ToRole="logs" />
+          <NavigationProperty Name="pass_verif_code" Relationship="Self.user_pvc_fk" FromRole="users" ToRole="pass_verif_code" />
+          <NavigationProperty Name="role_user" Relationship="Self.user_fk" FromRole="users" ToRole="role_user" />
+          <NavigationProperty Name="course_assignment" Relationship="owldbModel.course_assignment_ibfk_1" FromRole="users" ToRole="course_assignment" />
+          <NavigationProperty Name="answer_vt" Relationship="owldbModel.answer_vt_ibfk_1" FromRole="users" ToRole="answer_vt" />
+          <NavigationProperty Name="vt_scored_record" Relationship="owldbModel.vt_scored_record_ibfk_1" FromRole="users" ToRole="vt_scored_record" />
+        </EntityType>
+        <EntityType Name="virtual_tests">
+          <Key>
+            <PropertyRef Name="virtual_test_id" />
+          </Key>
+          <Property Name="virtual_test_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="duration" Type="Int32" Nullable="false" />
+          <Property Name="instructions" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="module_vt" Relationship="Self.virtual_test_id_fk" FromRole="virtual_tests" ToRole="module_vt" />
+          <NavigationProperty Name="question_vt" Relationship="Self.vt_q_id_fk" FromRole="virtual_tests" ToRole="question_vt" />
+          <NavigationProperty Name="test_type" Relationship="Self.test_type_fk" FromRole="virtual_tests" ToRole="test_type" />
+          <NavigationProperty Name="vt_scored_record" Relationship="owldbModel.vt_scored_record_ibfk_2" FromRole="virtual_tests" ToRole="vt_scored_record" />
+        </EntityType>
+        <Association Name="course_cs_fk">
+          <End Role="courses" Type="Self.courses" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="course_schedule" Type="Self.course_schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="course_id" />
+            </Principal>
+            <Dependent Role="course_schedule">
+              <PropertyRef Name="course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="schedule_cs_fk">
+          <End Role="schedules" Type="Self.schedules" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="course_schedule" Type="Self.course_schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="schedules">
+              <PropertyRef Name="schedule_id" />
+            </Principal>
+            <Dependent Role="course_schedule">
+              <PropertyRef Name="schedule_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="name_fk">
+          <End Role="course_type" Type="Self.course_type" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="courses" Type="Self.courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course_type">
+              <PropertyRef Name="course_type_id" />
+            </Principal>
+            <Dependent Role="courses">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="course_module_fk">
+          <End Role="courses" Type="Self.courses" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="modules" Type="Self.modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="course_id" />
+            </Principal>
+            <Dependent Role="modules">
+              <PropertyRef Name="course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_logs_fk">
+          <End Role="users" Type="Self.users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="logs" Type="Self.logs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="logs">
+              <PropertyRef Name="user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="module_id_fk">
+          <End Role="modules" Type="Self.modules" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="module_vt" Type="Self.module_vt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modules">
+              <PropertyRef Name="module_id" />
+            </Principal>
+            <Dependent Role="module_vt">
+              <PropertyRef Name="module" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="virtual_test_id_fk">
+          <End Role="virtual_tests" Type="Self.virtual_tests" Multiplicity="1" />
+          <End Role="module_vt" Type="Self.module_vt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="virtual_tests">
+              <PropertyRef Name="virtual_test_id" />
+            </Principal>
+            <Dependent Role="module_vt">
+              <PropertyRef Name="virtual_test" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_pvc_fk">
+          <End Role="users" Type="Self.users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pass_verif_code" Type="Self.pass_verif_code" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="pass_verif_code">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="question_id_fk">
+          <End Role="questions" Type="Self.questions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="question_vt" Type="Self.question_vt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="questions">
+              <PropertyRef Name="question_id" />
+            </Principal>
+            <Dependent Role="question_vt">
+              <PropertyRef Name="question" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vt_q_id_fk">
+          <End Role="virtual_tests" Type="Self.virtual_tests" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="question_vt" Type="Self.question_vt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="virtual_tests">
+              <PropertyRef Name="virtual_test_id" />
+            </Principal>
+            <Dependent Role="question_vt">
+              <PropertyRef Name="virtual_test" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="role_fk">
+          <End Role="roles" Type="Self.roles" Multiplicity="1" />
+          <End Role="role_user" Type="Self.role_user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="role_user">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_fk">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="role_user" Type="Self.role_user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="role_user">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="test_type_fk">
+          <End Role="test_type" Type="Self.test_type" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="virtual_tests" Type="Self.virtual_tests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test_type">
+              <PropertyRef Name="test_type_id" />
+            </Principal>
+            <Dependent Role="virtual_tests">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="owldbEntities01" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="course_assignment" EntityType="Self.course_assignment" />
+          <EntitySet Name="course_schedule" EntityType="Self.course_schedule" />
+          <EntitySet Name="course_type" EntityType="Self.course_type" />
+          <EntitySet Name="courses" EntityType="Self.courses" />
+          <EntitySet Name="logs" EntityType="Self.logs" />
+          <EntitySet Name="module_vt" EntityType="Self.module_vt" />
+          <EntitySet Name="modules" EntityType="Self.modules" />
+          <EntitySet Name="pass_verif_code" EntityType="Self.pass_verif_code" />
+          <EntitySet Name="question_vt" EntityType="Self.question_vt" />
+          <EntitySet Name="questions" EntityType="Self.questions" />
+          <EntitySet Name="role_user" EntityType="Self.role_user" />
+          <EntitySet Name="roles" EntityType="Self.roles" />
+          <EntitySet Name="schedules" EntityType="Self.schedules" />
+          <EntitySet Name="test_type" EntityType="Self.test_type" />
+          <EntitySet Name="users" EntityType="Self.users" />
+          <EntitySet Name="virtual_tests" EntityType="Self.virtual_tests" />
+          <AssociationSet Name="course_cs_fk" Association="Self.course_cs_fk">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="course_schedule" EntitySet="course_schedule" />
+          </AssociationSet>
+          <AssociationSet Name="schedule_cs_fk" Association="Self.schedule_cs_fk">
+            <End Role="schedules" EntitySet="schedules" />
+            <End Role="course_schedule" EntitySet="course_schedule" />
+          </AssociationSet>
+          <AssociationSet Name="name_fk" Association="Self.name_fk">
+            <End Role="course_type" EntitySet="course_type" />
+            <End Role="courses" EntitySet="courses" />
+          </AssociationSet>
+          <AssociationSet Name="course_module_fk" Association="Self.course_module_fk">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="modules" EntitySet="modules" />
+          </AssociationSet>
+          <AssociationSet Name="user_logs_fk" Association="Self.user_logs_fk">
+            <End Role="users" EntitySet="users" />
+            <End Role="logs" EntitySet="logs" />
+          </AssociationSet>
+          <AssociationSet Name="module_id_fk" Association="Self.module_id_fk">
+            <End Role="modules" EntitySet="modules" />
+            <End Role="module_vt" EntitySet="module_vt" />
+          </AssociationSet>
+          <AssociationSet Name="virtual_test_id_fk" Association="Self.virtual_test_id_fk">
+            <End Role="virtual_tests" EntitySet="virtual_tests" />
+            <End Role="module_vt" EntitySet="module_vt" />
+          </AssociationSet>
+          <AssociationSet Name="user_pvc_fk" Association="Self.user_pvc_fk">
+            <End Role="users" EntitySet="users" />
+            <End Role="pass_verif_code" EntitySet="pass_verif_code" />
+          </AssociationSet>
+          <AssociationSet Name="question_id_fk" Association="Self.question_id_fk">
+            <End Role="questions" EntitySet="questions" />
+            <End Role="question_vt" EntitySet="question_vt" />
+          </AssociationSet>
+          <AssociationSet Name="vt_q_id_fk" Association="Self.vt_q_id_fk">
+            <End Role="virtual_tests" EntitySet="virtual_tests" />
+            <End Role="question_vt" EntitySet="question_vt" />
+          </AssociationSet>
+          <AssociationSet Name="role_fk" Association="Self.role_fk">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="role_user" EntitySet="role_user" />
+          </AssociationSet>
+          <AssociationSet Name="user_fk" Association="Self.user_fk">
+            <End Role="users" EntitySet="users" />
+            <End Role="role_user" EntitySet="role_user" />
+          </AssociationSet>
+          <AssociationSet Name="test_type_fk" Association="Self.test_type_fk">
+            <End Role="test_type" EntitySet="test_type" />
+            <End Role="virtual_tests" EntitySet="virtual_tests" />
+          </AssociationSet>
+          <FunctionImport Name="addUser">
+            <Parameter Name="dni" Mode="In" Type="String" />
+            <Parameter Name="first_name" Mode="In" Type="String" />
+            <Parameter Name="last_name" Mode="In" Type="String" />
+            <Parameter Name="phone_number" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="asingStudentRole">
+          <Parameter Name="id_user" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteUser">
+          <Parameter Name="id_user" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="generateVerificationCode">
+          <Parameter Name="user_email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getSchedules" ReturnType="Collection(owldbModel.getSchedules_Result)" />
+          <FunctionImport Name="getTypes" ReturnType="Collection(owldbModel.getTypes_Result)" />
+          <FunctionImport Name="getUser" ReturnType="Collection(owldbModel.getUser_Result)">
+          <Parameter Name="id_user" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getUsers" ReturnType="Collection(owldbModel.getUsers_Result)" />
+          <FunctionImport Name="updateUser">
+            <Parameter Name="id_user" Mode="In" Type="Int32" />
+            <Parameter Name="dni" Mode="In" Type="String" />
+            <Parameter Name="first_name" Mode="In" Type="String" />
+            <Parameter Name="last_name" Mode="In" Type="String" />
+            <Parameter Name="phone_number" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="validateUser" ReturnType="Collection(owldbModel.validateUser_Result)">
+            <Parameter Name="u_email" Mode="In" Type="String" />
+            <Parameter Name="u_pass" Mode="In" Type="String" />
+          </FunctionImport>
+          <AssociationSet Name="course_assignment_ibfk_1" Association="owldbModel.course_assignment_ibfk_1">
+            <End Role="users" EntitySet="users" />
+            <End Role="course_assignment" EntitySet="course_assignment" />
+          </AssociationSet>
+          <AssociationSet Name="course_assignment_ibfk_2" Association="owldbModel.course_assignment_ibfk_2">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="course_assignment" EntitySet="course_assignment" />
+          </AssociationSet>
+          <AssociationSet Name="course_assignment_ibfk_3" Association="owldbModel.course_assignment_ibfk_3">
+            <End Role="schedules" EntitySet="schedules" />
+            <End Role="course_assignment" EntitySet="course_assignment" />
+          </AssociationSet>
+          <EntitySet Name="multimedia" EntityType="owldbModel.multimedia" />
+          <EntitySet Name="FileControl" EntityType="owldbModel.FileControl" />
+          <EntitySet Name="answer_vt" EntityType="owldbModel.answer_vt" />
+          <AssociationSet Name="answer_vt_ibfk_1" Association="owldbModel.answer_vt_ibfk_1">
+            <End Role="users" EntitySet="users" />
+            <End Role="answer_vt" EntitySet="answer_vt" />
+          </AssociationSet>
+          <AssociationSet Name="answer_vt_ibfk_2" Association="owldbModel.answer_vt_ibfk_2">
+            <End Role="question_vt" EntitySet="question_vt" />
+            <End Role="answer_vt" EntitySet="answer_vt" />
+          </AssociationSet>
+          <AssociationSet Name="answer_vt_ibfk_3" Association="owldbModel.answer_vt_ibfk_3">
+            <End Role="questions" EntitySet="questions" />
+            <End Role="answer_vt" EntitySet="answer_vt" />
+          </AssociationSet>
+          <EntitySet Name="vt_scored_record" EntityType="owldbModel.vt_scored_record" />
+          <AssociationSet Name="vt_scored_record_ibfk_1" Association="owldbModel.vt_scored_record_ibfk_1">
+            <End Role="users" EntitySet="users" />
+            <End Role="vt_scored_record" EntitySet="vt_scored_record" />
+          </AssociationSet>
+          <AssociationSet Name="vt_scored_record_ibfk_2" Association="owldbModel.vt_scored_record_ibfk_2">
+            <End Role="virtual_tests" EntitySet="virtual_tests" />
+            <End Role="vt_scored_record" EntitySet="vt_scored_record" />
+          </AssociationSet>
+          <EntitySet Name="FC_Module" EntityType="owldbModel.FC_Module" />
+          <AssociationSet Name="FC_Module_ibfk_1" Association="owldbModel.FC_Module_ibfk_1">
+            <End Role="FileControl" EntitySet="FileControl" />
+            <End Role="FC_Module" EntitySet="FC_Module" />
+          </AssociationSet>
+          <AssociationSet Name="FC_Module_ibfk_2" Association="owldbModel.FC_Module_ibfk_2">
+            <End Role="modules" EntitySet="modules" />
+            <End Role="FC_Module" EntitySet="FC_Module" />
+          </AssociationSet>
+          <EntitySet Name="Mod_Content" EntityType="owldbModel.Mod_Content" />
+          <EntitySet Name="Multi_Modulo" EntityType="owldbModel.Multi_Modulo" />
+          <AssociationSet Name="Mod_Content_ibfk_1" Association="owldbModel.Mod_Content_ibfk_1">
+            <End Role="FC_Module" EntitySet="FC_Module" />
+            <End Role="Mod_Content" EntitySet="Mod_Content" />
+          </AssociationSet>
+          <AssociationSet Name="Mod_Content_ibfk_2" Association="owldbModel.Mod_Content_ibfk_2">
+            <End Role="modules" EntitySet="modules" />
+            <End Role="Mod_Content" EntitySet="Mod_Content" />
+          </AssociationSet>
+          <AssociationSet Name="Mod_Content_ibfk_3" Association="owldbModel.Mod_Content_ibfk_3">
+            <End Role="Multi_Modulo" EntitySet="Multi_Modulo" />
+            <End Role="Mod_Content" EntitySet="Mod_Content" />
+          </AssociationSet>
+          <AssociationSet Name="Multi_Modulo_ibfk_2" Association="owldbModel.Multi_Modulo_ibfk_2">
+            <End Role="modules" EntitySet="modules" />
+            <End Role="Multi_Modulo" EntitySet="Multi_Modulo" />
+          </AssociationSet>
+          </EntityContainer>
+        <ComplexType Name="getSchedules_Result" />
+        <ComplexType Name="getTypes_Result" />
+        <ComplexType Name="getUser_Result" />
+        <ComplexType Name="getUsers_Result" />
+        <ComplexType Name="validateUser_Result" />
+        <Association Name="course_assignment_ibfk_1">
+          <End Type="owldbModel.users" Role="users" Multiplicity="1" />
+          <End Type="owldbModel.course_assignment" Role="course_assignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="course_assignment">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="course_assignment_ibfk_2">
+          <End Type="owldbModel.courses" Role="courses" Multiplicity="1" />
+          <End Type="owldbModel.course_assignment" Role="course_assignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="course_id" />
+            </Principal>
+            <Dependent Role="course_assignment">
+              <PropertyRef Name="course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="course_assignment_ibfk_3">
+          <End Type="owldbModel.schedules" Role="schedules" Multiplicity="0..1" />
+          <End Type="owldbModel.course_assignment" Role="course_assignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="schedules">
+              <PropertyRef Name="schedule_id" />
+            </Principal>
+            <Dependent Role="course_assignment">
+              <PropertyRef Name="schedule_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="multimedia">
+          <Key>
+            <PropertyRef Name="idMultimedia" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="Tema" />
+          </Key>
+          <Property Name="idMultimedia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Tema" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="URL" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FileControl">
+          <Key>
+            <PropertyRef Name="idFile" />
+          </Key>
+          <Property Name="idFile" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="FileType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="FilePath" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="uploadDate" Type="DateTime" />
+          <Property Name="Status" Type="SByte" />
+          <NavigationProperty Name="FC_Module" Relationship="owldbModel.FC_Module_ibfk_1" FromRole="FileControl" ToRole="FC_Module" />
+        </EntityType>
+        <EntityType Name="answer_vt">
+          <Key>
+            <PropertyRef Name="answer_vt_id" />
+          </Key>
+          <Property Name="answer_vt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="question_vt_id" Type="Int32" Nullable="false" />
+          <Property Name="question_id" Type="Int32" Nullable="false" />
+          <Property Name="got_answer" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="users" Relationship="owldbModel.answer_vt_ibfk_1" FromRole="answer_vt" ToRole="users" />
+          <NavigationProperty Name="question_vt" Relationship="owldbModel.answer_vt_ibfk_2" FromRole="answer_vt" ToRole="question_vt" />
+          <NavigationProperty Name="questions" Relationship="owldbModel.answer_vt_ibfk_3" FromRole="answer_vt" ToRole="questions" />
+        </EntityType>
+        <Association Name="answer_vt_ibfk_1">
+          <End Type="owldbModel.users" Role="users" Multiplicity="1" />
+          <End Type="owldbModel.answer_vt" Role="answer_vt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="answer_vt">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="answer_vt_ibfk_2">
+          <End Type="owldbModel.question_vt" Role="question_vt" Multiplicity="1" />
+          <End Type="owldbModel.answer_vt" Role="answer_vt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="question_vt">
+              <PropertyRef Name="question_vt_id" />
+            </Principal>
+            <Dependent Role="answer_vt">
+              <PropertyRef Name="question_vt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="answer_vt_ibfk_3">
+          <End Type="owldbModel.questions" Role="questions" Multiplicity="1" />
+          <End Type="owldbModel.answer_vt" Role="answer_vt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="questions">
+              <PropertyRef Name="question_id" />
+            </Principal>
+            <Dependent Role="answer_vt">
+              <PropertyRef Name="question_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vt_scored_record">
+          <Key>
+            <PropertyRef Name="vt_scored_record_id" />
+          </Key>
+          <Property Name="vt_scored_record_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="vt_id" Type="Int32" Nullable="false" />
+          <Property Name="total_questions" Type="Int32" Nullable="false" />
+          <Property Name="correct_got_answer" Type="Int32" Nullable="false" />
+          <Property Name="score" Type="Decimal" Nullable="false" />
+          <Property Name="record_date" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="users" Relationship="owldbModel.vt_scored_record_ibfk_1" FromRole="vt_scored_record" ToRole="users" />
+          <NavigationProperty Name="virtual_tests" Relationship="owldbModel.vt_scored_record_ibfk_2" FromRole="vt_scored_record" ToRole="virtual_tests" />
+        </EntityType>
+        <Association Name="vt_scored_record_ibfk_1">
+          <End Type="owldbModel.users" Role="users" Multiplicity="1" />
+          <End Type="owldbModel.vt_scored_record" Role="vt_scored_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="vt_scored_record">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vt_scored_record_ibfk_2">
+          <End Type="owldbModel.virtual_tests" Role="virtual_tests" Multiplicity="1" />
+          <End Type="owldbModel.vt_scored_record" Role="vt_scored_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="virtual_tests">
+              <PropertyRef Name="virtual_test_id" />
+            </Principal>
+            <Dependent Role="vt_scored_record">
+              <PropertyRef Name="vt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FC_Module">
+          <Key>
+            <PropertyRef Name="idFC_Module" />
+          </Key>
+          <Property Name="idFC_Module" Type="Int32" Nullable="false" />
+          <Property Name="module_id" Type="Int32" />
+          <Property Name="idFile" Type="Int32" />
+          <NavigationProperty Name="FileControl" Relationship="owldbModel.FC_Module_ibfk_1" FromRole="FC_Module" ToRole="FileControl" />
+          <NavigationProperty Name="modules" Relationship="owldbModel.FC_Module_ibfk_2" FromRole="FC_Module" ToRole="modules" />
+          <NavigationProperty Name="Mod_Content" Relationship="owldbModel.Mod_Content_ibfk_1" FromRole="FC_Module" ToRole="Mod_Content" />
+        </EntityType>
+        <Association Name="FC_Module_ibfk_1">
+          <End Type="owldbModel.FileControl" Role="FileControl" Multiplicity="0..1" />
+          <End Type="owldbModel.FC_Module" Role="FC_Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FileControl">
+              <PropertyRef Name="idFile" />
+            </Principal>
+            <Dependent Role="FC_Module">
+              <PropertyRef Name="idFile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FC_Module_ibfk_2">
+          <End Type="owldbModel.modules" Role="modules" Multiplicity="0..1" />
+          <End Type="owldbModel.FC_Module" Role="FC_Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modules">
+              <PropertyRef Name="module_id" />
+            </Principal>
+            <Dependent Role="FC_Module">
+              <PropertyRef Name="module_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Mod_Content">
+          <Key>
+            <PropertyRef Name="idMod_Content" />
+          </Key>
+          <Property Name="idMod_Content" Type="Int32" Nullable="false" />
+          <Property Name="module_id" Type="Int32" Nullable="false" />
+          <Property Name="idFC_Module" Type="Int32" Nullable="false" />
+          <Property Name="idMMod" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FC_Module" Relationship="owldbModel.Mod_Content_ibfk_1" FromRole="Mod_Content" ToRole="FC_Module" />
+          <NavigationProperty Name="modules" Relationship="owldbModel.Mod_Content_ibfk_2" FromRole="Mod_Content" ToRole="modules" />
+          <NavigationProperty Name="Multi_Modulo" Relationship="owldbModel.Mod_Content_ibfk_3" FromRole="Mod_Content" ToRole="Multi_Modulo" />
+        </EntityType>
+        <EntityType Name="Multi_Modulo">
+          <Key>
+            <PropertyRef Name="idMMod" />
+          </Key>
+          <Property Name="idMMod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idMultimedia" Type="Int32" />
+          <Property Name="module_id" Type="Int32" />
+          <NavigationProperty Name="Mod_Content" Relationship="owldbModel.Mod_Content_ibfk_3" FromRole="Multi_Modulo" ToRole="Mod_Content" />
+          <NavigationProperty Name="modules" Relationship="owldbModel.Multi_Modulo_ibfk_2" FromRole="Multi_Modulo" ToRole="modules" />
+        </EntityType>
+        <Association Name="Mod_Content_ibfk_1">
+          <End Type="owldbModel.FC_Module" Role="FC_Module" Multiplicity="1" />
+          <End Type="owldbModel.Mod_Content" Role="Mod_Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FC_Module">
+              <PropertyRef Name="idFC_Module" />
+            </Principal>
+            <Dependent Role="Mod_Content">
+              <PropertyRef Name="idFC_Module" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Mod_Content_ibfk_2">
+          <End Type="owldbModel.modules" Role="modules" Multiplicity="1" />
+          <End Type="owldbModel.Mod_Content" Role="Mod_Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modules">
+              <PropertyRef Name="module_id" />
+            </Principal>
+            <Dependent Role="Mod_Content">
+              <PropertyRef Name="module_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Mod_Content_ibfk_3">
+          <End Type="owldbModel.Multi_Modulo" Role="Multi_Modulo" Multiplicity="1" />
+          <End Type="owldbModel.Mod_Content" Role="Mod_Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multi_Modulo">
+              <PropertyRef Name="idMMod" />
+            </Principal>
+            <Dependent Role="Mod_Content">
+              <PropertyRef Name="idMMod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Multi_Modulo_ibfk_2">
+          <End Type="owldbModel.modules" Role="modules" Multiplicity="0..1" />
+          <End Type="owldbModel.Multi_Modulo" Role="Multi_Modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modules">
+              <PropertyRef Name="module_id" />
+            </Principal>
+            <Dependent Role="Multi_Modulo">
+              <PropertyRef Name="module_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="owldbModelStoreContainer" CdmEntityContainer="owldbEntities01">
+          <EntitySetMapping Name="course_assignment">
+            <EntityTypeMapping TypeName="owldbModel.course_assignment">
+              <MappingFragment StoreEntitySet="course_assignment">
+                <ScalarProperty Name="enrollTime" ColumnName="enrollTime" />
+                <ScalarProperty Name="schedule_id" ColumnName="schedule_id" />
+                <ScalarProperty Name="course_assign_id" ColumnName="course_assign_id" />
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="course_schedule">
+            <EntityTypeMapping TypeName="owldbModel.course_schedule">
+              <MappingFragment StoreEntitySet="course_schedule">
+                <ScalarProperty Name="course_sh_id" ColumnName="course_sh_id" />
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="schedule_id" ColumnName="schedule_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="course_type">
+            <EntityTypeMapping TypeName="owldbModel.course_type">
+              <MappingFragment StoreEntitySet="course_type">
+                <ScalarProperty Name="course_type_id" ColumnName="course_type_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="courses">
+            <EntityTypeMapping TypeName="owldbModel.courses">
+              <MappingFragment StoreEntitySet="courses">
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="logs">
+            <EntityTypeMapping TypeName="owldbModel.logs">
+              <MappingFragment StoreEntitySet="logs">
+                <ScalarProperty Name="log_id" ColumnName="log_id" />
+                <ScalarProperty Name="action" ColumnName="action" />
+                <ScalarProperty Name="module" ColumnName="module" />
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="module_vt">
+            <EntityTypeMapping TypeName="owldbModel.module_vt">
+              <MappingFragment StoreEntitySet="module_vt">
+                <ScalarProperty Name="module_VT_id" ColumnName="module_VT_id" />
+                <ScalarProperty Name="star_time" ColumnName="star_time" />
+                <ScalarProperty Name="end_time" ColumnName="end_time" />
+                <ScalarProperty Name="min_grade" ColumnName="min_grade" />
+                <ScalarProperty Name="module" ColumnName="module" />
+                <ScalarProperty Name="virtual_test" ColumnName="virtual_test" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="modules">
+            <EntityTypeMapping TypeName="owldbModel.modules">
+              <MappingFragment StoreEntitySet="modules">
+                <ScalarProperty Name="module_id" ColumnName="module_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="course" ColumnName="course" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pass_verif_code">
+            <EntityTypeMapping TypeName="owldbModel.pass_verif_code">
+              <MappingFragment StoreEntitySet="pass_verif_code">
+                <ScalarProperty Name="pass_verif_code1" ColumnName="pass_verif_code" />
+                <ScalarProperty Name="verification_code" ColumnName="verification_code" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="question_vt">
+            <EntityTypeMapping TypeName="owldbModel.question_vt">
+              <MappingFragment StoreEntitySet="question_vt">
+                <ScalarProperty Name="question_vt_id" ColumnName="question_vt_id" />
+                <ScalarProperty Name="question" ColumnName="question" />
+                <ScalarProperty Name="virtual_test" ColumnName="virtual_test" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="questions">
+            <EntityTypeMapping TypeName="owldbModel.questions">
+              <MappingFragment StoreEntitySet="questions">
+                <ScalarProperty Name="question_id" ColumnName="question_id" />
+                <ScalarProperty Name="question" ColumnName="question" />
+                <ScalarProperty Name="answer1" ColumnName="answer1" />
+                <ScalarProperty Name="answer2" ColumnName="answer2" />
+                <ScalarProperty Name="answer3" ColumnName="answer3" />
+                <ScalarProperty Name="answer4" ColumnName="answer4" />
+                <ScalarProperty Name="correct_answer" ColumnName="correct_answer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="role_user">
+            <EntityTypeMapping TypeName="owldbModel.role_user">
+              <MappingFragment StoreEntitySet="role_user">
+                <ScalarProperty Name="role_user_id" ColumnName="role_user_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="owldbModel.roles">
+              <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="schedules">
+            <EntityTypeMapping TypeName="owldbModel.schedules">
+              <MappingFragment StoreEntitySet="schedules">
+                <ScalarProperty Name="schedule_id" ColumnName="schedule_id" />
+                <ScalarProperty Name="day" ColumnName="day" />
+                <ScalarProperty Name="star_time" ColumnName="star_time" />
+                <ScalarProperty Name="end_time" ColumnName="end_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="test_type">
+            <EntityTypeMapping TypeName="owldbModel.test_type">
+              <MappingFragment StoreEntitySet="test_type">
+                <ScalarProperty Name="test_type_id" ColumnName="test_type_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="owldbModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="virtual_tests">
+            <EntityTypeMapping TypeName="owldbModel.virtual_tests">
+              <MappingFragment StoreEntitySet="virtual_tests">
+                <ScalarProperty Name="virtual_test_id" ColumnName="virtual_test_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="instructions" ColumnName="instructions" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="addUser" FunctionName="owldbModel.Store.addUser" />
+          <FunctionImportMapping FunctionImportName="asingStudentRole" FunctionName="owldbModel.Store.asingStudentRole" />
+          <FunctionImportMapping FunctionImportName="deleteUser" FunctionName="owldbModel.Store.deleteUser" />
+          <FunctionImportMapping FunctionImportName="generateVerificationCode" FunctionName="owldbModel.Store.generateVerificationCode" />
+          <FunctionImportMapping FunctionImportName="getSchedules" FunctionName="owldbModel.Store.getSchedules">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="owldbModel.getSchedules_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getTypes" FunctionName="owldbModel.Store.getTypes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="owldbModel.getTypes_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getUser" FunctionName="owldbModel.Store.getUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="owldbModel.getUser_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getUsers" FunctionName="owldbModel.Store.getUsers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="owldbModel.getUsers_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="updateUser" FunctionName="owldbModel.Store.updateUser" />
+          <FunctionImportMapping FunctionImportName="validateUser" FunctionName="owldbModel.Store.validateUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="owldbModel.validateUser_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="multimedia">
+            <EntityTypeMapping TypeName="owldbModel.multimedia">
+              <MappingFragment StoreEntitySet="multimedia">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="Tema" ColumnName="Tema" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="idMultimedia" ColumnName="idMultimedia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileControl">
+            <EntityTypeMapping TypeName="owldbModel.FileControl">
+              <MappingFragment StoreEntitySet="FileControl">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="uploadDate" ColumnName="uploadDate" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="idFile" ColumnName="idFile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="answer_vt">
+            <EntityTypeMapping TypeName="owldbModel.answer_vt">
+              <MappingFragment StoreEntitySet="answer_vt">
+                <ScalarProperty Name="got_answer" ColumnName="got_answer" />
+                <ScalarProperty Name="question_id" ColumnName="question_id" />
+                <ScalarProperty Name="question_vt_id" ColumnName="question_vt_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="answer_vt_id" ColumnName="answer_vt_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vt_scored_record">
+            <EntityTypeMapping TypeName="owldbModel.vt_scored_record">
+              <MappingFragment StoreEntitySet="vt_scored_record">
+                <ScalarProperty Name="record_date" ColumnName="record_date" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="correct_got_answer" ColumnName="correct_got_answer" />
+                <ScalarProperty Name="total_questions" ColumnName="total_questions" />
+                <ScalarProperty Name="vt_id" ColumnName="vt_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="vt_scored_record_id" ColumnName="vt_scored_record_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FC_Module">
+            <EntityTypeMapping TypeName="owldbModel.FC_Module">
+              <MappingFragment StoreEntitySet="FC_Module">
+                <ScalarProperty Name="idFile" ColumnName="idFile" />
+                <ScalarProperty Name="module_id" ColumnName="module_id" />
+                <ScalarProperty Name="idFC_Module" ColumnName="idFC_Module" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mod_Content">
+            <EntityTypeMapping TypeName="owldbModel.Mod_Content">
+              <MappingFragment StoreEntitySet="Mod_Content">
+                <ScalarProperty Name="idMMod" ColumnName="idMMod" />
+                <ScalarProperty Name="idFC_Module" ColumnName="idFC_Module" />
+                <ScalarProperty Name="module_id" ColumnName="module_id" />
+                <ScalarProperty Name="idMod_Content" ColumnName="idMod_Content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Multi_Modulo">
+            <EntityTypeMapping TypeName="owldbModel.Multi_Modulo">
+              <MappingFragment StoreEntitySet="Multi_Modulo">
+                <ScalarProperty Name="module_id" ColumnName="module_id" />
+                <ScalarProperty Name="idMultimedia" ColumnName="idMultimedia" />
+                <ScalarProperty Name="idMMod" ColumnName="idMMod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,108 @@
+﻿@model mysqltest.Models.course_assignment
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Asignar Curso a Usuario</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+    <link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+    <link href="~/css/bootstrap4/main_styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+     <!-- header -->
+    <header class="header d-flex flex-row">
+
+        <div class="header_content d-flex flex-row align-items-center">
+            <!-- Logo -->
+            <div class="logo_container">
+                <div class="logoA">
+                    <img src="~/images/logo.png" width="140px" />
+                </div>
+            </div>
+            <nav class="main_nav_container">
+                <div class="main_nav">
+
+                    <li class="main_nav_item"><a href="@Url.Action("Index","Home")">Inicio</a></li>
+
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="container-fluid" style="margin-top: 5%;">
+         
+
+            <div class="jumbotron jumbotron-fluid" style="background-color: #667b68;">
+                <div class="container">
+
+                    <div class="form-horizontal">
+                        <h2 style="color: #EAE5E0;">Matricular Curso</h2>
+                        <hr />
+
+                        <div class="form-group">
+                            <h3 class="control-label col-md-2">Usuario:</h3>
+                            <div class="col-md-12">
+                                @Html.DropDownListFor(model => model.user_id, new SelectList(ViewBag.user, "user_id", "email"), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.user_id, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h3 class="control-label col-md-2">Curso:</h3>
+                            <div class="col-md-12">
+                                @Html.DropDownListFor(model => model.course_id, new SelectList(ViewBag.course, "course_id", "name"), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.course_id, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h3 class="control-label col-md-2">Horario:</h3>
+                            <div class="col-md-12">
+                                @Html.DropDownListFor(model => model.schedule_id, new SelectList(ViewBag.schedule, "schedule_id", "day"), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.schedule_id, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <hr />
+                        <h4 class="control-label col-md-12">* El cupo para este curso se le guardará hasta hoy @DateTime.Today.Date.ToString("d") a las 11:59 p.m.</h4>
+                        <h4 class="control-label col-md-12">
+                            * Debe enviar el comprobante de pago vía WhatsApp al número 87654321 y una vez que este sea confirmado,
+                            su matricula se hará efectiva para el curso seleccionado.
+                        </h4>
+                        <h4 class="control-label col-md-12">* Nuestras cuentas bancarias son:</h4>
+                        <h4 class="control-label col-md-12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- BCR: CR-123456789</h4>
+                        <h4 class="control-label col-md-12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- BN:  CR-987654321</h4>
+                        <h4 class="control-label col-md-12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Sinpe Móvil: 87654321</h4>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10" style="margin-top:5%">
+                                <a style=" margin-left: 2%" class="main_nav_item btn btn-outline-dark"
+                                   href="@Url.Action("SchedulesAssignedInd","Admin", new { id = ViewBag.u })">Regresar</a>
+
+                                <input input style=" margin-left: 23%" type="submit" value="Guardar Espacio de Matrícula" class="btn btn-outline-dark" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    }
+
+</body>
+</html>

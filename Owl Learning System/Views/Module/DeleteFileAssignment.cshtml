@@ -1,0 +1,92 @@
+﻿@model mysqltest.Models.FC_Module
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Eliminar Asignación de Archivo</title>
+    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+    <link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+    <link href="~/css/bootstrap4/main_styles.css" rel="stylesheet" type="text/css">
+</head>
+<body style="background-color: #ffffff;">
+
+    <!-- header -->
+    <header class="header d-flex flex-row">
+
+        <div class="header_content d-flex flex-row align-items-center">
+            <!-- Logo -->
+            <div class="logo_container">
+                <div class="logoA">
+                    <img src="~/images/logo.png" width="140px" />
+                </div>
+            </div>
+            <nav class="main_nav_container">
+                <div class="main_nav">
+                    <ul class="main_nav_list">
+                        <li class="main_nav_item"><a href="@Url.Action("IndexPlus","Module")">Modulo</a></li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+    </header>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.idFC_Module)
+
+        <div class="form-actions no-color">
+
+            <div class="container-fluid" style="margin-top: 3%;">
+
+
+                <div class="jumbotron" style="background-color: #667b68;">
+                    <div class="container">
+
+                        <div class="form-horizontal">
+                            <h2 style="color: #EAE5E0;">Eliminar asignacion prueba-modulo</h2>
+                        </div>
+                        <hr />
+
+                        <table class="table table-striped table-bordered" style="background-color: #EAE5E0; width: 100%;  margin-top:4%">
+                            <thead class="thead-light">
+                                <tr class="text-center">
+                                    <th>Módulo</th>
+                                    <th>Archivo</th>
+                                </tr>
+                            </thead>
+                            <tr class="text-center">
+                                <td>
+                                    @ViewBag.module
+                                </td>
+                                <td>
+                                    @ViewBag.file
+                                </td>
+                            </tr>
+
+                        </table>
+                        <div class="form-group">
+                            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("FileAssignInd","Module", new { id = ViewBag.fileid})">Regresar</a>
+                            <input type="submit" value="Eliminar" class="btn btn-danger" />
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    }
+</body>
+</html>

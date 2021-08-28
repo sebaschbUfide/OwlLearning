@@ -1,0 +1,92 @@
+﻿@model mysqltest.Models.schedules
+@Html.Partial("_Crudslayout")
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Editar</title>
+    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- header -->
+    <header class="header d-flex flex-row">
+
+        <div class="header_content d-flex flex-row align-items-center">
+            <!-- Logo -->
+            <div class="logo_container">
+                <div class="logoA">
+                    <img src="~/images/logo.png" width="140px" />
+                </div>
+            </div>
+            <nav class="main_nav_container">
+                <div class="main_nav">
+                    <ul class="main_nav_list">
+                        <li class="main_nav_item"><a href="@Url.Action("Index","Schedule")">Horario</a></li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+    </header>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="container-fluid" style="margin-top: 3%;">
+
+
+            <div class="jumbotron jumbotron-fluid" style="background-color: #667b68;">
+                <div class="container">
+
+                    <div class="form-horizontal">
+                        <h2 style="color: #EAE5E0;">Edición de Horario</h2>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.schedule_id)
+                        <div class="form-group">
+                            <h3 class="control-label col-md-2">Día</h3>
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.day, new SelectList(ViewBag.day), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.day, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h3 class="control-label col-md-2">Hora de Incio</h3>
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.star_time, new SelectList(ViewBag.timePickerStart), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.star_time, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h3 class="control-label col-md-2">Hora de Finalización</h3>
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.end_time, new SelectList(ViewBag.timePickerEnd), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.end_time, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10" style="margin-top:7%">
+                                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Index","Schedule")">Regresar</a>
+                                <input style=" margin-left: 27%" type="submit" value="Editar" class="btn btn-outline-dark" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    }
+
+</body>
+</html>

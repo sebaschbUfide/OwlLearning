@@ -1,0 +1,94 @@
+﻿@model mysqltest.Models.pass_verif_code
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/css/bootstrap4/main_styles.css" rel="stylesheet" type="text/css">
+    <link href="~/css/responsive.css" rel="stylesheet" type="text/css">
+    <link href="~/css/style2.css" rel='stylesheet' type='text/css' /><!-- custom css -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+    <meta name="viewport" content="width=device-width" />
+    <title>VerifyValidationCode</title>
+</head>
+<body>
+
+    <header class="header d-flex flex-row">
+
+        <div class="header_content d-flex flex-row align-items-center">
+            <!-- Logo -->
+            <div class="logo_container">
+                <div class="logo">
+                    <video autoplay muted width="280" height="280">
+                        <source src="~/images/Logo_Animado_OWL_LEARNING.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <!-- Main Navigation -->
+
+            <nav class="main_nav_container">
+                <div class="main_nav">
+                    <ul class="main_nav_list">
+                        <li class="main_nav_item"><a href="~/"Controller"/"Action"">Inicio</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+        </div>
+
+        <div class="header_side d-flex flex-row justify-content-center ">
+
+        </div>
+
+
+    </header>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="row justify-content-center">
+            <div class="col-md-7 col-lg-5">
+                <div class="login-wrap py-5">
+                    <h3 class="text-center mb-0 py-3">Ingrese el Código de Verificación Recibido en su Correo Electrónico</h3>
+                    <form action="#" class="login-form">
+
+                        <div class="col-lg-auto col-md-8 px-lg-3 px-0">
+                            <div class=" ml-lg-5">
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.verification_code, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.verification_code, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-6 text-center">
+                                        <input type="submit" value="Validar Código" class="btn form-control btn-primary rounded submit px-3" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</body>
+</html>

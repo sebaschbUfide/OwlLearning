@@ -1,0 +1,67 @@
+﻿@Html.Partial("_Crudslayout")
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CheckVirtualTest</title>
+    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
+</head>
+
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+      
+
+        <table class="table table-striped table-bordered table-hover">
+
+            <tr class="text-center">
+                <th>Prueba</th>
+                <th>Total de Preguntas</th>
+                <th>Respuestas Correctas</th>
+                <th>Sin responder</th>
+                <th>Nota</th>
+            </tr>
+
+            <tr class="text-center">
+
+                <td>
+                    @ViewBag.vt
+                </td>
+                <td>
+                    @ViewBag.total_q
+                </td>
+                <td>
+                    @ViewBag.cga
+                </td>
+                <td>
+                    @ViewBag.unanswered
+                </td>
+                @if (ViewBag.score >= 70)
+                {
+                    <td class="text-success">
+                        @ViewBag.score
+                    </td>
+                }
+                else
+                {
+                    <td class="text-danger">
+                        @ViewBag.score
+                    </td>
+                }
+
+            </tr>
+
+        </table>
+        <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Index","VirtualTest")">Aceptar calificación</a>
+
+    }
+
+
+</body>
+</html>

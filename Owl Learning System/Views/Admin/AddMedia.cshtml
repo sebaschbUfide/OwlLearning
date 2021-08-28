@@ -1,0 +1,78 @@
+﻿@model mysqltest.Models.multimedia
+
+@Html.Partial("_Crudslayout")
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Crear Curso</title>
+    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    *@
+    
+</head>
+
+<body style="background-color: #ffffff;">
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="container-fluid" style="margin-top: 1%;">
+
+
+            <div class="jumbotron jumbotron-fluid" style="background-color: #667b68;">
+                <div class="container">
+
+                    <div class="form-horizontal">
+
+                        <h2 style="color: #EAE5E0;">Crear Nuevo Video</h2>
+                        <h3 class="text-danger">@ViewBag.Error</h3>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <h3 class="control-label col-md-12">Descripción</h3>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control text-dark" } })
+                                @Html.ValidationMessageFor(model => model.Description, "", new { @style = "color: #EAD1C5" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h3 class="control-label col-md-12">Tema</h3>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.Tema, new { htmlAttributes = new { @class = "form-control text-dark" } })
+                                @Html.ValidationMessageFor(model => model.Tema, "", new { @style = "color: #EAD1C5" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h3 class="control-label col-md-12">URL</h3>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.URL, new { htmlAttributes = new { @class = "form-control text-dark" } })
+                                @Html.ValidationMessageFor(model => model.URL, "", new { @style = "color: #EAD1C5" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-12" style="margin-top:7%">
+                                <a style=" margin-left: 2%" class="main_nav_item btn btn-outline-dark" href="@Url.Action("CheckMedia","Admin")">Regresar </a>
+                                <input style=" margin-left: 25%" type="submit" value="Crear" class="main_nav_item btn btn-outline-dark" />
+                            </div>
+                        </div>
+                     
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    }
+
+</body>
+</html>

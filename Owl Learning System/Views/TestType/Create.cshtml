@@ -1,0 +1,83 @@
+﻿@model mysqltest.Models.test_type
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Crear</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+    <link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+    <link href="~/css/bootstrap4/main_styles.css" rel="stylesheet" type="text/css">
+
+</head>
+<body style="background-color: #ffffff;">
+
+    <!-- header -->
+    <header class="header d-flex flex-row">
+
+        <div class="header_content d-flex flex-row align-items-center">
+            <!-- Logo -->
+            <div class="logo_container">
+                <div class="logoA">
+                    <img src="~/images/logo.png" width="95px" />
+                </div>
+            </div>
+            <nav class="main_nav_container">
+                <div class="main_nav">
+                    <ul class="main_nav_list">
+                        <li class="main_nav_item"><a href="~/Home/index">Inicio</a></li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+    </header>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="container-fluid" style="margin-top: 3%;">
+
+    <div class="jumbotron jumbotron-fluid" style="background-color: #667b68;">
+        <div class="container">
+
+            <div class="form-horizontal">
+                <h2 style="color: #EAE5E0;">Crear Nuevo Tipo de Prueba</h2>
+                <p style="color: #EAD1C5;">@ViewBag.Error</p>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @style = "color: #EAD1C5" })
+                <div class="form-group">
+                    <h3 class="control-label col-md-12">Tipo de Prueba</h3>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.name, "", new { @style = "color: #EAD1C5" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10" style="margin-top:7%">
+                        <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Index","TestType")">Regresar </a>
+                        <input type="submit" value="Crear" class="main_nav_item btn btn-outline-dark" />
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+    }
+
+</body>
+</html>

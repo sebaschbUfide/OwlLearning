@@ -1,0 +1,80 @@
+﻿@model mysqltest.Models.virtual_tests
+@Html.Partial("_Crudslayout")
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Eliminar</title>
+    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
+</head>
+
+<body style="background-color: #ffffff;">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.virtual_test_id)
+
+        <div class="form-actions no-color">
+            <h3 class="text-danger" style="margin:5px 0 0 10px;"> @ViewBag.message</h3>
+            <div class="container-fluid" style="margin-top: 5%;">
+
+
+                <div class="jumbotron jumbotron-fluid" style="background-color: #667b68;">
+                    <div>
+                        <div class="container">
+
+                            <div class="form-horizontal">
+                                <h2 style="color: #EAE5E0;">Eliminar prueba</h2>
+                            </div>
+                            <hr />
+
+                            <table class="table table-striped table-bordered" style="background-color: #EAE5E0; width: 93%; margin-left: 2%; margin-top:4%">
+                                <thead class="thead-light">
+                                    <tr class="text-center">
+                                        <th>Nombre</th>
+                                        <th>Duración</th>
+                                        <th>Instrucciones</th>
+                                        <th>Tipo de Prueba</th>
+                                    </tr>
+                                </thead>
+
+                                <tr class="text-center">
+                                    <td>
+                                        @Html.DisplayFor(model => model.name, new { @class = "form-control" })
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => model.duration, new { @class = "form-control" })
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => model.instructions, new { @class = "form-control" })
+                                    </td>
+                                    <td>
+                                        @ViewBag.testType
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                            <div class="form-group" style="margin-top:7%">
+                                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Index","VirtualTest")">Regresar</a>
+                                <input style=" margin-left: 55%" type="submit" value="Eliminar" class="btn btn-outline-danger" />
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    }
+
+</body>
+</html>
