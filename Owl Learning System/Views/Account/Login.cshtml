@@ -21,8 +21,10 @@
                 <div class="row justify-content-center" ;">
                     <div class="col-md-6 col-lg-5">
                         <div class="login-wrap py-5">
-                            <h3 class="text-center mb-0">Inicio de sesion</h3>
+                            <h3 class="text-center mb-0">Inicio de Sesión</h3>
                             <p class="text-center">Inicie sesión ingresando la información a continuación</p>
+
+
                             <form action="#" class="login-form">
 
                                 <div class="col-lg-auto col-md-8 px-lg-3 px-0">
@@ -30,45 +32,34 @@
                                         <div class="form-group">
                                             <div class="col-md-10">
                                                 @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Correo" } })
-                                                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                                @Html.ValidationMessageFor(model => model.email, "", new { @style = "color: #EAD1C5" })
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-10">
                                                 @Html.PasswordFor(model => model.password, new { @class = "form-control", placeholder = "Contraseña" })
-                                                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                                @Html.ValidationMessageFor(model => model.password, "", new { @style = "color: #EAD1C5" })
                                             </div>
                                         </div>
 
-                                        <div class="form-group error">
-                                            @if (@ViewBag.Failedcount != null)
-                                            {
-                                                <label> Failed Attempt count is: @ViewBag.Failedcount</label>
-                                            }
-
-                                            @if (@ViewBag.NotValidUser != null)
-                                            {
-
-                                                <label> @ViewBag.NotValidUser</label>
-                                            }
-                                        </div>
                                         <div class="form-group">
                                             <div class="col-md-offset-2 col-md-10">
 
-                                                <input type="submit" value="Login" class="btn form-control btn-primary rounded submit px-3" />
-
+                                                <input type="submit" value="Iniciar Sesión" class="btn form-control btn-primary rounded submit px-3" />
+                                                <a href="~/Account/ValidationCode" class="align-content-center">¿Olvidó su contraseña?</a>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-auto">
-                                            <a href="~/Account/ValidationCode" class="">¿Olvidó su contraseña?</a>
-                                        </div>
                                     </div>
                                 </div>
-                            </form>
 
+                            </form>
+                            <br />
+                            <h5 class="text-center" style="color: #EAD1C5;">@ViewBag.Error</h5>
                         </div>
+                        
                     </div>
+                    
                 </div>
             </div>
         </section>

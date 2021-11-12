@@ -110,11 +110,11 @@ namespace mysqltest.Controllers
         [HttpPost]
         public ActionResult Edit(questions q)
         {
-            var query = owldb.questions.Where(x => x.question_id != q.question_id && q.question == q.question).FirstOrDefault();
+            var query = owldb.questions.Where(x => x.question_id != q.question_id && x.question == q.question).FirstOrDefault();
 
             try
             {
-                if (query==null)
+                if (query==null || query!=null && query.question_id == q.question_id)
                 {
                     questions qst = owldb.questions.Single(w => w.question_id == q.question_id);
                     qst.question = q.question;

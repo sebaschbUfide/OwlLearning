@@ -873,6 +873,11 @@
     <Content Include="Views\Admin\deleteMedia.cshtml" />
     <Content Include="Views\Admin\FileListInd.cshtml" />
     <Content Include="Views\Admin\FilesList.cshtml" />
+    <Content Include="Views\Admin\TestResultInd.cshtml" />
+    <Content Include="Views\Admin\AddFiles.cshtml" />
+    <Content Include="Views\Admin\DeleteFile.cshtml" />
+    <Content Include="Views\Admin\CheckMediaModule.cshtml" />
+    <Content Include="Views\Admin\FileListModule.cshtml" />
     <None Include="Views\Home\index.cshtml" />
     <Content Include="Views\Shared\_adminLayout.cshtml" />
     <Content Include="Views\Schedule\Index.cshtml" />
@@ -891,11 +896,12 @@
     <Content Include="Views\Shared\_Usuarioslayout.cshtml" />
     <Content Include="Views\Shared\_CrudsLayout.cshtml" />
     <Content Include="Views\Module\IndexPlus.cshtml" />
-    <Content Include="Views\Module\MultiAssignInd.cshtml" />
     <Content Include="Views\Module\AssignMultiToModule.cshtml" />
     <Content Include="Views\Module\AssignFileToModule.cshtml" />
     <Content Include="Views\Module\FileAssignInd.cshtml" />
     <Content Include="Views\Module\DeleteFileAssignment.cshtml" />
+    <Content Include="Views\Admin\TestResults.cshtml" />
+    <Content Include="Views\Module\MultiAssignInd.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -947,6 +953,8 @@
     <Content Include="Views\UserProfile\ModuleDisplay.cshtml" />
     <Content Include="Views\testingTables\Index.cshtml" />
     <Content Include="Views\User\DeleteUser.cshtml" />
+    <Content Include="Views\User\IndexEnrollStudents.cshtml" />
+    <Content Include="Views\User\DeleteEnrollment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -2,7 +2,6 @@
 using Owlapp.Tools;
 using PagedList;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web.Mvc;
@@ -15,17 +14,17 @@ namespace mysqltest.Controllers
         owldbEntities01 owldb = new owldbEntities01();
         RandomPassword rp = new RandomPassword();
         MailSender ms = new MailSender();
+        RoleSearching rs = new RoleSearching();
         string secretKey = ConfigurationManager.AppSettings["SecretKey"];
 
 
         // GET: User
         public ActionResult IndexAdmin(int? page)
         {
-
+            var user = rs.GetUser(this.HttpContext.User.Identity.Name); //ID DEL USUARIO LOGEADO
             var pageNumber = page ?? 1;
             var pageSize = 10;
-            var query = owldb.role_user.Where(a => a.role_id == 1).OrderBy(a => a.user_id).ToPagedList(pageNumber, pageSize);
-
+            var query = owldb.role_user.Where(a => a.role_id == 1 && a.user_id!=user).OrderBy(a => a.user_id).ToPagedList(pageNumber, pageSize);
 
             if (query.Count == 0)
             {
@@ -41,9 +40,10 @@ namespace mysqltest.Controllers
 
         public ActionResult IndexProf(int? page)
         {
+            var user = rs.GetUser(this.HttpContext.User.Identity.Name); //ID DEL USUARIO LOGEADO
             var pageNumber = page ?? 1;
             var pageSize = 10;
-            var query = owldb.role_user.Where(a => a.role_id == 2).OrderBy(a => a.user_id).ToPagedList(pageNumber, pageSize);
+            var query = owldb.role_user.Where(a => a.role_id == 2 && a.user_id != user).OrderBy(a => a.user_id).ToPagedList(pageNumber, pageSize);
 
 
             if (query.Count == 0)
@@ -63,9 +63,27 @@ namespace mysqltest.Controllers
 
             var pageNumber = page ?? 1;
             var pageSize = 10;
-            var query = owldb.role_user.Where(a=>a.role_id == 3).OrderBy(a => a.user_id).ToPagedList(pageNumber, pageSize);
+            var query = owldb.course_assignment.Where(a => a.enrollTime != null && a.status == "1").ToPagedList(pageNumber, pageSize);
 
-            
+            if (query.Count == 0)
+            {
+                ViewBag.check = 0;
+            }
+            else
+            {
+                ViewBag.check = 1;
+            }
+
+            return View(query);
+
+        }
+
+        public ActionResult IndexEnrollStudents(int? page)
+        {
+            var pageNumber = page ?? 1;
+            var pageSize = 10;
+            var query = owldb.course_assignment.Where(a => a.enrollTime != null && a.status == "1").OrderBy(a=>a.enrollTime).ToPagedList(pageNumber, pageSize);
+
             if (query.Count == 0)
             {
                 ViewBag.check = 0;
@@ -196,7 +214,7 @@ namespace mysqltest.Controllers
                     String pass = rp.generateRandomPassword(9);
 
                     //Se crea una contraseña aleatoria para el administrador
-                    u.password = Seguridad.EncryptString(secretKey, pass);
+                    u.password = pass;
 
                     //AGREGA USUARIO
                     owldb.users.Add(u);
@@ -217,7 +235,7 @@ namespace mysqltest.Controllers
                                 "Tu usuario es: " + u.email + " y tu contraseña temporal es: " + pass + "\n" +
                                 "Al iniciar sesión por primera vez, deberás cambiar tu contraseña.");
 
-                    return RedirectToAction("IndexAdmin", "User");
+                    return RedirectToAction("IndexProf", "User");
                 }else if (query != null && query2 != null)
                 {
                     ViewBag.Error = "* Datos de usuario ingreados ya se encuentran registrados.";
@@ -255,19 +273,49 @@ namespace mysqltest.Controllers
         public ActionResult UpdatePassword(users u, int id)
         {
             var query = owldb.users.Where(l => l.user_id == id).FirstOrDefault();
-
-            if (u.first_name.Equals(query.password))
+            if (u.password.Equals(u.last_name))
             {
-                var encryptedPassword = Seguridad.EncryptString(secretKey, u.password);
-                users us = owldb.users.Single(q => q.user_id == id);
-                us.password = encryptedPassword;
-                owldb.SaveChanges();
+                if (u.first_name.Length<9)
+                {
+                    if (u.first_name.Equals(query.password))
+                    {
+                        var encryptedPassword = Seguridad.EncryptString(secretKey, u.password);
+                        users us = owldb.users.Single(q => q.user_id == id);
+                        us.password = encryptedPassword;
+                        owldb.SaveChanges();
 
-                return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        ViewBag.Error = "*Contraseña Actual Incorrecta";
+                        return View(u);
+                    }
+                }
+                else
+                {
+                    var pass = Seguridad.DecryptString(secretKey, query.password);
+
+                    if (u.first_name.Equals(pass))
+                    {
+                        var encryptedPassword = Seguridad.EncryptString(secretKey, u.password);
+                        users us = owldb.users.Single(q => q.user_id == id);
+                        us.password = encryptedPassword;
+                        owldb.SaveChanges();
+
+                        return RedirectToAction("IndexAdmin", "UserProfile");
+                    }
+                    else
+                    {
+                        ViewBag.Error = "*Contraseña Actual Incorrecta";
+                        return View(u);
+                    }
+                }
+                
             }
             else
             {
-                ViewBag.Error = "*Contraseña Actual Incorrecta";
+                ViewBag.Error = "*Error de Confirmación de Contraseña";
                 return View(u);
             }
 
@@ -406,6 +454,32 @@ namespace mysqltest.Controllers
                 us.status = true;
                 owldb.SaveChanges();
                 return RedirectToAction("Index", "Admin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+
+        public ActionResult DeleteEnrollment(int id, String x)
+        {
+            var query = owldb.course_assignment.Where(a => a.course_assign_id == id).FirstOrDefault();
+
+            return View(query);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteEnrollment(int id)
+        {
+            try
+            {
+                var query = owldb.course_assignment.Where(a => a.course_assign_id == id).FirstOrDefault();
+                owldb.course_assignment.Remove(query);
+
+                owldb.SaveChanges();
+
+                return RedirectToAction("Index");
             }
             catch
             {

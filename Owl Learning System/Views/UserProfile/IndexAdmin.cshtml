@@ -9,7 +9,7 @@
 <html lang="en">
 <head>
     <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
     <!--  This file has been downloaded from bootdey.com  on twitter -->
     <!--  All snippets are MIT license http://bootdey.com/license -->
     <title>Perfil de Usuario</title>
@@ -37,17 +37,9 @@
                 </nav>
                 <!-- /Breadcrumb -->
 
-
-
-
-
-
-
                 <div class="row gutters-sm">
-                    <div class="col-md-4 mb-3">
-
-                    </div>
-                    <div class="col-md-8">
+                   
+                    <div class="col-md-12">
                         <div class="card mb-3">
                             <div class="card-body ">
                                 <div class="row">
@@ -65,7 +57,7 @@
                                         <h6 class="mb-0">Correo Electronico</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        @Model.course_assignment.
+                                        @Model.email
                                     </div>
                                 </div>
                                 <hr>
@@ -80,11 +72,10 @@
                                     </div>
                                 </div>
                                 <hr>
-
-                                <hr>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <a class="btn btn-info " href="@Url.Action("EditProfile","UserProfile", new {id = Model.user_id })">Editar</a>
+                                        <a class="btn btn-info " href="@Url.Action("EditProfile","UserProfile", new {id = Model.user_id })">Editar Información Personal</a>
+                                        <a class="btn btn-info " href="@Url.Action("UpdatePassword","User", new {id = Model.user_id })">Cambio de Contrase&ntilde;a</a>
                                     </div>
                                 </div>
                             </div>

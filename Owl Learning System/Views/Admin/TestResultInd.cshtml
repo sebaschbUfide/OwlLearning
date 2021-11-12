@@ -1,4 +1,4 @@
-﻿@model IEnumerable<mysqltest.Models.FC_Module>
+﻿@model IEnumerable<mysqltest.Models.vt_scored_record>
 
 @{
     Layout = null;
@@ -18,10 +18,10 @@
 
     <div class="container-fluid" style="margin-top:5%;">
 
-        <h2 style="color: #677C78;" class="text-center">@ViewBag.module</h2>
+        <h2 style="color: #677C78;" class="text-center">@ViewBag.vt</h2>
 
         <div class="container-fluid">
-            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("IndexPlus","Module")">Volver atrás</a>
+            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("TestsAssignedInd","Admin", new { id = ViewBag.module, idc = ViewBag.course})">Volver atrás</a>
         </div>
 
         <hr />
@@ -32,22 +32,22 @@
             {
                 <thead class="thead-dark">
                     <tr class="text-center">
-
+                        
                         <th>
-                            Nombre
+                            Total de Preguntas
                         </th>
                         <th>
-                            Tipo
+                            Respuestas Correctas
                         </th>
                         <th>
-                            Ruta
+                            Nota Obtenida
                         </th>
-                        @if (ViewBag.role == 1)
-                        {
-                            <th colspan="2">
-                                Acciones
-                            </th>
-                        }
+                        <th>
+                            Fecha de Realización
+                        </th>
+                        <th>
+                            Resultado
+                        </th>
 
                     </tr>
                 </thead>
@@ -55,21 +55,28 @@
                 {
                     <tr class="text-center">
 
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FileControl.FileName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FileControl.FileType)
-                        </td>
-                        <td>
-                            <a class="btn btn-outline-dark" href="@Html.DisplayFor(modelItem => item.FileControl.FilePath)">Ir al Archivo</a>
-                        </td>
-                        @if (ViewBag.role == 1)
+                    <td>
+                        @Html.DisplayFor(modelItem => item.total_questions)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.correct_got_answer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.score)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.record_date)
+                    </td>
+                    <td>
+                        @if (item.score >= ViewBag.minScore)
                         {
-                            <td>
-                                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("DeleteFileAssignment","Module", new { id = item.idFC_Module })">Eliminar</a>
-                            </td>
+                            <h3 style="font-weight:bold; color: green;">Aprobado</h3>
                         }
+                        else
+                        {
+                            <h3 style="font-weight:bold; color: red;">Reprobado</h3>
+                        }
+                    </td>
 
                     </tr>
                 }
@@ -97,7 +104,7 @@
                 <tr class="text-center">
 
                     <td colspan="6">
-                        <b>No hay Archivos Asignados a este Módulo.</b>
+                        <b>No hay Pruebas Asignadas a este Módulo.</b>
                     </td>
                 </tr>
             }

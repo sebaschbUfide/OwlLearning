@@ -3,7 +3,7 @@
 @using mysqltest.Models;
 @using PagedList;
 @using PagedList.Mvc;
-@model PagedList.IPagedList<modules>
+@model PagedList.IPagedList<vt_scored_record>
 
 @Html.Partial("_ModulosLayout")
 @{
@@ -23,7 +23,7 @@
 
     <div class="container-fluid" style="margin-top:5%;">
 
-        <h2 style="color: #677C78" ; class="text-center">ADMINISTRACIÓN DE MÓDULOS</h2>
+        <h2 style="color: #677C78" ; class="text-center">Registro de Notas de Estudiantes</h2>
 
         <div class="row g-0" style="margin-top:2%; margin-left:1%;">
 
@@ -31,7 +31,7 @@
 
                 @if (ViewBag.role == 1)
                 {
-                    <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Create", "Module")">Crear Nuevo Módulo</a>
+                    <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Create","Module")">Crear Nuevo Módulo</a>
                 }
             </div>
 
@@ -73,73 +73,61 @@
                 <tr class="text-center">
 
                     <th>
-                        Nombre
+                        Idetificación
                     </th>
                     <th>
-                        Descripción
+                        Nombre Completo
                     </th>
                     <th>
-                        Pertenece al Curso
+                        Prueba Virtual
                     </th>
-                    @if (ViewBag.role == 1)
-                    {
-                        <th colspan="5">
-                            Acciones
-                        </th>
-                    }
-                    else
-                    {
-                        <th>
-                            Acciones
-                        </th>
-                    }
+                    <th>
+                        Total de Preguntas
+                    </th>
+                    <th>
+                        Respuestas Correctas
+                    </th>
+                    <th>
+                        Nota Obtenida
+                    </th>
+                    <th>
+                        Fecha de Realización
+                    </th>
+                    <th>
+                        Acciones
+                    </th>
+
 
                 </tr>
             </thead>
 
-            @if (ViewBag.Check == 1)
+            @foreach (var item in Model)
             {
-
-                foreach (var item in Model)
-                {
-                    <tr class="text-center">
-                        <td>
-                            @Html.DisplayFor(modelItem => item.name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.description)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.courses.name)
-                        </td>
-                        @if (ViewBag.role == 1)
-                        {
-                            <td>
-                                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Edit", "Module", new { id = item.module_id })">Editar</a>
-                            </td>
-                            <td>
-                                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Delete", "Module", new { id = item.module_id })">Eliminar</a>
-                            </td>
-                            <td>
-                                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("IndexPlus", "Module")">Contenido</a>
-                            </td>
-                            <td>
-                                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("AsignTestToModule", "Admin", new { id = item.module_id })">Asignar Evaluación</a>
-                            </td>
-                        }
-                        <td>
-                            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("TestsAssignedInd", "Admin", new { id = item.module_id, idc = 0 })">Evaluaciones Asignadas</a>
-                        </td>
-                    </tr>
-                }
-
-            }
-            else
-            {
-                <tr>
-                    <th class="text-center" colspan="4">
-                        ¡No hay módulos registrados!
-                    </th>
+                <tr class="text-center">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.users.dni)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.users.last_name), @Html.DisplayFor(modelItem => item.users.first_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.virtual_tests.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.total_questions)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.correct_got_answer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.score)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.record_date)
+                    </td>
+                    <td>
+                        <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("TestsAssignedInd","Admin")">Habilitar</a>
+                    </td>
                 </tr>
             }
 

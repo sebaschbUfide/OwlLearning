@@ -1,4 +1,4 @@
-﻿@model IEnumerable<mysqltest.Models.Multi_Modulo>
+﻿@model IEnumerable<mysqltest.Models.multimedia>
 
 @{
     Layout = null;
@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Asignación Módulo-Multimedio</title>
+    <title>Asignación Módulo-Multimedia</title>
     <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
 </head>
 <body>
@@ -34,7 +34,7 @@
                     <tr class="text-center">
 
                         <th>
-                            Decripción Video
+                            Descripción
                         </th>
                         <th>
                             Tema
@@ -42,12 +42,7 @@
                         <th>
                             URL
                         </th>
-                        @if (ViewBag.role == 1)
-                        {
-                            <th colspan="2">
-                                Acciones
-                            </th>
-                        }
+                       
 
                     </tr>
                 </thead>
@@ -56,23 +51,16 @@
                     <tr class="text-center">
 
                         <td>
-                            @Html.DisplayFor(modelItem => item.multimedia.Description)
+                            @Html.DisplayFor(modelItem => item.Description)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.multimedia.Tema)
+                            @Html.DisplayFor(modelItem => item.Tema)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.multimedia.URL)
+                            <iframe height="200" width="300" src=" @Html.DisplayFor(modelItem => item.URL)">
+                            </iframe>
                         </td>
-                        @if (ViewBag.role == 1)
-                        {
-                            <td>
-                                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("EditTestAssignment","Admin", new { id = item.idMMod })">Editar</a>
-                            </td>
-                            <td>
-                                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("DeleteTestAssignment","Admin", new { id = item.idMMod })">Eliminar</a>
-                            </td>
-                        }
+                        
 
                     </tr>
                 }
@@ -100,7 +88,7 @@
                 <tr class="text-center">
 
                     <td colspan="6">
-                        <b>No hay Pruebas Asignadas a este Módulo.</b>
+                        <b>No hay Multimedia Asignada a este Módulo.</b>
                     </td>
                 </tr>
             }

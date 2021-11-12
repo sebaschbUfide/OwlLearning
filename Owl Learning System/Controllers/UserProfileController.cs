@@ -77,7 +77,8 @@ namespace mysqltest.Controllers
         public ActionResult IndexAdmin()
         {
             var u = rs.GetUserInfo(this.HttpContext.User.Identity.Name);
-
+            var a = Seguridad.DecryptString(secretKey, u.password);
+            u.password = a;
             return View(u);
         }
 
@@ -99,52 +100,53 @@ namespace mysqltest.Controllers
             var x = 0;
             try
             {
-
                 users u = owldb.users.Single(a => a.user_id == user.user_id);
 
                 u.first_name = user.first_name;
                 u.last_name = user.last_name;
                 u.phone_number = user.phone_number;
-                u.password = Seguridad.EncryptString(secretKey, user.password);
+                //u.password = Seguridad.EncryptString(secretKey, user.password);
 
-
-                if (u.email != user.email)
+                if (user.first_name == null || user.last_name == null || user.phone_number == null)
                 {
-                    x = 1;
-                    u.email = user.email;
-
-                }
-                else
-                {
-                    x = 0;
-                    u.email = u.email;
-                }
-
-                owldb.SaveChanges();
-
-                if (x == 0)
-                {
-                    return View("Index", "UserProfile");
-
+                    return View(user);
                 }
                 else
                 {
 
-                    Session.Remove("Identificacion");
-                    Session.RemoveAll();
-                    Response.Cache.SetCacheability(HttpCacheability.Private);
-                    Session.Clear();
-                    FormsAuthentication.SignOut();
-                    Session.Abandon();
-                    Response.Cache.SetNoServerCaching();
-                    Request.Cookies.Clear();
-                    return RedirectToAction("Login", "Account");
+                    if (u.email != user.email)
+                    {
+                        x = 1;
+                        u.email = user.email;
 
+                    }
+                    else
+                    {
+                        x = 0;
+                        u.email = u.email;
+                    }
 
+                    owldb.SaveChanges();
+
+                    if (x == 0)
+                    {
+                        return RedirectToAction("IndexAdmin", "UserProfile");
+
+                    }
+                    else
+                    {
+
+                        Session.Remove("Identificacion");
+                        Session.RemoveAll();
+                        Response.Cache.SetCacheability(HttpCacheability.Private);
+                        Session.Clear();
+                        FormsAuthentication.SignOut();
+                        Session.Abandon();
+                        Response.Cache.SetNoServerCaching();
+                        Request.Cookies.Clear();
+                        return RedirectToAction("Login", "Account");
+                    }
                 }
-
-
-
 
             }
             catch (Exception)
@@ -157,13 +159,13 @@ namespace mysqltest.Controllers
             }
 
         }
-        
-        public ActionResult ModuleDisplay(int id)  
+
+        public ActionResult ModuleDisplay(int id)
         {
 
             var q = owldb.modules.Where(a => a.course == id).ToList();
 
-            if (q.Count!=0)
+            if (q.Count != 0)
             {
                 ViewBag.check = 1;
             }
@@ -172,45 +174,14 @@ namespace mysqltest.Controllers
                 ViewBag.check = 0;
             }
 
-            List<int> mids = new List<int>();
-            foreach (var item in q)
-            {
-                mids.Add(item.module_id);
-            }
-
-            List<int> mcid = new List<int>();//LISTA DE IDs DE MODULE_CONTENT
-            foreach (var item in mids)
-            {
-                var q2 = owldb.Mod_Content.Where(a => a.module_id == item).FirstOrDefault();
-                if (q2 != null)
-                {
-                    mcid.Add(q2.idMod_Content);
-                }
-
-            }
-
-            List<Mod_Content> mcList = new List<Mod_Content>();
-            foreach (var item in mcid)
-            {
-                var q3 = owldb.Mod_Content.Where(a => a.idMod_Content == item).FirstOrDefault();
-                mcList.Add(q3);
-            }
-
             ViewBag.course = id;
 
-            return View(mcList);
+            return View(q);
         }
 
         [HttpPost]
         public ActionResult ModuleDisplay(modules modules)
         {
-
-            
-
-            
-            
-
-
             return View();
         }
 

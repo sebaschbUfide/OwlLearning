@@ -33,15 +33,13 @@ namespace Owlapp.Controllers
         }
 
         #region Registro
-        [HttpPost]
-        public ActionResult Registration(users u)
-        {
-            var secretKey = ConfigurationManager.AppSettings["SecretKey"];
 
+        public void registerMethod(users u)
+        {
             //Agrega usuarios a la base de datos
-                u.password = Seguridad.EncryptString(secretKey, u.password);
-                owldb.users.Add(u);
-                owldb.SaveChanges();
+            u.password = Seguridad.EncryptString(secretKey, u.password);
+            owldb.users.Add(u);
+            owldb.SaveChanges();
 
             //Asigna el rol de estudiante al usuario registrado desde el Sign Up
             role_user ru = new role_user
@@ -52,8 +50,27 @@ namespace Owlapp.Controllers
 
             owldb.role_user.Add(ru);
             owldb.SaveChanges();
+        }
 
-            return RedirectToAction("Login","Account");
+        [HttpPost]
+        public ActionResult Registration(users u)
+        {
+            var secretKey = ConfigurationManager.AppSettings["SecretKey"];
+
+            var query = owldb.users.Where(a => a.dni == u.dni || a.email == u.email).FirstOrDefault();
+
+            if (query == null){
+                registerMethod(u);
+                return RedirectToAction("Login", "Account");
+            }
+            else if (query.dni == u.dni){
+                ViewBag.Error = "* La identificación ingresada ya se encuentra previamente registrada.";
+                return View();
+            }
+            else{
+                ViewBag.Error = "* El correo ingresado ya se encuentra previamente registrado.";
+                return View();
+            }
 
         }
         #endregion
@@ -62,57 +79,70 @@ namespace Owlapp.Controllers
         {
             return View();
         }
+
         #region login
         [HttpPost]
         public ActionResult Login(users u)
         {
+            //CONSULTA A USUARIO CON LAS CREDENCIALES INGRESADAS
             var query = owldb.users.Where(w => w.email == u.email).FirstOrDefault();
 
-            var query2 = owldb.role_user.Where(w => w.user_id == query.user_id).FirstOrDefault();//si hay varios roles puede dar problema
-            
-           
-            if (query.password.Length > 9)
+            if (u.email != null)
             {
-                var encryptedPassword = Seguridad.EncryptString(secretKey, u.password);
-
-                var lg = owldb.users.Where(a => a.email.Equals(u.email) && a.password.Equals(encryptedPassword)).FirstOrDefault();
-
-
-                if (lg != null)
+                if (query != null)
                 {
-                    Session["Identificacion"] = lg.dni.ToString();
-                    Session["UserId"] = lg.user_id.ToString();
-                    Session["Nombre"] = lg.first_name.ToString() + " " + lg.last_name;
-                    Session["role"] = query2.role_id.ToString();
-                    FormsAuthentication.SetAuthCookie(u.email, u.rememberme);
-                    return RedirectToAction("Index", "Home");
+                    //Usuario con contraseña creada por si mismo, no generada automaticamente
+                    if (query.password.Length > 9)
+                    {
+                        var encryptedPassword = Seguridad.EncryptString(secretKey, u.password);
+
+                        var lg = owldb.users.Where(a => a.email.Equals(u.email) && a.password.Equals(encryptedPassword)).FirstOrDefault();
+
+                        if (lg != null)
+                        {
+                            var query2 = owldb.role_user.Where(w => w.user_id == query.user_id).FirstOrDefault();
+                            Session["Identificacion"] = lg.dni.ToString();
+                            Session["UserId"] = lg.user_id.ToString();
+                            Session["Nombre"] = lg.first_name.ToString() + " " + lg.last_name;
+                            Session["role"] = query2.role_id.ToString();
+                            FormsAuthentication.SetAuthCookie(u.email, u.rememberme);
+                            return RedirectToAction("Index", "Home");
+                        }
+                        else
+                        {
+                            ViewBag.Error = "* Correo Electrónico o Contraseña Incorrectos.";
+                            return View("Login");
+                        }
+                    }
+                    else //Usuario Admin o Prof recién registrado con contraseña enviada por mail
+                    {
+                        var lg = owldb.users.Where(a => a.email.Equals(u.email) && a.password.Equals(u.password)).FirstOrDefault();
+
+                        if (lg != null)
+                        {
+                            var query2 = owldb.role_user.Where(w => w.user_id == query.user_id).FirstOrDefault();
+                            Session["Identificacion"] = lg.dni.ToString();
+                            Session["UserId"] = lg.user_id.ToString();
+                            Session["Nombre"] = lg.first_name.ToString() + " " + lg.last_name;
+                            Session["role"] = query2.role_id.ToString();
+                            FormsAuthentication.SetAuthCookie(u.email, u.rememberme);
+                            return RedirectToAction("UpdatePassword", "User", new { id = lg.user_id });
+                        }
+                        else
+                        {
+                            ViewBag.Error = "* Correo Electrónico o Contraseña Incorrectos.";
+                            return View("Login");
+                        }
+                    }
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Correo o Clave incorrecto.");
+                    ViewBag.Error = "* Correo Electrónico o Contraseña Incorrectos.";
                     return View("Login");
                 }
-            }
-            else
-            {
-                var lg = owldb.users.Where(a => a.email.Equals(u.email) && a.password.Equals(u.password)).FirstOrDefault();
 
-                if (lg != null)
-                {
-                    Session["Identificacion"] = lg.dni.ToString();
-                    Session["UserId"] = lg.user_id.ToString();
-                    Session["Nombre"] = lg.first_name.ToString() + " " + lg.last_name;
-                    Session["role"] = query2.role_id.ToString();
-                    FormsAuthentication.SetAuthCookie(u.email, u.rememberme);
-                    return RedirectToAction("UpdatePassword", "User", new { id = lg.user_id });
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Correo o Clave incorrecto.");
-                    return View("Login");
-                }
             }
-
+            return View("Login");
 
         }
         #endregion
@@ -133,16 +163,12 @@ namespace Owlapp.Controllers
             return RedirectToAction("Login", "Account");
         }
         #endregion
+
+
         public ActionResult ValidationCode()
         {
             return View();
         }
-
-     
-
-
-
-
 
         #region CodigoValidacion
         [HttpPost]
@@ -165,85 +191,49 @@ namespace Owlapp.Controllers
                 {
                     owldb.pass_verif_code.Remove(query2);
                     owldb.SaveChanges();
-
-
-                    //GENERA CÓDIGO DE VERIFICACIÓN
-                    owldb.generateVerificationCode(u.email);
-                    owldb.SaveChanges();
-
-
-                    var query3 = owldb.pass_verif_code.Where(a => a.user_id.Equals(query.user_id)).FirstOrDefault();
-                    #region Envia correo
-                    var sender = new SmtpSender(() => new SmtpClient("smtp.gmail.com")
-                    {
-                        UseDefaultCredentials = false,
-                        DeliveryMethod = SmtpDeliveryMethod.Network,
-                        Port = 25,
-                        Credentials = new NetworkCredential("owllearningcr@gmail.com", "owllearning2021"),
-                        EnableSsl = true
-                    });
-
-                    Email.DefaultSender = sender;
-
-                    var email = Email
-                        .From("owllearningcr@gmail.com")
-                        .To(u.email)
-                        .Subject("Owl Learnig: Verification Code")
-                        .Body("Hola " + query.first_name + " " + query.last_name + ", tu código de verificación es: " + query3.verification_code);
-                        
-
-                    try
-                    {
-                        email.SendAsync();
-                    }
-
-                    catch (Exception e)
-                    {
-
-                    }
-                    #endregion
-
-
-                    return RedirectToAction("VerifyValidationCode", "Account");
                 }
-                else
+
+                //GENERA CÓDIGO DE VERIFICACIÓN
+                owldb.generateVerificationCode(u.email);
+                owldb.SaveChanges();
+
+                var query3 = owldb.pass_verif_code.Where(a => a.user_id.Equals(query.user_id)).FirstOrDefault();
+
+                #region Envia correo
+                var sender = new SmtpSender(() => new SmtpClient("smtp.gmail.com")
                 {
-                    //GENERA CÓDIGO DE VERIFICACIÓN
-                    owldb.generateVerificationCode(u.email);
-                    owldb.SaveChanges();
+                    UseDefaultCredentials = false,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    Port = 587,
+                    Credentials = new NetworkCredential("owllearningcr@gmail.com", "owllearning2021"),
+                    EnableSsl = true
+                });
+
+                Email.DefaultSender = sender;
+
+                var email = Email
+                    .From("owllearningcr@gmail.com")
+                    .To(u.email)
+                    .Subject("Owl Learnig: Verification Code")
+                    .Body("Hola " + query.first_name + " " + query.last_name + ", tu código de verificación es: " + query3.verification_code);
 
 
-                    var query3 = owldb.pass_verif_code.Where(a => a.user_id.Equals(query.user_id)).FirstOrDefault();
-
-                    var sender = new SmtpSender(() => new SmtpClient("smtp.gmail.com")
-                    {
-                        UseDefaultCredentials = false,
-                        Port = 587,
-                        Credentials = new NetworkCredential("owllearningcr@gmail.com", "owllearning2021"),
-                        EnableSsl = true
-                    });
-
-                    Email.DefaultSender = sender;
-
-                    var email = Email
-                        .From("owllearningcr@gmail.com", "PC")
-                        .To(u.email)
-                        .Subject("Owl Learnig: Verification Code")
-                        .Body("Hola " + query.first_name + " " + query.last_name + ", tu código de verificación es: " + query3.verification_code);
-
-                    try
-                    {
-                        email.SendAsync();
-                    }
-
-                    catch (Exception e)
-                    {
-
-                    }
-
-                    return RedirectToAction("VerifyValidationCode", "Account");
+                try
+                {
+                    email.SendAsync();
                 }
-            }else
+
+                catch (Exception e)
+                {
+
+                }
+                #endregion
+
+
+                return RedirectToAction("VerifyValidationCode", "Account");
+
+            }
+            else
             {
                 ViewBag.Respuesta = "Email No Encontrado";
                 return View("ValidationCode");

@@ -41,13 +41,15 @@
 
                     <div class="form-horizontal">
                         <h2 style="color: #EAE5E0;">ASIGNAR PRUEBA A MODULO </h2>
+
+                        <p style="color: #EAD1C5;">@ViewBag.Error</p>
                         <hr />
 
                         <div class="form-group">
                             <h3 class="control-label col-md-auto">Módulo</h3>
                             <div class="col-md-12">
                                 @Html.DropDownListFor(model => model.module, new SelectList(ViewBag.module, "module_id", "name"), new { @class = "form-control text-dark" })
-                                @Html.ValidationMessageFor(model => model.module, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.module, "", new { @style = "color: #EAD1C5" })
                             </div>
                         </div>
 
@@ -55,15 +57,15 @@
                             <h3 class="control-label col-md-auto">Prueba Virtual</h3>
                             <div class="col-md-12">
                                 @Html.DropDownListFor(model => model.virtual_test, new SelectList(ViewBag.test, "virtual_test_id", "name"), new { @class = "form-control text-dark" })
-                                @Html.ValidationMessageFor(model => model.virtual_test, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.virtual_test, "", new { @style = "color: #EAD1C5" })
                             </div>
                         </div>
 
                         <div class="form-group">
                             <h3 class="control-label col-md-auto">Hora de Inicio</h3>
                             <div class="col-md-12">
-                                @Html.EditorFor(model => model.star_time, new { htmlAttributes = new { @class = "form-control text-dark", @Value = DateTime.Now } })
-                                @Html.ValidationMessageFor(model => model.star_time, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.star_time, new { htmlAttributes = new { @class = "form-control text-dark", @Value = DateTime.Today } })
+                                @Html.ValidationMessageFor(model => model.star_time, "", new { @style = "color: #EAD1C5" })
                             </div>
                             <div>
                                 <script>
@@ -85,7 +87,7 @@
                             <h3 class="control-label col-md-auto">Hora de Finalización</h3>
                             <div class="col-md-12">
                                 @Html.EditorFor(model => model.end_time, new { htmlAttributes = new { @class = "form-control text-dark", @Value = DateTime.Today } })
-                                @Html.ValidationMessageFor(model => model.end_time, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.end_time, "", new { @style = "color: #EAD1C5" })
                             </div>
                             <div>
                                 <script>
@@ -106,7 +108,7 @@
                             <h3 class="control-label col-md-auto">Nota Mímima</h3>
                             <div class="col-md-12">
                                 @Html.EditorFor(model => model.min_grade, new { htmlAttributes = new { @class = "form-control text-dark" } })
-                                @Html.ValidationMessageFor(model => model.min_grade, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.min_grade, "", new { @style = "color: #EAD1C5" })
                             </div>
                         </div>
 

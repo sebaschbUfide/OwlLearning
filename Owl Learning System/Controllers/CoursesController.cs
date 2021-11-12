@@ -25,6 +25,14 @@ namespace mysqltest.Controllers
             var pageSize = 10;
             var data = owldb.courses.OrderBy(a => a.name).ToPagedList(pageNumber, pageSize);
 
+            if (data == null)
+            {
+                ViewBag.Check = 0;
+            }
+            else
+            {
+                ViewBag.Check = 1;
+            }
 
             return View(data);
         }
@@ -80,7 +88,7 @@ namespace mysqltest.Controllers
             }
             catch(Exception a)
             {
-                Console.WriteLine(a.StackTrace);
+                System.Diagnostics.Debug.WriteLine(a.InnerException);
                 ViewBag.type = owldb.course_type.Select(x => x);
                 return View(c);
             }
@@ -105,7 +113,7 @@ namespace mysqltest.Controllers
 
             try
             {
-                if (query == null)
+                if (query == null || query != null && query.course_id == c.course_id)
                 {
                     courses cs = owldb.courses.Single(q => q.course_id == c.course_id);
                     cs.name = c.name;
@@ -119,7 +127,7 @@ namespace mysqltest.Controllers
                 }
                 else
                 {
-                    ViewBag.Error = "* Nombre de Curso Existente.";
+                    ViewBag.Error = "* Nombre de Curso Existente o NO se ha Editado ningún Campo.";
                     ViewBag.type = owldb.course_type.Select(x => x);
                     return View(c);
                 }

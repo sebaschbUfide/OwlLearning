@@ -58,7 +58,7 @@
                 <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Index","Admin")">Volver a Administración</a>
                 @if (ViewBag.role == 1)
                 {
-                    <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Create","Courses")">Crear Nuevo Curso</a>
+                    <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("AddFiles","Admin")">Crear Nuevo Archivo</a>
 
                 }
             </div>
@@ -91,7 +91,10 @@
                             Ruta de Archivo
                         </th>
                         <th>
-                            Probar Descarga
+                            Acceso al Archivo
+                        </th>
+                        <th>
+                            Acción
                         </th>
 
                     </tr>
@@ -110,7 +113,10 @@
                             @Html.DisplayFor(modelItem => item.FilePath)
                         </td>
                         <td>
-                            <a class="main_nav_item btn btn-outline-dark" href="@item.FilePath" target="_blank">Descargar</a>
+                            <a class="main_nav_item btn btn-outline-dark" href="@item.FilePath" target="_blank">Ir a Ruta</a>
+                        </td>
+                        <td>
+                            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("DeleteFile","Admin", new { id= item.idFile})">Eliminar Archivo</a>
                         </td>
 
                     </tr>

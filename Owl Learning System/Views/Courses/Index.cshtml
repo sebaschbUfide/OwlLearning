@@ -87,52 +87,66 @@
             </tr>
         </thead>
 
-
-        @foreach (var item in Model)
+        @if (ViewBag.check == 1)
         {
-            <tr class="text-center">
-                <td>
-                    @Html.DisplayFor(modelItem => item.name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.duration)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.cost)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.type)
-                </td>
 
-                @if (ViewBag.role == 2)
-                {
+            foreach (var item in Model)
+            {
+                <tr class="text-center">
                     <td>
-                        <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("SchedulesAssignedInd","Admin", new { id = item.course_id })">Horarios Asignados</a>
-                    </td>
-                }
-                else
-                {
-                    <td>
-                        <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("AsignScheduleToCourse","Admin", new { id = item.course_id })">Asignar Horario</a>
+                        @Html.DisplayFor(modelItem => item.name)
                     </td>
                     <td>
-                        <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("SchedulesAssignedInd","Admin", new { id = item.course_id })">Horarios Asignados</a>
+                        @Html.DisplayFor(modelItem => item.description)
                     </td>
                     <td>
-                        <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Edit","Courses", new { id = item.course_id })">Editar</a>
+                        @Html.DisplayFor(modelItem => item.duration)
                     </td>
                     <td>
-                        <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Delete","Courses", new { id = item.course_id })">Eliminar</a>
+                        @Html.DisplayFor(modelItem => item.cost)
                     </td>
-                }
+                    <td>
+                        @Html.DisplayFor(modelItem => item.type)
+                    </td>
 
+                    @if (ViewBag.role == 2)
+                    {
+                        <td>
+                            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("SchedulesAssignedInd", "Admin", new { id = item.course_id })">Horarios del Curso</a>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("AsignScheduleToCourse", "Admin", new { id = item.course_id })">Asignar Horario</a>
+                        </td>
+                        <td>
+                            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("SchedulesAssignedInd", "Admin", new { id = item.course_id })">Horarios Asignados</a>
+                        </td>
+                        <td>
+                            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Edit", "Courses", new { id = item.course_id })">Editar</a>
+                        </td>
+                        <td>
+                            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Delete", "Courses", new { id = item.course_id })">Eliminar</a>
+                        </td>
+                    }
+
+                </tr>
+            }
+
+
+
+        }
+        else
+        {
+            <tr>
+                <th class="text-center" colspan="6">
+                    ¡No hay cursos registrados!
+                </th>
             </tr>
         }
 
-    </table>
+        </table>
 
     <div class="row g-0" style="margin-left:1%;">
         <div class="col-md-6">

@@ -11,11 +11,16 @@ namespace mysqltest.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class course_schedule
     {
         public int course_sh_id { get; set; }
+
+        [Required(ErrorMessage = "* Se debe seleccionar el curso deseado.")]
         public int course_id { get; set; }
+
+        [Required(ErrorMessage = "* Ingrese un horario ")]
         public int schedule_id { get; set; }
     
         public virtual courses courses { get; set; }

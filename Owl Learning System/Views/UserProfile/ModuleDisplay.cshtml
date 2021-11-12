@@ -1,4 +1,4 @@
-﻿@model IEnumerable<mysqltest.Models.Mod_Content>
+﻿@model IEnumerable<mysqltest.Models.modules>
 
 @{
     
@@ -55,6 +55,7 @@
                 <th>Módulo</th>
                 <th>Multimedia</th>
                 <th>Archivos</th>
+                <th>Evaluaciones Disponibles</th>
             </tr>
         </thead>
 
@@ -64,15 +65,17 @@
             {
                 <tr class="text-center">
                     <td>
-                        @Html.DisplayFor(modelItem => item.modules.name)
+                        @Html.DisplayFor(modelItem => item.name)
                     </td>
                     <td>
-                        <a class="btn btn-outline-dark " href="@Url.Action("CheckMediaInd", "Admin", new { id = item.Multi_Modulo.idMultimedia, idc = @ViewBag.course })">Ver Multimedia</a>
+                        <a class="btn btn-outline-dark " href="@Url.Action("CheckMediaModule", "Admin", new { id = item.module_id, idc = @ViewBag.course })">Ver Multimedia</a>
                     </td>
                     <td>
-                        <a class="btn btn-outline-dark " href="@Url.Action("FileListInd", "Admin", new { id = item.FC_Module.idFile,idc =  ViewBag.course })">Ver Archivos</a>
+                        <a class="btn btn-outline-dark " href="@Url.Action("FileListModule", "Admin", new { id = item.module_id, idc =  ViewBag.course })">Ver Archivos</a>
                     </td>
-
+                    <td>
+                        <a class="btn btn-outline-dark " href="@Url.Action("TestsAssignedInd", "Admin", new { id = item.module_id, idc =  ViewBag.course })">Ver Evaluaciones</a>
+                    </td>
 
                 </tr>
             }

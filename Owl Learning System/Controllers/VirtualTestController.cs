@@ -25,7 +25,7 @@ namespace mysqltest.Controllers
 
             var pageNumber = page ?? 1;
             var pageSize = 10;
-            var query = owldb.virtual_tests.OrderBy(a => a.name).ToPagedList(pageNumber, pageSize);
+            var query = owldb.virtual_tests.OrderBy(a => a.virtual_test_id).ToPagedList(pageNumber, pageSize);
 
             return View(query);
         }

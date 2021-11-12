@@ -1,4 +1,4 @@
-﻿using mysqltest.Models;
+﻿ using mysqltest.Models;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -24,7 +24,16 @@ namespace mysqltest.Controllers
 
             var pageNumber = page ?? 1;
             var pageSize = 10;
-            var query = owldb.modules.OrderBy(a => a.name).ToPagedList(pageNumber, pageSize);
+            var query = owldb.modules.OrderBy(a => a.module_id).ToPagedList(pageNumber, pageSize);
+
+            if (query == null)
+            {
+                ViewBag.Check = 0;
+            }
+            else
+            {
+                ViewBag.Check = 1;
+            }
 
             return View(query);
         }
@@ -155,11 +164,11 @@ namespace mysqltest.Controllers
 
         public ActionResult MultiAssignInd(int id)
         {
-            var q1 = owldb.Multi_Modulo.Where(a => a.modules.module_id == id).ToList();
+            var query = owldb.Multi_Modulo.Where(a => a.modules.module_id == id).ToList();
 
             var q2 = owldb.modules.Where(q => q.module_id == id).FirstOrDefault();
 
-            if (q1.Count == 0)
+            if (query.Count == 0)
             {
                 ViewBag.check = 0;
             }
@@ -172,8 +181,17 @@ namespace mysqltest.Controllers
 
             ViewBag.module = q2.name;
 
-           
-            return View(q1);
+            List<multimedia> mids = new List<multimedia>();
+            foreach (var item in query)
+            {
+                var query1 = owldb.multimedia.Where(a => a.idMultimedia == item.idMultimedia).FirstOrDefault();
+                if (query1 != null)
+                {
+                    mids.Add(query1);
+                }
+            }
+
+            return View(mids);
 
         }
 
@@ -224,7 +242,7 @@ namespace mysqltest.Controllers
                     owldb.SaveChanges();
                 }
 
-                return RedirectToAction("Index", "Module");
+                return RedirectToAction("IndexPlus", "Module");
             }
             catch (Exception e)
             {
@@ -258,12 +276,12 @@ namespace mysqltest.Controllers
                     owldb.SaveChanges();
                 }
 
-                return RedirectToAction("Index", "Module");
+                return RedirectToAction("IndexPlus", "Module");
             }
             catch (Exception e)
             {
                 ViewBag.module = owldb.modules.Where(x => x.module_id == fcm.module_id);
-
+                ViewBag.file = owldb.FileControl.Select(x => x);
                 ViewBag.multi = owldb.FileControl.Select(x => x);
                 return View(fcm);
             }

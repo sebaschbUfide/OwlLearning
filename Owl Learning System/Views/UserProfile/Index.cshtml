@@ -123,7 +123,7 @@
                                                 <div class="card-body">
                                                     <h2 class="card-title card-header">Cursos</h2>
 
-                                                    <div class="col-md-12" style=" margin: 2%; margin-left: 9%; width: 86%;">
+                                                    <div class="col-md-12" style=" margin: 2%; margin-left: 0%; width: 100%;">
                                                         @Html.DropDownListFor(model => model.course_id, new SelectList(ViewBag.courses, "course_id", "name"), new { @class = "form-control text-dark" })
                                                         @Html.ValidationMessageFor(model => model.courses, "", new { @class = "text-danger" })
                                                     </div>

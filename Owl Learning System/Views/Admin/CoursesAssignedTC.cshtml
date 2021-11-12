@@ -21,7 +21,7 @@
         <h2 style="color: #677C78;" class="text-center">@ViewBag.course</h2>
 
         <div class="container-fluid">
-            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Index","Courses")">Volver a Cursos</a>
+            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("SchedulesAssignedInd", "Admin", new { id = ViewBag.courseId })">Volver a Horarios de Curso</a>
             @if (ViewBag.check == 1)
             {
                 <span>Cantidad de Alumnos Matriculados: <b> @ViewBag.studentQty</b> </span>

@@ -14,15 +14,22 @@
 </head>
 <body>
 
-
-
     <div class="container-fluid" style="margin-top:5%;">
 
         <h2 style="color: #677C78;" class="text-center">@ViewBag.module</h2>
 
-        <div class="container-fluid">
-            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Index","Module")">Volver a módulos de curso</a>
-        </div>
+        @if (ViewBag.idc == 0)
+        {
+            <div class="container-fluid">
+                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Index","Module")">Volver a módulos de curso</a>
+            </div>
+        }
+        else
+        {
+            <div class="container-fluid">
+                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("ModuleDisplay","UserProfile", new { id = ViewBag.idc})">Volver a mi perfil</a>
+            </div>
+        }
 
         <hr />
 
@@ -30,7 +37,6 @@
 
             @if (ViewBag.check == 1)
             {
-
 
                 <thead class="thead-dark">
                     <tr class="text-center">
@@ -49,8 +55,17 @@
                         </th>
                         @if (ViewBag.role == 1)
                         {
-                            <th colspan="2">
+                            <th colspan="3">
                                 Acciones
+                            </th>
+                        }
+                        else if (ViewBag.role == 3)
+                        {
+                            <th>
+                                Acción
+                            </th>
+                            <th>
+                                Datos de la Prueba
                             </th>
                         }
 
@@ -58,31 +73,95 @@
                 </thead>
                 foreach (var item in Model)
                 {
-                    <tr class="text-center">
+        <tr class="text-center">
 
-                        <td>
-                            @Html.DisplayFor(modelItem => item.virtual_tests.name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.star_time)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.end_time)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.min_grade)
-                        </td>
-                        @if (ViewBag.role == 1)
+            <td>
+                @Html.DisplayFor(modelItem => item.virtual_tests.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.end_time.DayOfWeek) - @Html.DisplayFor(modelItem => item.star_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.end_time.DayOfWeek) - @Html.DisplayFor(modelItem => item.end_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.min_grade)
+            </td>
+            @if (ViewBag.role == 1)
+            {
+                <td>
+                    <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("EditTestAssignment","Admin", new { id = item.module_VT_id })">Editar</a>
+                </td>
+                <td>
+                    <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("DeleteTestAssignment","Admin", new { id = item.module_VT_id })">Eliminar</a>
+                </td>
+                <td>
+                    <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Solved","Admin", new { id = item.virtual_test, qvt_id = 0, module = item.module })">Realizar Prueba</a>
+                </td>
+            }
+            else if (ViewBag.role == 3)
+            {
+                if (DateTime.Today.Date < item.star_time.Date ||
+                    item.star_time.Date == DateTime.Today.Date && DateTime.Now.Hour < item.star_time.Hour)
+                {
+                    <td>
+                        Prueba No Disponible hasta: @item.star_time.Day/@item.star_time.Month/@item.star_time.Year a las @item.star_time.Hour horas
+                    </td>
+                    <td>
+                        N/A
+                    </td>
+                }
+                else
+                {
+                    ViewBag.ct = 0;
+                    var a = 0;
+                    foreach (var temp in ViewBag.vts) //Recibe la lista de ids de VTs realizadas y los compara con el de la lista de pruebas de módulo
+                    {
+                        if (item.virtual_test == temp)
+                        {
+                            ViewBag.ct = 1;
+                            a = temp;
+                        }
+                    }
+
+                    if (ViewBag.ct == 0)
+                    {
+                        if (DateTime.Now.Date == item.end_time.Date && DateTime.Now.Hour >= item.star_time.Hour &&
+                            DateTime.Now.Hour < item.end_time.Hour)
                         {
                             <td>
-                                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("EditTestAssignment","Admin", new { id = item.module_VT_id })">Editar</a>
+                                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Solved", "Admin", new { id = item.virtual_test, qvt_id = 0 })">Realizar Prueba</a>
+                            </td>
+
+
+                            <td>
+                                N/A
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                El tiempo para realizar la prueba expiró.
                             </td>
                             <td>
-                                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("DeleteTestAssignment","Admin", new { id = item.module_VT_id })">Eliminar</a>
+                                N/A
                             </td>
                         }
 
-                    </tr>
+                    }
+                    else
+                    {
+                        <td>
+                            Prueba Previamente Realizada
+                        </td>
+                        <td>
+                            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("TestResultInd", "Admin", new { id = item.virtual_test, m = ViewBag.id, c = ViewBag.idc })">Ver Resultado</a>
+                        </td>
+                    }
+                }
+            }
+
+        </tr>
                 }
             }
             else
@@ -113,9 +192,8 @@
                 </tr>
             }
 
-
-
         </table>
+
 
     </div>
 </body>

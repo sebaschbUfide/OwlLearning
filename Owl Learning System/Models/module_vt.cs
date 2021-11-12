@@ -11,14 +11,23 @@ namespace mysqltest.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class module_vt
     {
         public int module_VT_id { get; set; }
+
+        //[Required(ErrorMessage = "* Ingrese la hora de inicio de la prueba.")]
         public System.DateTime star_time { get; set; }
+
+        //[Required(ErrorMessage = "* Ingrese la hora de finalización de la prueba.")]
         public System.DateTime end_time { get; set; }
+
+        [Required(ErrorMessage = "* Ingrese la nota mínima.")]
         public int min_grade { get; set; }
         public int module { get; set; }
+
+        [Required(ErrorMessage = "* Ingrese la Prueba Virtual que desea agregar.")]
         public int virtual_test { get; set; }
     
         public virtual modules modules { get; set; }

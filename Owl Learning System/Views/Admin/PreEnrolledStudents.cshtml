@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Usuarios Estudiantes</title>
+    <title>Estudiantes Prematriculados</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="~/css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
     <link href="~/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
@@ -36,14 +36,15 @@
     </header>
 
     <div class="container-fluid" style="margin-top:5%;">
-        <h2 style="color: #677C78;" " class="text-center">ADMINISTRACION DE ESTUDIANTES PRE-MATRICULADOS</h2>
+        <h2 style="color: #677C78;" " class="text-center">ADMINISTRACIÓN DE ESTUDIANTES PRE-MATRICULADOS</h2>
         <div class="container-fluid">
-            <a class="main_nav_item btn btn-outline-warning" href="@Url.Action("IndexStudent","User")">Volver atrás</a>
+            <a class="main_nav_item btn btn-outline-warning" href="@Url.Action("IndexEnrollStudents","User")">Volver atrás</a>
         </div>
         
         <hr />
 
         <table class="table table-striped table-bordered table-hover">
+
             <thead class="thead-dark">
                 <tr class="text-center">
                     <th>Identificación</th>
@@ -52,26 +53,36 @@
                     <th>Configuración</th>
                 </tr>
             </thead>
-
-            @foreach (var item in Model)
+            @if (ViewBag.check == 1)
             {
-                <tr class="text-center">
-                    <td>
-                        @Html.DisplayFor(modelItem => item.users.dni)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.courses.name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.schedules.day) (@Html.DisplayFor(modelItem => item.schedules.star_time) - @Html.DisplayFor(modelItem => item.schedules.end_time) )
-                    </td>
-                    <td>
-                        <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("ConfirmEnrollment","Admin", new { id = item.user_id})">Confirmar Matricula</a>
-                        <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("DeleteUser","User", new { id = item.user_id})">Confirmar Matricula</a>
-                    </td>
+                foreach (var item in Model)
+                {
+                    <tr class="text-center">
+                        
+                        <td>
+                            @Html.DisplayFor(modelItem => item.users.dni)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.courses.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.schedules.day) (@Html.DisplayFor(modelItem => item.schedules.star_time) - @Html.DisplayFor(modelItem => item.schedules.end_time) )
+                        </td>
+                        <td>
+                            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("ConfirmEnrollment", "Admin", new { id = item.course_assign_id })">Confirmar Matrícula</a>
+                            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("DeleteEnrollment", "User", new { id = item.course_assign_id })">Eliminar Pre-Matrícula</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <th class="text-center" colspan="4">
+                        ¡No hay estudiantes pre matriculados!
+                    </th>
                 </tr>
             }
-
         </table>
 
     </div>

@@ -73,9 +73,7 @@
             <tr class="text-center">
                 <th>Identificación</th>
                 <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Correo</th>
-                <th>Teléfono</th>
+                <th>Contacto</th>
                 <th>Configuración</th>
             </tr>
         </thead>
@@ -89,16 +87,10 @@
                         @Html.DisplayFor(modelItem => item.users.dni)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.users.first_name)
+                        @Html.DisplayFor(modelItem => item.users.last_name), @Html.DisplayFor(modelItem => item.users.first_name)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.users.last_name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.users.email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.users.phone_number)
+                        @Html.DisplayFor(modelItem => item.users.email) / @Html.DisplayFor(modelItem => item.users.phone_number)
                     </td>
                     @if (item.users.status == true)
                     {
