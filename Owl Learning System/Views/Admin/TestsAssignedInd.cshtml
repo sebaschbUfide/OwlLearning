@@ -27,7 +27,7 @@
         else
         {
             <div class="container-fluid">
-                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("ModuleDisplay","UserProfile", new { id = ViewBag.idc})">Volver a mi perfil</a>
+                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("ModuleDisplay","UserProfile", new { id = ViewBag.idc})">Volver a Módulos del Curso</a>
             </div>
         }
 
@@ -96,7 +96,7 @@
                     <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("DeleteTestAssignment","Admin", new { id = item.module_VT_id })">Eliminar</a>
                 </td>
                 <td>
-                    <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Solved","Admin", new { id = item.virtual_test, qvt_id = 0, module = item.module })">Realizar Prueba</a>
+                    <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Solved","Admin", new { id = item.virtual_test, qvt_id = 0})">Realizar Prueba</a>
                 </td>
             }
             else if (ViewBag.role == 3)

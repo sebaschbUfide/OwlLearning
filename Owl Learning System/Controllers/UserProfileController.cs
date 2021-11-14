@@ -58,13 +58,32 @@ namespace mysqltest.Controllers
 
             ViewBag.courses = l_c;
 
-            if (r!=1)
+            if (r!=3)
             {
-                return View(query);
+                return RedirectToAction("IndexAdmin", "UserProfile", query);
             }
             else
             {
-                return RedirectToAction("IndexAdmin", "UserProfile", query);
+                //QUERY TO GET COURSE MODULES
+                var query2 = owldb.modules.Where(a => a.course == query.course_id).ToList();
+
+                List<int> vt_ids = new List<int>(); //lista para los ids de las pruebas virtuales asignadas a los módulos
+                                                    //QUERY TO GET MODULE VIRTUAL TETS
+                foreach (var item in query2)
+                {
+                    var query3 = owldb.module_vt.Where(a => a.module == item.module_id).ToList();
+                    foreach (var item2 in query3)
+                    {
+                        vt_ids.Add(item2.virtual_test);
+                    }
+                }
+
+
+                //QUERY TO GET "DONE" VTs
+                var query4 = owldb.vt_scored_record.Where(a => a.user_id == u.user_id).ToList();
+                ViewBag.currentProgress = (100 * query4.Count()) / vt_ids.Count();
+
+                return View(query);
             }
         }
 

@@ -556,7 +556,7 @@ namespace mysqltest.Controllers
 
 
         //PRUEBAS PARA REALIZAR EXAMEN
-        public ActionResult Solved(int id, int qvt_id, int module)
+        public ActionResult Solved(int id, int qvt_id)
         {
             int user = rs.GetUser(this.HttpContext.User.Identity.Name);
             var query = owldb.question_vt.Where(x => x.virtual_test == id).ToList();

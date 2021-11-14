@@ -1,4 +1,7 @@
 @model mysqltest.Models.course_assignment
+@{
+    Layout = null;
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +21,7 @@
 
 
 <body style="background:white">
-    
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -26,110 +29,112 @@
         <div class="container">
             <div class="container">
                 <div class="main-body">
-                        <!-- Breadcrumb -->
-                        <nav aria-label="breadcrumb" class="main-breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Inicio</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Perfil de Usuario</li>
-                            </ol>
-                        </nav>
-                        <div class="form-horizontal">
+                    <!-- Breadcrumb -->
+                    <nav aria-label="breadcrumb" class="main-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Inicio</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Perfil de Usuario</li>
+                        </ol>
+                    </nav>
+                    <div class="form-horizontal">
 
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger text-dark" })
-                            @Html.HiddenFor(model => model.user_id)
-                            @Html.HiddenFor(model => model.course_assign_id)
-                            <!--Estado del curso-->
-                            <div class="row gutters-sm">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger text-dark" })
+                        @Html.HiddenFor(model => model.user_id)
+                        @Html.HiddenFor(model => model.course_assign_id)
+                        <!--Estado del curso-->
+                        <div class="row gutters-sm">
 
-                                <div class="col-md-4 mb-3">
-                                    <div class="card h-100">
-                                        <div class="card-body">
-                                            <!--Estado del Curso-->
-                                            <h6 class="d-flex align-items-center mb-3">Estado del Curso</h6>
-                                            <div class="progress-text-align">Progreso</div>
-                                            <div class="control-section">
-                                                <div class="row" style="margin-top: 8%;">
-                                                    <div class="col-lg-3 col-md-3 col-3" align="center">
-                                                        <div class="row d-flex justify-content-center mt-25">
-                                                            <div class="col-md-6">
-                                                                <div class="progress blue">
-                                                                    <span class="progress-left"> <span class="progress-bar"></span> </span> <span class="progress-right"> <span class="progress-bar"></span> </span>
-                                                                    <div class="progress-value">90%</div>
-                                                                </div>
-
+                            <div class="col-md-4 mb-3">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <!--Estado del Curso-->
+                                        <h6 class="d-flex align-items-center mb-3">Estado del Curso</h6>
+                                        <div class="control-section">
+                                            <div class="row" style="margin-top: 8%;">
+                                                <div class="col-lg-3 col-md-3 col-3" align="center">
+                                                    <div class="row d-flex justify-content-center mt-25">
+                                                        <div class="col-md-6">
+                                                            <div class="progress blue">
+                                                                <span class="progress-left"> <span class="progress-bar"></span> </span> <span class="progress-right"> <span class="progress-bar"></span> </span>
+                                                                <div class="progress-value">@ViewBag.currentProgress %</div>
                                                             </div>
+
                                                         </div>
-
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
 
-                                <div class="col-md-8">
-                                    <div class="card mb-3">
-                                        <div class="card-body ">
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <h6 class="mb-0">Nombre Completo</h6>
-                                                </div>
-                                                <div class="col-sm-9 text-secondary">
-                                                    @Model.users.first_name @Model.users.last_name
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <h6 class="mb-0">Correo Electronico</h6>
-                                                </div>
-                                                <div class="col-sm-9 text-secondary">
-                                                    @Model.users.email
-                                                </div>
-                                            </div>
-                                            <hr>
+                            </div>
 
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <h6 class="mb-0">Celular</h6>
-                                                </div>
-                                                <div class="col-sm-9 text-secondary">
-                                                    @Model.users.phone_number
-                                                </div>
+                            <div class="col-md-8">
+                                <div class="card mb-3">
+                                    <div class="card-body ">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <h6 class="mb-0">Nombre Completo</h6>
                                             </div>
-                                            <hr>
+                                            <div class="col-sm-6 text-secondary">
+                                                @Model.users.first_name @Model.users.last_name
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <h6 class="mb-0">Correo Electronico</h6>
+                                            </div>
+                                            <div class="col-sm-6 text-secondary">
+                                                @Model.users.email
+                                            </div>
+                                        </div>
+                                        <hr>
 
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <a style="background: #667b68" class="btn btn-info btn-lg btn-block " href="@Url.Action("EditProfile", "UserProfile", new { id = @Model.user_id })">Editar</a>
-                                                </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <h6 class="mb-0">Celular</h6>
+                                            </div>
+                                            <div class="col-sm-6 text-secondary">
+                                                @Model.users.phone_number
+                                            </div>
+                                        </div>
+                                        <hr>
+
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <a style="background: #667b68" class="btn btn-info btn-lg btn-block " href="@Url.Action("EditProfile", "UserProfile", new { id = @Model.user_id })">Editar Informaci&oacute;n Personal</a>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <a style="background: #667b68" class="btn btn-info btn-lg btn-block " href="@Url.Action("UpdatePassword","User", new {id = Model.user_id })">Editar Contrase&ntilde;a</a>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
 
-                                <div class="card mb-3" style="max-width: 98%; margin-left: 1%;">
-                                    <div class="row g-0">
-                                        <div class="form-group">
-                                            <div class="col-md-4">
-                                                <img src="~/images/Owl_avanzado02.jpeg" class="img-fluid rounded-start">
-                                            </div>
+                            </div>
 
-                                            <div class="col-md-8">
-                                                <div class="card-body">
-                                                    <h2 class="card-title card-header">Cursos</h2>
+                            <div class="card mb-12" style="max-width: 98%; margin-left: 1%;">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-4">
+                                            <img src="~/images/Owl_avanzado02.jpeg" class="img-fluid rounded-start">
+                                        </div>
 
-                                                    <div class="col-md-12" style=" margin: 2%; margin-left: 0%; width: 100%;">
+                                        <div class="col-md-12">
+                                            <div class="card-body">
+                                                <h2 class="card-title card-header">Cursos</h2>
+
+                                                <div class="row">
+                                                    <div class="col-sm-10">
                                                         @Html.DropDownListFor(model => model.course_id, new SelectList(ViewBag.courses, "course_id", "name"), new { @class = "form-control text-dark" })
-                                                        @Html.ValidationMessageFor(model => model.courses, "", new { @class = "text-danger" })
                                                     </div>
-
-                                                    <input style="background: #667b68 " type="submit" value="Ver m&aacute;s" class="btn btn-info btn-sm " />
-
+                                                    <div class="col-sm-2">
+                                                        <input class="btn btn-info btn-lg btn-block " style="background: #667b68; height:85%; " type="submit" value="Ver m&aacute;s" class="btn btn-info btn-sm " />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -137,11 +142,12 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-
-                        </div>
 
                 </div>
+
+            </div>
         </div>
 
 

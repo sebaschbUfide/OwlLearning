@@ -265,6 +265,9 @@ namespace mysqltest.Controllers
         //CAMBIAR CONTRASEÑA POR DEFECTO ENVIADA EL CORREO
         public ActionResult UpdatePassword()
         {
+            
+            ViewBag.role = rs.GetRole(HttpContext.User.Identity.Name);
+
             return View();
         }
 
@@ -272,6 +275,8 @@ namespace mysqltest.Controllers
         [HttpPost]
         public ActionResult UpdatePassword(users u, int id)
         {
+            var role = rs.GetRole(HttpContext.User.Identity.Name);
+
             var query = owldb.users.Where(l => l.user_id == id).FirstOrDefault();
             if (u.password.Equals(u.last_name))
             {
@@ -303,7 +308,16 @@ namespace mysqltest.Controllers
                         us.password = encryptedPassword;
                         owldb.SaveChanges();
 
-                        return RedirectToAction("IndexAdmin", "UserProfile");
+                        if (role!=3)
+                        {
+                            return RedirectToAction("IndexAdmin", "UserProfile");
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index", "UserProfile");
+                        }
+                        
+                        
                     }
                     else
                     {
