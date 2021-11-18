@@ -17,7 +17,7 @@ namespace mysqltest.Models
             {
                 UseDefaultCredentials = false,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
-                Port = 25,
+                Port = 587,
                 Credentials = new NetworkCredential("owllearningcr@gmail.com", "owllearning2021"),
                 EnableSsl = true
             });
