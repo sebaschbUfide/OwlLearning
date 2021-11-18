@@ -52,10 +52,10 @@
 
                 @if (Request.IsAuthenticated)
                 {
-                    //if (!Session["role"].ToString().Equals("3"))
-                    //{
+                    if (!Session["role"].ToString().Equals("3"))
+                    {
                        <li class="main_nav_item"><a href="@Url.Action("Index", "Admin")">Administración</a></li>
-                    //}
+                    }
                 }
             </ul>
             <!--//Main Navigation -->
