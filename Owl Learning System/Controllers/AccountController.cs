@@ -18,7 +18,7 @@ namespace Owlapp.Controllers
     {
         owldbEntities01 owldb = new owldbEntities01();
         string secretKey = ConfigurationManager.AppSettings["SecretKey"];
-
+        MailSender ms = new MailSender();
         public object EnableSsl { get; private set; }
 
         // GET: Account
@@ -199,36 +199,7 @@ namespace Owlapp.Controllers
 
                 var query3 = owldb.pass_verif_code.Where(a => a.user_id.Equals(query.user_id)).FirstOrDefault();
 
-                #region Envia correo
-                var sender = new SmtpSender(() => new SmtpClient("smtp.gmail.com")
-                {
-                    UseDefaultCredentials = false,
-                    DeliveryMethod = SmtpDeliveryMethod.Network,
-                    Port = 587,
-                    Credentials = new NetworkCredential("owllearningcr@gmail.com", "owllearning2021"),
-                    EnableSsl = true
-                });
-
-                Email.DefaultSender = sender;
-
-                var email = Email
-                    .From("owllearningcr@gmail.com")
-                    .To(u.email)
-                    .Subject("Owl Learnig: Verification Code")
-                    .Body("Hola " + query.first_name + " " + query.last_name + ", tu código de verificación es: " + query3.verification_code);
-
-
-                try
-                {
-                    email.SendAsync();
-                }
-
-                catch (Exception e)
-                {
-
-                }
-                #endregion
-
+                ms.SendMail(u.email, "Owl Learnig: Verification Code", "Hola " + query.first_name + " " + query.last_name + ", tu código de verificación es: " + query3.verification_code);
 
                 return RedirectToAction("VerifyValidationCode", "Account");
 
