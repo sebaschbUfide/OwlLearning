@@ -199,7 +199,7 @@ namespace Owlapp.Controllers
 
                 var query3 = owldb.pass_verif_code.Where(a => a.user_id.Equals(query.user_id)).FirstOrDefault();
 
-                ms.SendMail(u.email, "Owl Learnig: Verification Code", "Hola " + query.first_name + " " + query.last_name + ", tu código de verificación es: " + query3.verification_code);
+                ms.SendEmail(u.email, query.first_name+" "+query.last_name, "Owl Learnig: Verification Code", "Hola " + query.first_name + " " + query.last_name + ", tu código de verificación es: " + query3.verification_code);
 
                 return RedirectToAction("VerifyValidationCode", "Account");
 

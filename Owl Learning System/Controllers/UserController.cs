@@ -134,10 +134,11 @@ namespace mysqltest.Controllers
                     owldb.role_user.Add(ru);
                     owldb.SaveChanges();
 
-                    ms.SendMail(u.email,
-                                "¡Bienvenido a Owl Learning! Ahora eres un Administrador.",
-                                "Hola " + u.first_name + " " + u.last_name + ", has sido registrado como un Administrador." + "/n" +
-                                "Tu usuario es: " + u.email + " y tu contraseña temporal es: " + pass);
+                    ms.SendEmail(u.email, u.first_name + " " + u.last_name,
+                        "¡Bienvenido a Owl Learning! Ahora eres un Administrador.",
+                        "Hola " + u.first_name + " " + u.last_name + ", has sido registrado como un Administrador." + "/n" +
+                        "Tu usuario es: " + u.email + " y tu contraseña temporal es: " + pass);
+
 
                     return RedirectToAction("IndexAdmin", "User");
                 }
@@ -229,11 +230,11 @@ namespace mysqltest.Controllers
                     owldb.role_user.Add(ru);
                     owldb.SaveChanges();
 
-                    ms.SendMail(u.email,
-                                "¡Bienvenido a Owl Learning! Ahora eres un Profesor de nuestra academia.",
-                                "Hola " + u.first_name + " " + u.last_name + ", has sido registrado como un Profesor." + "\n" +
-                                "Tu usuario es: " + u.email + " y tu contraseña temporal es: " + pass + "\n" +
-                                "Al iniciar sesión por primera vez, deberás cambiar tu contraseña.");
+                    ms.SendEmail(u.email, u.first_name + " " + u.last_name,
+                        "¡Bienvenido a Owl Learning! Ahora eres un Profesor de nuestra academia.",
+                        "Hola " + u.first_name + " " + u.last_name + ", has sido registrado como un Profesor." + "\n" +
+                        "Tu usuario es: " + u.email + " y tu contraseña temporal es: " + pass + "\n" +
+                        "Al iniciar sesión por primera vez, deberás cambiar tu contraseña.");
 
                     return RedirectToAction("IndexProf", "User");
                 }else if (query != null && query2 != null)
