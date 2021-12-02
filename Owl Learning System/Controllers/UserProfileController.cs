@@ -32,38 +32,43 @@ namespace mysqltest.Controllers
             var r = rs.GetRole(this.HttpContext.User.Identity.Name);
 
             var query = owldb.course_assignment.Where(a => a.user_id == u.user_id).FirstOrDefault();
-            var query_1 = owldb.course_assignment.Where(a => a.user_id == u.user_id);
-
-            List<int> idca = new List<int>();//LISTA DE IDs DE CADA COURSE ASSIGNMENT
-            foreach (var item in query_1)
-            {
-                idca.Add(item.course_assign_id);
-            }
             
-
-            List<courses> l_c = new List<courses>();
-            foreach (var item in idca)
-            {
-                var q1 = owldb.course_assignment.Where(a => a.course_assign_id == item).FirstOrDefault();
-                var q2 = owldb.courses.Where(a => a.course_id == q1.course_id).FirstOrDefault(); //ESTE ES EL QUE SE DEVUELVE
-                var q3 = owldb.schedules.Where(a => a.schedule_id == q1.schedule_id).FirstOrDefault();
-
-                courses c = new courses();
-                c.course_id = q2.course_id;
-                c.name = q2.name + " - " + q3.day + " (" + q3.star_time + " - " + q3.end_time + ")";
-
-                l_c.Add(c);
-
-            }
-
-            ViewBag.courses = l_c;
-
             if (r!=3)
             {
-                return RedirectToAction("IndexAdmin", "UserProfile", query);
+                return RedirectToAction("IndexAdmin", "UserProfile");
+            }
+            else if (r == 3 && query == null)
+            {
+                return RedirectToAction("IndexUnenrollStudent", "UserProfile");
             }
             else
             {
+                var query_1 = owldb.course_assignment.Where(a => a.user_id == u.user_id);
+
+                List<int> idca = new List<int>();//LISTA DE IDs DE CADA COURSE ASSIGNMENT
+                foreach (var item in query_1)
+                {
+                    idca.Add(item.course_assign_id);
+                }
+
+
+                List<courses> l_c = new List<courses>();
+                foreach (var item in idca)
+                {
+                    var q1 = owldb.course_assignment.Where(a => a.course_assign_id == item).FirstOrDefault();
+                    var q2 = owldb.courses.Where(a => a.course_id == q1.course_id).FirstOrDefault(); //ESTE ES EL QUE SE DEVUELVE
+                    var q3 = owldb.schedules.Where(a => a.schedule_id == q1.schedule_id).FirstOrDefault();
+
+                    courses c = new courses();
+                    c.course_id = q2.course_id;
+                    c.name = q2.name + " - " + q3.day + " (" + q3.star_time + " - " + q3.end_time + ")";
+
+                    l_c.Add(c);
+
+                }
+
+                ViewBag.courses = l_c;
+
                 //QUERY TO GET COURSE MODULES
                 var query2 = owldb.modules.Where(a => a.course == query.course_id).ToList();
 
@@ -77,7 +82,6 @@ namespace mysqltest.Controllers
                         vt_ids.Add(item2.virtual_test);
                     }
                 }
-
 
                 //QUERY TO GET "DONE" VTs
                 var query4 = owldb.vt_scored_record.Where(a => a.user_id == u.user_id).ToList();
@@ -94,6 +98,14 @@ namespace mysqltest.Controllers
         }
 
         public ActionResult IndexAdmin()
+        {
+            var u = rs.GetUserInfo(this.HttpContext.User.Identity.Name);
+            var a = Seguridad.DecryptString(secretKey, u.password);
+            u.password = a;
+            return View(u);
+        }
+
+        public ActionResult IndexUnenrollStudent()
         {
             var u = rs.GetUserInfo(this.HttpContext.User.Identity.Name);
             var a = Seguridad.DecryptString(secretKey, u.password);

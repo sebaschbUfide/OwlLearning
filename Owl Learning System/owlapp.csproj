@@ -961,6 +961,7 @@
     <Content Include="Views\User\DeleteUser.cshtml" />
     <Content Include="Views\User\IndexEnrollStudents.cshtml" />
     <Content Include="Views\User\DeleteEnrollment.cshtml" />
+    <Content Include="Views\UserProfile\IndexUnenrollStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
