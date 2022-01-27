@@ -15,12 +15,13 @@ namespace mysqltest.Models
     public class MailSender
     {
 
-        
+        owldbEntities01 owldb = new owldbEntities01();
 
         public bool SendEmail(string emailTo, string name, string subject, string body)
         {
 
-            var key = "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";
+            var key = "";
+            key = owldb.questions.Where(a => a.question_id == 1).FirstOrDefault().question;
 
             try
             {
