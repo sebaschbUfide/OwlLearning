@@ -14,9 +14,12 @@ namespace mysqltest.Models
 {
     public class MailSender
     {
-   
+
+        
+
         public bool SendEmail(string emailTo, string name, string subject, string body)
         {
+
             var key = "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";
 
             try

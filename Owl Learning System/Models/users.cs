@@ -55,7 +55,7 @@ namespace mysqltest.Models
         public string email { get; set; }
 
         [Required(ErrorMessage = "* Ingrese una contraseña")]
-        [MinLength(9, ErrorMessage = "La contraseña debe ser mínimo de 9 dígitos")]
+        [MinLength(9, ErrorMessage = "* La contraseña debe ser mínimo de 9 dígitos alfanuméricos.")]
         [DataType(DataType.Password)]
         public string password { get; set; }
 

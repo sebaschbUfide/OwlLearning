@@ -52,20 +52,34 @@ namespace Owlapp.Controllers
         {
             var secretKey = ConfigurationManager.AppSettings["SecretKey"];
 
-            var query = owldb.users.Where(a => a.dni == u.dni || a.email == u.email).FirstOrDefault();
+            if (u.dni == null)
+            {
+                ViewBag.Error = "* Debe Completar todos los Espacios";
+                return View();
+            }
+            else
+            {
+                var query = owldb.users.Where(a => a.dni == u.dni || a.email == u.email).FirstOrDefault();
 
-            if (query == null){
-                registerMethod(u);
-                return RedirectToAction("Login", "Account");
+                if (query == null)
+                {
+                    registerMethod(u);
+                    return RedirectToAction("Login", "Account");
+                }
+                else if (query.dni == u.dni)
+                {
+                    ViewBag.Error = "* La identificación ingresada ya se encuentra previamente registrada.";
+                    return View();
+                }
+                else
+                {
+                    ViewBag.Error = "* El correo ingresado ya se encuentra previamente registrado.";
+                    return View();
+                }
+
             }
-            else if (query.dni == u.dni){
-                ViewBag.Error = "* La identificación ingresada ya se encuentra previamente registrada.";
-                return View();
-            }
-            else{
-                ViewBag.Error = "* El correo ingresado ya se encuentra previamente registrado.";
-                return View();
-            }
+
+
 
         }
         #endregion
@@ -202,7 +216,7 @@ namespace Owlapp.Controllers
             }
             else
             {
-                ViewBag.Respuesta = "Email No Encontrado";
+                ViewBag.Respuesta = "* Correo Electrónico no encontrado.";
                 return View("ValidationCode");
             }
 
