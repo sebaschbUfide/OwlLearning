@@ -5,8 +5,6 @@
 @using PagedList.Mvc;
 @model PagedList.IPagedList<courses>
 
-
-@Html.Partial("_CursosLayout")
 @{
     Layout = null;
 }
@@ -15,30 +13,59 @@
 
 <html>
 <head>
-    <title>Cursos</title>
-    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/css/Cruds/crud-general2.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/styleguide.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/globals.css" />
     <link href="~/css/Pagination.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/css/css-boots/bootstrap.css" />
+
+    <title>Cursos</title>
 </head>
-<body>
 
-    <h2 style="color: #677C78; margin-top: 5%;" class="text-center">ADMINISTRACIÓN DE CURSOS</h2>
+<body style="margin: 0; background: #ffffff">
+    <input type="hidden" id="anPageName" name="page" value="crud-general2" />
+    <div class="container-center-horizontal">
+        <div class="crud-general2 screen">
 
-    <div class="row g-0" style="margin-top:2%; margin-left:1%;">
+            <div class="grupo-20">
 
-        <div class="col-md-9" >
+                <div class="layout segoeui-regular-normal-ebb-22px" style="color:white;">
+
+                    <a href="@Url.Action("Index", "Admin")">
+                        <div class="inicio">Administracion</div>
+                    </a>
+                    <a href="@Url.Action("Index","CourseType")">
+                        <div class="registrarse" >Tipos de curso</div>
+                    </a>
+                    <a href="@Url.Action("Index","Schedule")">
+                        <div class="iniciar-sesin">Horarios</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+          
+
+    <h2 style="color: #677C78; margin-top: 2%;" class="text-center">ADMINISTRACIÓN DE CURSOS</h2>
+
+    <div class="row g-0" style="margin-top:2%; margin-left:4%;">
+
+        <div class="col-md-9">
+            <a class="btn btn-outline-dark" href="@Url.Action("Index", "Admin")"><span id="Volver">Volver</span></a>
 
             @if (ViewBag.role == 1)
             {
-                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Create","Courses")">Crear Nuevo Curso</a>
+                <a class="btn btn-outline-dark" href="@Url.Action("Create","Courses")"><span id="Crear">Crear Nuevo Curso</span></a>
 
             }
         </div>
 
         <div class="col-md-3">
 
-            <form class="form-inline my-2 my-lg-0 " style="margin-right: 0%">
+            <form class="form-inline my-2 my-lg-0 " style="margin: 10%; padding: 5%;">
                 <input class="form-control mr-sm-2 text-dark" type="text" id="search" placeholder="Buscar" onkeyup="myFunction()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#667b68" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+
             </form>
         </div>
 
@@ -65,32 +92,30 @@
         }
     </script>
 
-    <hr />
+    <div style=" width: 95%; margin-left: 3%;">
 
-    <table class="table table-striped table-bordered table-hover" id="myTable">
-        <thead class="thead-dark">
-            <tr class="text-center">
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Duración (Meses)</th>
-                <th>Costo</th>
-                <th>Tipo</th>
-                @if (ViewBag.role == 1)
-                {
-                    <th colspan="4">Acciones</th>
-                }
-                else
-                {
-                    <th colspan="4">Acciones</th>
-                }
+        <table class="table table-hover" id="myTable">
+            <thead class="table-dark">
+                <tr class="text-center">
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Duración (Meses)</th>
+                    <th>Costo</th>
 
-            </tr>
-        </thead>
+                    @if (ViewBag.role == 1)
+                    {
+                        <th colspan="4">Acciones</th>
+                    }
+                    else
+                    {
+                        <th colspan="4">Acciones</th>
+                    }
 
-        @if (ViewBag.check == 1)
-        {
+                </tr>
+            </thead>
 
-            foreach (var item in Model)
+
+            @foreach (var item in Model)
             {
                 <tr class="text-center">
                     <td>
@@ -105,50 +130,36 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.cost)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.type)
-                    </td>
 
                     @if (ViewBag.role == 2)
                     {
                         <td>
-                            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("SchedulesAssignedInd", "Admin", new { id = item.course_id })">Horarios del Curso</a>
+                            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("SchedulesAssignedInd","Admin", new { id = item.course_id })">Horarios Asignados</a>
                         </td>
                     }
                     else
                     {
                         <td>
-                            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("AsignScheduleToCourse", "Admin", new { id = item.course_id })">Asignar Horario</a>
+                            <a class="btn btn-outline-dark" href="@Url.Action("AsignScheduleToCourse","Admin", new { id = item.course_id })">Asignar Horario</a>
                         </td>
                         <td>
-                            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("SchedulesAssignedInd", "Admin", new { id = item.course_id })">Horarios Asignados</a>
+                            <a class="btn btn-outline-dark" href="@Url.Action("SchedulesAssignedInd","Admin", new { id = item.course_id })">Horarios Asignados</a>
                         </td>
                         <td>
-                            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Edit", "Courses", new { id = item.course_id })">Editar</a>
+                            <a class="btn btn-outline-dark" href="@Url.Action("Edit","Courses", new { id = item.course_id })">Editar</a>
                         </td>
                         <td>
-                            <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Delete", "Courses", new { id = item.course_id })">Eliminar</a>
+                            <a class="btn btn-outline-dark" href="@Url.Action("Delete","Courses", new { id = item.course_id })">Eliminar</a>
                         </td>
                     }
 
                 </tr>
             }
 
-
-
-        }
-        else
-        {
-            <tr>
-                <th class="text-center" colspan="6">
-                    ¡No hay cursos registrados!
-                </th>
-            </tr>
-        }
-
         </table>
+    </div>
 
-    <div class="row g-0" style="margin-left:1%;">
+    <div class="row g-0" style="padding: 1%;">
         <div class="col-md-6">
             Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
         </div>

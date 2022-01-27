@@ -1,94 +1,106 @@
 ﻿@model mysqltest.Models.courses
-@Html.Partial("_Crudslayout")
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Crear Curso</title>
-    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
-    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    *@
-    
+    <link href="~/css/homeCss/home.css" rel="stylesheet" />
+    <link href="~/css/Cruds/crud-general2.css" rel="stylesheet" />
+    <link href="~/css/styleguide.css" rel="stylesheet" />
+    <link href="~/css/globals.css" rel="stylesheet" />
+    <link href="~/css/css-boots/bootstrap.css" rel="stylesheet" />
 </head>
 
 <body style="background-color: #ffffff;">
 
+    <div class="container-center-horizontal">
+        <div class="crud-general2 screen">
+
+            <div class="grupo-20">
+
+                <div class="layout segoeui-regular-normal-ebb-22px">
+                    <a href="@Url.Action("Index","Home")">
+                        <div class="inicio">Inicio</div>
+                    </a>
+                </div>
+            </div>
+        </div>ss
+    </div>
 
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-        <div class="container-fluid" style="margin-top: 1%;">
+<div class="row justify-content-center" style="margin-top: 3%;">
 
 
-            <div class="jumbotron jumbotron-fluid" style="background-color: #667b68;">
-                <div class="container">
+    <div class="col-lg-4 px-lg-3 pt-4 card" style="style= border: 1xp; border-color: #667b68;">
+        <div class="container">
 
-                    <div class="form-horizontal">
+            <div class="form-horizontal">
 
-                        <h2 style="color: #EAE5E0;">Crear nuevo curso</h2>
+                <h2 style="color: ;">Crear nuevo curso</h2>
 
-                        <p style="color: #EAD1C5;">@ViewBag.Error</p>
+                <p style="color: red;">@ViewBag.Error</p>
 
-                        <hr />
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div class="form-group">
-                            <h3 class="control-label col-md-12">Nombre</h3>
-                            <div class="col-md-12">
-                                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control text-dark" } })
-                                @Html.ValidationMessageFor(model => model.name, "", new { @style = "color: #EAD1C5" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <h3 class="control-label col-md-12">Descripción</h3>
-                            <div class="col-md-12">
-                                @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control text-dark" } })
-                                @Html.ValidationMessageFor(model => model.description, "", new { @style = "color: #EAD1C5" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <h3 class="control-label col-md-12">Duración (Meses)</h3>
-                            <div class="col-md-12">
-                                @Html.EditorFor(model => model.duration, new { htmlAttributes = new { @class = "form-control text-dark" } })
-                                @Html.ValidationMessageFor(model => model.duration, "", new { @style = "color: #EAD1C5" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <h3 class="control-label col-md-12">Costo</h3>
-                            <div class="col-md-12">
-                                @Html.EditorFor(model => model.cost, new { htmlAttributes = new { @class = "form-control text-dark" } })
-                                @Html.ValidationMessageFor(model => model.cost, "", new { @style = "color: #EAD1C5" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <h3 class="control-label col-md-12">Tipo</h3>
-                            <div class="col-md-12">
-                                @Html.DropDownListFor(model => model.type, new SelectList(ViewBag.type, "course_type_id", "name"), new { @class = "form-control text-dark" })
-                                @Html.ValidationMessageFor(model => model.type, "", new { @style = "color: #EAD1C5" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-12" style="margin-top:7%">
-                                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Index","Courses")">Regresar </a>
-                                <input type="submit" value="Crear" class="main_nav_item btn btn-outline-dark" />
-                            </div>
-                        </div>
-
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <h3 class="control-label col-md-12">Nombre</h3>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control text-dark " } })
+                        @Html.ValidationMessageFor(model => model.name, "", new { @style = "color: #EAD1C5" })
                     </div>
+                </div>
 
+                <div class="form-group">
+                    <h3 class="control-label col-md-12">Descripción</h3>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control text-dark   " } })
+                        @Html.ValidationMessageFor(model => model.description, "", new { @style = "color: #EAD1C5" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <h3 class="control-label col-md-12">Duración (Meses)</h3>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.duration, new { htmlAttributes = new { @class = "form-control text-dark" } })
+                        @Html.ValidationMessageFor(model => model.duration, "", new { @style = "color: #EAD1C5" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <h3 class="control-label col-md-12">Costo</h3>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.cost, new { htmlAttributes = new { @class = "form-control text-dark" } })
+                        @Html.ValidationMessageFor(model => model.cost, "", new { @style = "color: #EAD1C5" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <h3 class="control-label col-md-12">Tipo</h3>
+                    <div class="col-md-12">
+                        @Html.DropDownListFor(model => model.type, new SelectList(ViewBag.type, "course_type_id", "name"), new { @class = "form-control text-dark" })
+                        @Html.ValidationMessageFor(model => model.type, "", new { @style = "color: #EAD1C5" })
+                    </div>
+                </div>
+
+                <div class="form-group pb-3">
+                    <div class="col-md-offset-2 col-md-12" style="margin-top:7%">
+                        <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Index","Courses")">Regresar </a>
+                        <input type="submit" id="Crearcurso" value="Crear" class="main_nav_item btn btn-outline-dark" />
+                    </div>
                 </div>
 
             </div>
+
         </div>
+
+    </div>
+</div>
     }
 
 </body>

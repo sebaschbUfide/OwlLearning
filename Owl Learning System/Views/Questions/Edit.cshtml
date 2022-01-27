@@ -1,5 +1,5 @@
 ﻿@model mysqltest.Models.questions
-@Html.Partial("_Crudslayout")
+
 @{
     Layout = null;
 }
@@ -10,61 +10,75 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Editar</title>
-    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
+    <link href="~/css/homeCss/home.css" rel="stylesheet" />
+    <link href="~/css/Cruds/crud-general2.css" rel="stylesheet" />
+    <link href="~/css/styleguide.css" rel="stylesheet" />
+    <link href="~/css/globals.css" rel="stylesheet" />
+    <link href="~/css/css-boots/bootstrap.css" rel="stylesheet" />
 </head>
 <body style="background-color: #ffffff;">
 
+    <div class="container-center-horizontal">
+        <div class="crud-general2 screen">
 
+            <div class="grupo-20">
+
+                <div class="layout segoeui-regular-normal-ebb-22px">
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-        <div class="container-fluid" style="margin-top: 3%;">
+        <div class="row justify-content-center" style="margin-top: 3%;">
 
 
-            <div class="jumbotron jumbotron-fluid" style="background-color: #667b68;">
+            <div class="col-lg-4 px-lg-3 pt-4 card" style="style= border: 1xp; border-color: #667b68;">
                 <div class="container">
 
                     <div class="form-horizontal">
-                        <h2 style="color: #EAE5E0;">Editar preguntas</h2>
-                        <p style="color: #EAD1C5;">@ViewBag.Error</p>
+                        <h2 style="color: ;">Editar preguntas</h2>
+                        <p style="color: red;">@ViewBag.Error</p>
                         <hr />
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         @Html.HiddenFor(model => model.question_id)
 
-                        <h3 class="control-label col-md-12">Pregunta</h3>
+                        <h3 class="control-label col-md-auto">Pregunta</h3>
                         <div class="col-md-12">
                             @Html.EditorFor(model => model.question, new { htmlAttributes = new { @class = "form-control text-dark" } })
                             @Html.ValidationMessageFor(model => model.question, "", new { @style = "color: #EAD1C5" })
                         </div>
-                        <h3 class="control-label col-md-12">Respuesta 1</h3>
+                        <h3 class="control-label col-md-auto">Respuesta 1</h3>
                         <div class="col-md-12">
                             @Html.EditorFor(model => model.answer1, new { htmlAttributes = new { @class = "form-control text-dark" } })
                             @Html.ValidationMessageFor(model => model.answer1, "", new { @style = "color: #EAD1C5" })
                         </div>
-                        <h3 class="control-label col-md-12">Respuesta 2</h3>
+                        <h3 class="control-label col-md-auto">Respuesta 2</h3>
                         <div class="col-md-12">
                             @Html.EditorFor(model => model.answer2, new { htmlAttributes = new { @class = "form-control text-dark" } })
                             @Html.ValidationMessageFor(model => model.answer2, "", new { @style = "color: #EAD1C5" })
                         </div>
-                        <h3 class="control-label col-md-12">Respuesta 3</h3>
+                        <h3 class="control-label col-md-auto">Respuesta 3</h3>
                         <div class="col-md-12">
                             @Html.EditorFor(model => model.answer3, new { htmlAttributes = new { @class = "form-control text-dark" } })
                             @Html.ValidationMessageFor(model => model.answer3, "", new { @style = "color: #EAD1C5" })
                         </div>
-                        <h3 class="control-label col-md-12">Respuesta 4</h3>
+                        <h3 class="control-label col-md-auto">Respuesta 4</h3>
                         <div class="col-md-12">
                             @Html.EditorFor(model => model.answer4, new { htmlAttributes = new { @class = "form-control text-dark" } })
                             @Html.ValidationMessageFor(model => model.answer4, "", new { @style = "color: #EAD1C5" })
                         </div>
-                        <h3 class="control-label col-md-2">Respuesta Correcta</h3>
+                        <h3 class="control-label col-md-auto">Respuesta Correcta</h3>
                         <div class="col-md-12">
                             @Html.DropDownListFor(model => model.correct_answer, new SelectList(ViewBag.ans), new { @class = "form-control  text-dark" })
                             @Html.ValidationMessageFor(model => model.correct_answer, "", new { @style = "color: #EAD1C5" })
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group pb-3">
                             <div class="col-md-offset-2 col-md-10" style="margin-top:7%">
                                 <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("Index","Questions")">Regresar</a>
                                 <input type="submit" value="Editar" class="btn btn-outline-dark" />

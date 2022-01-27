@@ -1,91 +1,97 @@
 ﻿@model IEnumerable<mysqltest.Models.courses>
 
 @{
-    
+
     Layout = null;
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Cursos</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="~/css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
-    <link href="~/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
-    <link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
-    <link href="~/css/bootstrap4/main_styles.css" rel="stylesheet" type="text/css">
-   
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1280, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <link rel="stylesheet" type="text/css" href="~/css/Cruds/cursosPIA.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/styleguide.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/globals.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/css-boots/bootstrap.css" />
 </head>
-
-<body>
-
-        <!-- header -->
-        <header class="header d-flex flex-row">
-
-            <div class="header_content d-flex flex-row align-items-center">
-                <!-- Logo -->
-                <div class="logo_container">
-                    <div class="logoA">
-                        <img src="~/images/logo.png" width="140px" />
+<body style="margin: 0; background: #ffffff">
+    <input type="hidden" id="anPageName" name="page" value="curso-avanzado" />
+    <div class="container-center-horizontal">
+        <div class="curso-avanzado screen">
+            <div class="grupo-20">
+                <div class="layout segoeui-regular-normal-ebb-22px">
+                    <a href="@Url.Action("Index","Home")">
+                        <div class="inicio">Inicio</div>
+                    </a>
+                    <a href="@Url.Action("Registration","Account")">
+                        <div class="registrarse">Registrarse</div>
+                    </a>
+                    <a href="@Url.Action("Login","Account")">
+                        <div class="iniciar-sesin">Iniciar Sesión</div>
+                    </a>
+                </div>
+            </div>
+            <div class="banner border-1px-willow-grove">
+                <div class="overlap-group">
+                    <div class="text-3 segoeui-regular-normal-ebb-38px">
+                        Bienvenidos <br />al curso de ingles <br /> intermedio
                     </div>
                 </div>
-
-                <nav class="main_nav_container">
-                    <li class="main_nav_item"><a href="@Url.Action("Index","Home")">Inicio</a></li>
-                </nav>
-
+                <img class="owlavanzado" src="~/img/owl-intermedio-1@1x.png" />
             </div>
+            <img class="lnea-1" src="~/img/l-nea-1-1@1x.png" />
+            <h2 style="color: #677C78; margin-top: 2%;" class="text-center">Cursos disponibles</h2>
 
-        </header>
 
-        <hr />
+        </div>
+    </div>
 
-        <table class="table table-striped table-bordered table-hover">
-            <thead class="thead-dark">
+    <div style=" width: 86%; margin-left: 7%;">
+
+        <table class="table table-hover">
+            <thead class="table-dark">
                 <tr class="text-center">
                     <th>Nombre</th>
                     <th>Descripción</th>
                     <th>Duración (Meses)</th>
                     <th>Costo</th>
-                    <th>Tipo</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
 
-
             @foreach (var item in Model)
             {
-        <tr class="text-center">
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.duration)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.type)
-            </td>
+                <tr class="text-center">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.duration)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.cost)
+                    </td>
+                    
 
-            <td>
-                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("SchedulesAssignedInd","Admin", new { id = item.course_id })">Ver Horarios</a>
-            </td>
+                    <td>
+                        <a class="btn btn-outline-dark" href="@Url.Action("SchedulesAssignedInd","Admin", new { id = item.course_id })">Ver Horarios</a>
+                    </td>
 
-        </tr>
+                </tr>
             }
 
         </table>
+    </div>
 
 
-    </body>
+</body>
 
 
 </html>

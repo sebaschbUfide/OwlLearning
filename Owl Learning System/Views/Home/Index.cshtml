@@ -1,536 +1,497 @@
-<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-
 <!DOCTYPE html>
-<html lang="en">
+@{
+    Layout = null;
+}
+<html>
 <head>
-
-    <!-- css files -->
-    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
-    <!-- //css files -->
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <link href="~/css/sidebar.css" rel="stylesheet" />
+    <link href="~/css/homeCss/home.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://animaapp.s3.amazonaws.com/launchpad-static/launchpad.js"></script>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+          rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+          rel="stylesheet" />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <style></style>
+    <link href="~/css/styleguide.css" rel="stylesheet" />
+    <link href="~/css/globals.css" rel="stylesheet" />
 </head>
-<body>
-
-    <!-- banner -->
-    <div class="banner" id="home">
-        <div class="layer-top">
-            <div class="align-items-center justify-content-center">
-                <div class="row">
-                    <div class="col-lg-7 banner-text-w3pvt">
-                        <!-- banner slider-->
-                        <div class="csslider infinity" id="slider1">
-                            <input type="radio" name="slides" checked="checked" id="slides_1" />
-                            <input type="radio" name="slides" id="slides_2" />
-                            <input type="radio" name="slides" id="slides_3" />
-                            <ul class="banner_slide_bg">
-                                <li>
-                                    <div class="container-fluid">
-                                        <div class="w3ls_banner_txt">
-                                            <h3 class="b-w3ltxt text-capitalize mt-md-4">&#161;Cursos de ingl&eacute;s&#33;</h3>
-                                            <h4 class="b-w3ltxt text-capitalize mt-md-2">Estudia por un mejor futuro</h4>
-                                            <a href="#about" class="btn btn-banner my-3">Ver M&aacute;s</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="container-fluid">
-                                        <div class="w3ls_banner_txt">
-                                            <h3 class="b-w3ltxt text-capitalize mt-md-4">&#161;Mejora tu ingl&eacute;s&#33;</h3>
-                                            <h4 class="b-w3ltxt text-capitalize mt-md-2">Te presentamos nuestros cursos</h4>
-
-                                            <a href="#about" class="btn btn-banner my-3">Ver M&aacute;s</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="container-fluid">
-                                        <div class="w3ls_banner_txt">
-                                            <h3 class="b-w3ltxt text-capitalize mt-md-4">&#161;No esperes m&aacute;s&#33;</h3>
-                                            <h4 class="b-w3ltxt text-capitalize mt-md-2">Tu oportunidad es hoy</h4>
-                                            <a href="#about" class="btn btn-banner my-3">Ver M&aacute;s</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="navigation">
-                                <div class="align-items-center justify-content-center">
-                                    <label for="slides_1"></label>
-                                    <label for="slides_2"></label>
-                                    <label for="slides_3"></label>
-                                </div>
+<body style="margin: 0; background: #ffffff">
+    <input type="hidden" id="anPageName" name="page" value="home" />
+    <div class="container-center-horizontal">
+        <div class="home screen">
+            <img class="trazado-19-xl4bh6" src="~/img/trazado-19@1x.png" />
+            <div class="grupo-9-xl4bh6">
+                <div class="banner-gH8r1f">
+                    <div class="rectngulo-7-dA1pJV"></div>
+                    <img class="whats-app-image-09-at-115113-am-dA1pJV"
+                         src="~/img/whatsapp-image-2021-10-09-at-11-51-13-am@1x.png" />
+                    <img class="trazado-1-dA1pJV" src="~/img/trazado-1@1x.png" />
+                    <div class="mejora-tu-ingle-un-mejor-futuro-dA1pJV">
+                        &#33;Mejora Tu ingl&eacute;s!<br />con nuestros cursos de ingl&eacute;s<br />vamos por un mejor futuro
+                    </div>
+                </div>
+            </div>
+            <div class="grupo-12-xl4bh6" id="grupo-12">
+                <div class="acerca-oushO9">
+                    <div class="rectngulo-19-VixJG6 border-1px-dove-gray"></div>
+                    <div class="acerca-de-nosotros-VixJG6">Acerca de nosotros</div>
+                    <div class="visioacuten-VixJG6">Visi&oacute;n</div>
+                    <div class="buscamos-ensent-que-se-enfoca-e-VixJG6">
+                        Buscamos ense&ntilde;ar el idioma mediante una plataforma <br />sencilla de utilizar y de accesoa todo
+                        el mundo, con materia<br />audiovisual llamativo y un servicio personalizado de calidad <br />Owl Learning
+                        es una empresa de ense&ntilde;anza de ingles que <br />se enfoca en el servicio personalizado<br />de
+                        la ense&ntilde;anza
+                    </div>
+                    <div class="buscamos-ensent-s-que-se-enfoca-VixJG6">
+                        Buscamos ense&ntilde;ar el idioma mediante una plataforma <br />sencilla de utilizar y de acceso a
+                        todo el mundo, con materia<br />audiovisual llamativo y un servicio personalizado de calidad <br />Owl
+                        Learning es una empresa de ense&ntilde;anza de ingles que <br />se enfoca en el servicio
+                        personalizado<br />de la ense&ntilde;anza
+                    </div>
+                    <div class="misiacuteon-VixJG6">Mis&iacute;on</div>
+                </div>
+            </div>
+            <div class="grupo-11-xl4bh6">
+                <div class="registro-EFNLaX">
+                    <img class="trazado-18-LXqAnD" src="~/img/trazado-18@1x.png" />
+                    <img class="trazado-2-LXqAnD" src="~/img/trazado-2@1x.png" />
+                    <img class="owl-principiante-LXqAnD" src="~/img/owl-principiante@1x.png" />
+                    <h1 style="color: #ffffff; text-align: center; " class="regiacutestrate-matriacutecula-LXqAnD">
+                        Reg&iacute;strate<br />Ahora<br />y obt&eacute;n un 50% de descuento <br />en tu
+                        matr&iacute;cula
+                    </h1>
+                    <a href="@Url.Action("Registration","Account")">
+                        @if (!Request.IsAuthenticated)
+                        {
+                            <div class="button-raised-f-disabled-theme-LXqAnD">
+                                <button class="mdc-button mdc-button--raised" data-id="anima-widget">
+                                    <span class="mdc-button__ripple"></span>
+                                    <i class="material-icons mdc-button__icon" aria-hidden="true">add</i><link href="@Url.Action("Registration","Account")" class="mdc-button__label" />Registarse
+                                </button>
+                                <script>
+                                    mdc.autoInit();
+                                    new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-LXqAnD .mdc-button"));
+                                </script>
                             </div>
-                            <!-- //banner slider-->
+                        }
+
+                    </a>
+                </div>
+            </div>
+            <div class="grupo-13-xl4bh6">
+                <div class="redes-sociales-VDuWKi">
+                    <div class="rectngulo-20-pydT6r border-1px-dove-gray"></div>
+                    <div class="redes-sociales-pydT6r">Redes Sociales</div>
+                    <a href="https://facebook.com"><img class="facebook-pydT6r" src="~/img/facebook@1x.png" /> </a><a href="https://instagram.com"><img class="instagram-pydT6r" src="~/img/instagram@1x.png" /> </a><a href="https://whatsapp.com"><img class="whatsapp-pydT6r" src="~/img/whatsapp@1x.png" /> </a>
+                </div>
+            </div>
+            <div class="grupo-14-xl4bh6">
+                <div class="rectngulo-18-r55cb7 border-1px-willow-grove"></div>
+                <div class="owl-learning-r55cb7">OWL LEARNING</div>
+                <div class="tu-mejor-opcioa-anes-de-estudio-r55cb7">
+                    Tu mejor opci&oacute;n para estudiar ingl&eacute;s con profesores
+                    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificados y planes de estudio
+                </div>
+                <div class="owl-learning-to-chos-reservados-r55cb7">Owl Learning - Todos los derechos reservados</div>
+                <div class="rectngulo-22-r55cb7 border-1px-schist"></div>
+            </div>
+            <div class="grupo-10-xl4bh6" id="grupo-10">
+                <div class="rectngulo-9-8oTEnd border-1px-dove-gray"></div>
+                <div class="nuestros-cursos-8oTEnd">Nuestros Cursos</div>
+                <div class="intermedio-8oTEnd">
+                    <div class="rectngulo-11-mf04sL border-1px-willow-grove"></div>
+                    <img class="owl-intermedio-mf04sL" src="~/img/owl-intermedio@1x.png" />
+                </div>
+                <div class="avanzado-8oTEnd">
+                    <div class="rectngulo-12-UxUrko border-1px-willow-grove"></div>
+                    <img class="owlavanzado-UxUrko" src="~/img/owl-avanzado@1x.png" />
+                </div>
+                <a href="@Url.Action("IndexAvanzado","Courses")">
+                    <div class="button-raised-f-disabled-theme-8oTEnd smart-layers-pointers">
+                        <button class="mdc-button mdc-button--raised" data-id="anima-widget">
+                            <span class="mdc-button__ripple"></span> <span class="mdc-button__label">Avanzado</span>
+                        </button>
+                        <script>
+                            mdc.autoInit();
+                            new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-8oTEnd .mdc-button"));
+                        </script>
+                    </div>
+                </a>
+                <div class="grupo-4-8oTEnd">
+                    <div class="rectngulo-10-Td7SFA border-1px-willow-grove"></div>
+                    <img class="owl-principiante-Td7SFA" src="~/img/owl-principiante-1@1x.png" />
+                    <a href="@Url.Action("IndexPrincipiante","Courses")">
+                        <div class="button-raised-f-disabled-theme-Td7SFA smart-layers-pointers">
+                            <button class="mdc-button mdc-button--raised" data-id="anima-widget">
+                                <span class="mdc-button__ripple"></span> <span class="mdc-button__label">Principiante</span>
+                            </button>
+                            <script>
+                                mdc.autoInit();
+                                new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-Td7SFA .mdc-button"));
+                            </script>
+                        </div>
+                    </a>
+                </div>
+                <a href="@Url.Action("IndexIntermedio","Courses")">
+                    <div class="button-raised-f-disabled-theme-Wir5OC smart-layers-pointers">
+                        <button class="mdc-button mdc-button--raised" data-id="anima-widget">
+                            <span class="mdc-button__ripple"></span> <span class="mdc-button__label">Intermedio</span>
+                        </button>
+                        <script>
+                            mdc.autoInit();
+                            new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-Wir5OC .mdc-button"));
+                        </script>
+                    </div>
+                </a>
+            </div>
+
+
+
+            <div class="grupo-35-xl4bh6">
+
+
+
+                @if (Request.IsAuthenticated)
+                {
+                    <a href="@Url.Action("Salir","Account")">
+                    <div class="button-raised-f-disabled-theme-B9C28C">
+                        <button class="mdc-button mdc-button--raised" data-id="anima-widget">
+                            <span class="mdc-button__ripple"></span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">logout</i><span class="mdc-button__label">Salir</span>
+                        </button>
+                        <script>
+                            mdc.autoInit();
+                            new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-B9C28C .mdc-button"));
+                        </script>
+                    </div>
+                        </a>
+                        
+                    <a href="@Url.Action("Index","UserProfile")">
+                    <img class="outlinepersonwhite48dp-Zo5NGn" src="~/img/outline-person-white-48dp@1x.png" />
+                    </a>
+                }else
+                {
+
+                    <a href="@Url.Action("Login", "Account")">
+                        <div class="button-raised-f-disabled-theme-Zo5NGn">
+                            <button class="mdc-button mdc-button--raised" data-id="anima-widget">
+                                <span class="mdc-button__ripple"></span>
+                                <i class="material-icons mdc-button__icon" aria-hidden="true">login</i><span class="mdc-button__label">Iniciar</span>
+                            </button>
+                            <script>
+                                mdc.autoInit();
+                                new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-Zo5NGn .mdc-button"));
+                            </script>
+                        </div>
+                    </a>
+                    <a href="@Url.Action("Registration", "Account")">
+                        <div class="button-raised-f-disabled-theme-BTtoVQ">
+                            <button class="mdc-button mdc-button--raised" data-id="anima-widget">
+                                <span class="mdc-button__ripple"></span>
+                                <i class="material-icons mdc-button__icon" aria-hidden="true">add</i><span class="mdc-button__label">Registarse</span>
+
+                            </button>
+                            <script>
+                                mdc.autoInit();
+                                new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-BTtoVQ .mdc-button"));
+                            </script>
+                        </div>
+                    </a>
+                };
+
+                @if (Request.IsAuthenticated)
+                {
+
+                   //if (!Session["role"].ToString().Equals("3"))
+                   //{
+
+
+                    <a >
+                        <div class="loyout-Zo5NGn">
+                            <a href="@Url.Action("Index", "Admin")" id="Adminlicnk" onclick="window.event.stopPropagation()">
+                                <div class="administracioacuten-RBTQjz smart-layers-pointers montserrat-normal-white-25px">
+                                    Administraci&oacute;n
+                                </div>
+                            </a>
+                        </div>
+                    </a>
+
+                   //}
+
+
+                }
+                <div class="loyout-BTtoVQ">
+                    <a href="#grupo-10"><div class="cursos-xKYaxx smart-layers-pointers montserrat-normal-white-25px">Cursos</div></a>
+                </div>
+
+                <a href="#grupo-12">
+                    <div class="loyout-B9C28C">
+                        <div class="nosotros-LignAA smart-layers-pointers montserrat-normal-white-25px">Nosotros</div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <div class="container-center-horizontal">
+        <div class="home-responsive screen">
+            <div class="banner-6g9fvD">
+                <div class="rectngulo-7-YvVXtI"></div>
+                <img class="owlavanzado-YvVXtI" src="~/img/owl-avanzado-1@1x.png" />
+                <img class="trazado-1-YvVXtI" src="~/img/trazado-1-1@1x.png" />
+                <div class="mejora-tu-ingle-un-mejor-futuro-YvVXtI">
+                    ¡Mejora Tu ingl&eacute;s!<br />con nuestros cursos de ingl&eacute;s<br />vamos por un mejor futuro
+                </div>
+            </div>
+            <div class="acerca-6g9fvD">
+                <div class="rectngulo-19-7ar8sl border-1px-dove-gray"></div>
+                <div class="acerca-de-nosotros-7ar8sl">Acerca de nosotros</div>
+                <div class="vision-7ar8sl">Vision</div>
+                <div class="buscamos-ensear-n-el-servicio-p-7ar8sl">
+                    Buscamos enseñar el idioma mediante una plataforma <br />sencilla de utilizar y de accesoa todo el mundo,
+                    con materia<br />audiovisual llamativo yun servicio personalizado de calidad <br />Owl Learning es una
+                    empresa de enseñanza de ingles que <br />se enfoca en el servicio personalizado<br />de la enseñanza
+                </div>
+                <div class="buscamos-ensear-n-el-servicio-p-8OcLuU">
+                    Buscamos enseñar el idioma mediante una plataforma <br />sencilla de utilizar y de accesoa todo el mundo,
+                    con materia<br />audiovisual llamativo yun servicio personalizado de calidad <br />Owl Learning es una
+                    empresa de enseñanza de ingles que <br />se enfoca en el servicio personalizado<br />de la enseñanza
+                </div>
+                <div class="mision-7ar8sl">Mision</div>
+            </div>
+            <div class="redes-sociales-6g9fvD">
+                <div class="rectngulo-20-xmsuBn border-1px-dove-gray"></div>
+                <div class="redes-sociales-xmsuBn">Redes Sociales</div>
+                <a href="https://facebook.com"><img class="facebook-xmsuBn" src="~/img/facebook-1@1x.png" /> </a><a href="https://facebook.com"><img class="instagram-xmsuBn" src="~/img/instagram-1@1x.png" /> </a><a href="https://facebook.com"><img class="whatsapp-xmsuBn" src="~/img/whatsapp-1@1x.png" /> </a>
+            </div>
+            <div class="footer-6g9fvD">
+                <div class="rectngulo-18-Mon6Hy border-1px-willow-grove"></div>
+                <div class="rectngulo-22-Mon6Hy border-1px-schist"></div>
+                <div class="owl-learning-Mon6Hy">OWL LEARNING</div>
+                <div class="tu-mejor-opcion-anes-de-estudio-Mon6Hy">
+                    Tu mejor opcion para estudiar ingles con profesores <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificados y
+                    planes de estudio
+                </div>
+                <div class="owl-learning-to-chos-reservados-Mon6Hy">Owl Learning - Todos los derechos reservados</div>
+            </div>
+            <div class="grupo-6-6g9fvD">
+                <div class="grupo-17-xGD0b5">
+                    <div class="cursos-9hxCHx">
+                        <div class="rectngulo-9-GrAs7B border-1px-dove-gray"></div>
+                        <div class="nuestros-cursos-GrAs7B">Nuestros Cursos</div>
+                        <div class="intermedio-GrAs7B">
+                            <img class="trazado-5-nkkZsn" src="~/img/trazado-5@1x.png" />
+                            <img class="owl-intermedio-nkkZsn" src="~/img/owl-intermedio-1@1x.png" />
+                        </div>
+                        <div class="avanzado-GrAs7B">
+                            <div class="rectngulo-12-BM1AYU border-1px-willow-grove"></div>
+                            <img class="owlavanzado-BM1AYU" src="~/img/owl-avanzado-2@1x.png" />
+                        </div>
+                        <div class="principiante-GrAs7B">
+                            <div class="rectngulo-10-wV9pxL border-1px-willow-grove"></div>
+                            <img class="owl-principiante-wV9pxL" src="~/img/owl-principiante-2@1x.png" />
                         </div>
                     </div>
-                    <video autoplay muted width="450" height="450">
-                        <source src="~/images/Logo_Animado_OWL_LEARNING%20(1).mp4" type="video/mp4" />
-                    </video>
+                    <a href="https://a">
+                        <div class="button-raised-f-disabled-theme-9hxCHx smart-layers-pointers">
+                            <button class="mdc-button mdc-button--raised" data-id="anima-widget">
+                                <span class="mdc-button__ripple"></span> <span class="mdc-button__label">Principiante</span>
+                            </button>
+                            <script>
+                                mdc.autoInit();
+                                new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-9hxCHx .mdc-button"));
+                            </script>
+                        </div>
+                    </a><a href="https://a">
+                        <div class="button-raised-f-disabled-theme-nDOACQ smart-layers-pointers">
+                            <button class="mdc-button mdc-button--raised" data-id="anima-widget">
+                                <span class="mdc-button__ripple"></span> <span class="mdc-button__label">Intermedio</span>
+                            </button>
+                            <script>
+                                mdc.autoInit();
+                                new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-nDOACQ .mdc-button"));
+                            </script>
+                        </div>
+                    </a><a href="https://a">
+                        <div class="button-raised-f-disabled-theme-FMuWxj smart-layers-pointers">
+                            <button class="mdc-button mdc-button--raised" data-id="anima-widget">
+                                <span class="mdc-button__ripple"></span> <span class="mdc-button__label">Avanzado</span>
+                            </button>
+                            <script>
+                                mdc.autoInit();
+                                new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-FMuWxj .mdc-button"));
+                            </script>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="grupo-7-6g9fvD">
+                <div class="registro-8clu7T">
+                    <img class="trazado-2-NCMWFx" src="~/img/trazado-2-1@1x.png" />
+                    <div class="regiacutestrate-matriacutecula-NCMWFx">
+                        Reg&iacute;strate<br />Ahora<br />y obt&eacute;n un 50% de descuento <br />en tu
+                        matr&iacute;cula
+                    </div>
+                </div>
+                <div class="button-raised-f-disabled-theme-8clu7T smart-layers-pointers">
+                    <button class="mdc-button mdc-button--raised" data-id="anima-widget">
+                        <span class="mdc-button__ripple"></span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">add</i><span class="mdc-button__label">Registarse</span>
+                    </button>
+                    <script>
+                        mdc.autoInit();
+                        new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-8clu7T .mdc-button"));
+                    </script>
+                </div>
+            </div>
+            <div class="grupo-31-6g9fvD">
+                <div class="loyout-c63Bac">
+                    <div class="rectngulo-1-cOx0xE border-1px-willow-grove"></div>
+                </div>
+                <a href="javascript:ShowOverlay('sidebar', 'animate-appear');">
+                    <img class="outlinemenuwhite48dp-c63Bac" src="~/img/outline-menu-white-48dp@1x.png" />
+                </a>
+            </div>
+            <img class="outlinekeyboar-wupblack48dp-6g9fvD" src="~/img/outline-keyboard-arrow-up-black-48dp@1x.png" />
+        </div>
+    </div>
+
+
+
+
+
+    <div id="overlay-sidebar" class="overlay" style="min-height: 2683px">
+        <div class="container-center-horizontal">
+            <div class="sidebar screen">
+                <div class="grupo-3-CIl6yv">
+                    <img class="trazado-6-kq2NRx" src="~/img/trazado-6@1x.png" />
+                    <div class="iniciar-sesion-kq2NRx">Iniciar sesion</div>
+                    <div class="registrarse-kq2NRx">Registrarse</div>
+                    <div class="administracioacuten-kq2NRx">Administraci&oacute;n</div>
+                </div>
+                <img class="trazado-8-CIl6yv" src="~/img/trazado-8@1x.png" />
+                <div class="rectngulo-9-CIl6yv border-1px-dove-gray"></div>
+                <div class="grupo-30-CIl6yv">
+                    <div class="loyout-uUGC5p">
+                        <div class="rectngulo-1-zaBTD1 border-1px-willow-grove"></div>
+                    </div>
+                    <a href="javascript:HideOverlay('sidebar', 'animate-disappear');">
+                        <img class="outlineclosewhite48dp-uUGC5p" src="~/img/outline-close-white-48dp@1x.png" />
+                    </a>
+                </div>
+                <a href="registrarse.html">
+                    <div class="button-raised-f-disabled-theme-CIl6yv">
+                        
+                            <button class="mdc-button mdc-button--raised" data-id="anima-widget">
+                                <span class="mdc-button__ripple"></span>
+                                <i class="material-icons mdc-button__icon" aria-hidden="true">add</i><span class="mdc-button__label">Registarse</span>
+                            </button>
+                        
+                            <script>
+                                mdc.autoInit();
+                                new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-CIl6yv .mdc-button"));
+                            </script>
+                        </div>
+                </a><a href="loguin.html">
+                    <div class="button-raised-f-disabled-theme-r2TXOb">
+                        <button class="mdc-button mdc-button--raised" data-id="anima-widget">
+                            <span class="mdc-button__ripple"></span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">login</i><span class="mdc-button__label">Iniciar </span>
+                        </button>
+                        <script>
+                            mdc.autoInit();
+                            new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-r2TXOb .mdc-button"));
+                        </script>
+                    </div>
+                </a>
+                <a href="@Url.Action("Salir","Account")">
+                    <div class="grupo-5-CIl6yv">
+                        <div class="elipse-1-Gzdgxh border-1px-dove-gray"></div>
+                        <img class="outlineaccount-rclewhite48dp-Gzdgxh" src="~/img/outline-account-circle-white-48dp@1x.png" />
+                    </div>
+                </a>
+                <div class="button-raised-f-disabled-theme-xExl5C">
+                    <button class="mdc-button mdc-button--raised" data-id="anima-widget">
+                        <span class="mdc-button__ripple"></span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">logout</i><span class="mdc-button__label">Salir</span>
+                    </button>
+                    <script>
+                        mdc.autoInit();
+                        new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-xExl5C .mdc-button"));
+                    </script>
                 </div>
             </div>
         </div>
-        <!-- //banner -->
-        <section class="" id="cursos">
-            <div class="popular page_section">
-                <div class="container">
-                    <div class="align-items-center justify-content-center">
-                        <div class="row">
-                            <div class="col">
-                                <div class="section_title text-center">
-                                    <h1 style="font-family: Cellestial">@ViewBag.test Nuestros Cursos</h1>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row course_boxes">
-
-                            <!-- Popular Course Item -->
-                            <div class="col-lg-4 course_box justify-content-start">
-                                <div class="card">
-                                    <img class="card-img-top" src="~/images/Owl_Principiante.jpeg">
-                                    <div class="price_box d-flex flex-row align-items-center">
-                                        <a href="@Url.Action("IndexPrincipiante","Courses")" class="btn btn-dark course_price d-flex flex-column align-items-center justify-content-center">
-                                            <span>Principiante</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Popular Course Item -->
-                            <div class="col-lg-4 course_box justify-content-start">
-                                <div class="card">
-                                    <img class="card-img-top" src="~/images/Owl_Intermedio.jpeg">
-                                    <div class="price_box d-flex flex-row align-items-center">
-                                        <a href="@Url.Action("IndexIntermedio","Courses")" class="btn btn-dark course_price d-flex flex-column align-items-center justify-content-center">
-                                            <span>Intermedio</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Popular Course Item -->
-                            <div class="col-lg-4 course_box justify-content-start">
-                                <div class="card">
-                                    <img class="card-img-top" src="~/images/Owl_avanzado02.jpeg">
-                                    <div class="price_box d-flex flex-row align-items-center">
-                                        <a href="@Url.Action("IndexAvanzado","Courses")" class="btn btn-dark course_price d-flex flex-column align-items-center justify-content-center">
-                                            <span>Avanzado</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="" id="about">
-            <div class="services page_section">
-
-                <div class="align-items-center justify-content-center">
-                    <div class="row">
-                        <div class="col">
-                            <div class="section_title text-center">
-                                <h1 style="font-family: Cellestial">Acerca de nosotros</h1>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row services_row">
-
-                        <div class="col-lg-6 service_item text-center d-flex flex-column align-items-center justify-content-start">
-                            <div class="icon_container d-flex flex-column justify-content-end">
-                                <img src="images/onlineClass.png" alt="">
-                            </div>
-                            <h1 class="register_title" style="font-family: Cellestial; color:black ">Mision</h1>
-                            <p>
-                                Buscamos ense&ntilde;ar el idioma ingl&eacute;s mediante una plataforma sencilla de utilizar y de acceso a todo el mundo, con material audiovisual llamativo y un servicio personalizado de calidad.
-                                Owl Learning es una empresa de ense&ntilde;anza de ingl&eacute;s que se enfoca en el servicio personalizado de la enseñanza del ingl&eacute;s. Adem&aacute;s, proporcionamos material en nuestra plataforma dise&ntilde;ado por nosotros como apoyo did&aacute;ctico para nuestras lecciones.
-                            </p>
-                        </div>
-
-                        <div class="col-lg-6 service_item text-center d-flex flex-column align-items-center justify-content-start">
-                            <div class="icon_container d-flex flex-column justify-content-end">
-                                <img src="images/diploma.png" alt="">
-                            </div>
-                            <h1 class="register_title" style="font-family: Cellestial; color:black ">Vision</h1>
-                            <p>Proporcionar el servicio de ense&ntilde;anza del ingl&eacute;s de una manera accesible a todo el que lo necesite.</p>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-
-        <!-- //what we Serve -->
-        <!-- services -->
-        <section class="" id="services">
-            <div class="register">
-
-                <div class="container">
-
-                    <div class="">
-
-                        <div class="row">
-                            <div class="social_section d-flex flex-column align-items-center justify-content-center">
-                                <div class="register_content text-center">
-
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="section_title text-center">
-                                                <h1 style="font-family: Cellestial">Redes sociales</h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a style="color: #677c68;" href="https://www.facebook.com/theowllearning"><svg width="80px" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-square" class="svg-inline--fa fa-facebook-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path></svg></a>
-                                    <a style="color: #677c68;" href="https://www.instagram.com/theowllearning"><svg width="80px" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram-square" class="svg-inline--fa fa-instagram-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z"></path></svg></a>
-                                    <a style="color: #677c68;" href="https://api.whatsapp.com/send?phone=50660140605&app=facebook&entry_point=page_cta&fbclid=IwAR3EPf0yl_oS30UKDQQNWkSeA-_UIxdwrsmTgGJIGzjLZHMpqITTPTSV6SQ"><svg width="80px" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="whatsapp-square" class="svg-inline--fa fa-whatsapp-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224 122.8c-72.7 0-131.8 59.1-131.9 131.8 0 24.9 7 49.2 20.2 70.1l3.1 5-13.3 48.6 49.9-13.1 4.8 2.9c20.2 12 43.4 18.4 67.1 18.4h.1c72.6 0 133.3-59.1 133.3-131.8 0-35.2-15.2-68.3-40.1-93.2-25-25-58-38.7-93.2-38.7zm77.5 188.4c-3.3 9.3-19.1 17.7-26.7 18.8-12.6 1.9-22.4.9-47.5-9.9-39.7-17.2-65.7-57.2-67.7-59.8-2-2.6-16.2-21.5-16.2-41s10.2-29.1 13.9-33.1c3.6-4 7.9-5 10.6-5 2.6 0 5.3 0 7.6.1 2.4.1 5.7-.9 8.9 6.8 3.3 7.9 11.2 27.4 12.2 29.4s1.7 4.3.3 6.9c-7.6 15.2-15.7 14.6-11.6 21.6 15.3 26.3 30.6 35.4 53.9 47.1 4 2 6.3 1.7 8.6-1 2.3-2.6 9.9-11.6 12.5-15.5 2.6-4 5.3-3.3 8.9-2 3.6 1.3 23.1 10.9 27.1 12.9s6.6 3 7.6 4.6c.9 1.9.9 9.9-2.4 19.1zM400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM223.9 413.2c-26.6 0-52.7-6.7-75.8-19.3L64 416l22.5-82.2c-13.9-24-21.2-51.3-21.2-79.3C65.4 167.1 136.5 96 223.9 96c42.4 0 82.2 16.5 112.2 46.5 29.9 30 47.9 69.8 47.9 112.2 0 87.4-72.7 158.5-160.1 158.5z"></path></svg></a>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- //what we Serve -->
-        <!-- services -->
-        <section class="" id="register">
-
-            <section class="" id="services">
-
-                <div class="register">
-
-                    <div class="container-lg">
-
-
-
-                        <div class="">
-                            <div>
-
-                                <!-- Register -->
-
-                                <div class="register_section d-flex flex-column align-items-center justify-content-center">
-                                    <div class="register_content text-center">
-                                        <h1 class="register_title" style="font-family: Cellestial; ">Reg&iacute;istrate Ahora</h1><h2 style="font-size: 60px; color: #eae5e0">y obten</h2> <h2>un 50% de descuento en tu matr&iacute;cula</h2>
-                                        <p class="register_text"></p>
-                                        <a href="~/Account/Registration" style="color: #EAD1C5; font-family:Montserrat; font-size:30px">Ir a Registro</a>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="col-lg-6 nopadding">
-
-                                <!-- Search -->
-                                @*<div class="search_section d-flex flex-column align-items-center justify-content-center" >
-                                        <div class="search_background" style="background-image: url('../../images/search_background.jpg');"></div>
-                                        <div class="search_content text-center">
-                                            <h1 class="search_title"><h1 style="font-family: Cellestial; color: #677c68">Busca</h1> <h1 style="color: #677c68">el curso para ti</h1></h1>
-                                            <form id="search_form" class="search_form" action="post">
-                                                <input id="search_form_name" class="input_field search_form_name" type="text" placeholder="Nivel del Curso" required="required" data-error="Course name is required.">
-                                                <input id="search_form_category" class="input_field search_form_category" type="text" placeholder="Horario Deseado">
-                                                <button id="search_submit_button" type="submit" class="search_submit_button trans_200" value="Submit"></button>
-                                            </form>
-                                        </div>
-                                    </div>*@
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="" id="services">
-                <div class="services page_section">
-
-                    <div class="align-items-center justify-content-center">
-                        <div class="row">
-                            <div class="col">
-                                <div class="section_title text-center">
-                                    <h1 style="font-family: Cellestial">Te Ofrecemos</h1>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row services_row">
-
-                            <div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
-                                <div class="icon_container d-flex flex-column justify-content-end">
-                                    <img src="images/onlineClass.png" alt="">
-                                </div>
-                                <h3>Cursos en Linea</h3>
-                                <p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
-                            </div>
-
-                            <div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
-                                <div class="icon_container d-flex flex-column justify-content-end">
-                                    <img src="images/diploma.png" alt="">
-                                </div>
-                                <h3>Diploma de Certificaci&oacute;n</h3>
-                                <p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
-                            </div>
-
-                            <div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
-                                <div class="icon_container d-flex flex-column justify-content-end">
-                                    <img src="images/teacher.png" alt="">
-                                </div>
-                                <h3>Profesores Certificados</h3>
-                                <p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- //services -->
-            <!-- stats section -->
-            <section class="section-stats" id="stats">
-                <div class="py-5">
-                    <div class="align-items-center justify-content-center py-lg-5">
-                        <h3 class="heading mb-sm-5 mb-4">Nuestras Estadisticas</h3>
-                        <div class="row text-center">
-                            <div class="col-lg-3 col-6">
-                                <div class="w3layouts_stats_left w3_counter_grid">
-                                    <div class="stats-icon">
-                                        <span class="fa fa-credit-card"></span>
-                                    </div>
-                                    <p class="counter">2</p>
-                                    <p class="para-text-w3ls">Estudiantes Registrados</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-6">
-                                <div class="w3layouts_stats_left w3_counter_grid2">
-                                    <div class="stats-icon">
-                                        <span class="fa fa-users"></span>
-                                    </div>
-                                    <p class="counter">3</p>
-                                    <p class="para-text-w3ls">Profesores</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-6 mt-lg-0 mt-4">
-                                <div class="w3layouts_stats_left w3_counter_grid1">
-                                    <div class="stats-icon">
-                                        <span class="fa fa-dollar"></span>
-                                    </div>
-                                    <p class="counter">5</p>
-                                    <p class="para-text-w3ls">Cursos</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-6 mt-lg-0 mt-4">
-                                <div class="w3layouts_stats_left w3_counter_grid1">
-                                    <div class="stats-icon">
-                                        <span class="fa fa-users"></span>
-                                    </div>
-                                    <p class="counter">3</p>
-                                    <p class="para-text-w3ls">Nivéles de Aprendizaje</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- //stats section -->
-            <!-- other services -->
-            <section class="other_services py-5" id="">
-                <div class="py-5 ">
-                    <div class="align-items-center justify-content-center py-lg-5">
-                        <h3 class="heading mb-sm-5 mb-4">Con&oacute;cenos</h3>
-                        <div class="container">
-                            <div class="row align-items-center">
-
-                                <div class="col-lg-4 hero_box_col">
-                                    <div class="hero_box d-flex flex-row align-items-center justify-content-start">
-                                        <img src="~/images/reading.png" class="svg" alt="">
-                                        <div class="hero_box_content">
-                                            <h2 class="hero_box_title">Preparate para el Futuro</h2>
-                                            <a href="courses.html" class="hero_box_link">Ver mas</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 hero_box_col">
-                                    <div class="hero_box d-flex flex-row align-items-center justify-content-start">
-                                        <img src="~/images/handshake.png" class="svg" alt="">
-                                        <div class="hero_box_content">
-                                            <h2 class="hero_box_title">Nuestro Compromiso</h2>
-                                            <a href="courses.html" class="hero_box_link">Ver mas</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 hero_box_col">
-                                    <div class="hero_box d-flex flex-row align-items-center justify-content-start">
-                                        <img src="~/images/professor.png" class="svg" alt="">
-                                        <div class="hero_box_content">
-                                            <h2 class="hero_box_title">Nuestros Maestros</h2>
-                                            <a href="teachers.html" class="hero_box_link">Ver mas</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- //other services -->
-            <!-- testimonials -->
-            @*<section class="testimonials" id="testi">
-                    <div class="layer py-lg-5">
-                        <div class="container py-5">
-                            <h3 class="heading mb-5">What Parents Say About Us</h3>
-                            <div class="text-center">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="testi-info-text">
-                                            <h4>Best Education i have ever seen</h4>
-                                            <p>
-                                                <span class="fa fa-quote-left"></span> Vivamus magna justo, lacinia eget consectetur
-                                                sed,
-                                                convallis at tellus. Nulla
-                                                quis lorem ut libero malesuada feugiat.Nulla quis lorem ut libero malesuada
-                                                feugiat.
-                                                Donec rutrum.
-                                                <span class="fa ml-2 fa-quote-right"></span>
-                                            </p>
-                                        </div>
-                                        <div class="testi-pos">
-                                            <img src="images/ts1.jpg" alt="" class="img-fluid rounded-circle mb-3" />
-                                            <h4> John Elisa </h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mt-md-0 mt-5">
-                                        <div class="testi-info-text">
-                                            <h4>Best Education i have ever seen</h4>
-                                            <p>
-                                                <span class="fa fa-quote-left"></span> Vivamus magna justo, lacinia eget consectetur
-                                                sed,
-                                                convallis at tellus. Nulla
-                                                quis lorem ut libero malesuada feugiat.Nulla quis lorem ut libero malesuada
-                                                feugiat.
-                                                Donec rutrum.
-                                                <span class="fa ml-2 fa-quote-right"></span>
-                                            </p>
-                                        </div>
-                                        <div class="testi-pos">
-                                            <img src="images/ts2.jpg" alt="" class="img-fluid rounded-circle mb-3" />
-                                            <h4>Watson Mary</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>*@
-            <!-- //testimonials -->
-            <!-- Team  -->
-            <section class="team pt-5" id="team">
-                <div class="align-items-center justify-content-center py-lg-5">
-                    <h3 class="heading mb-sm-5 mb-4">Nuestros Profesores</h3>
-                    <div class="row">
-                        <div class="team-grid col-md-3 col-sm-6 mb-5">
-                            <img src="images/team1.jpg" class="" alt="" />
-                            <div class="team-info text-center">
-                                <h3 class="e">Ariana Cordero Ruiz</h3>
-                                <span class="">English Teacher</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- //Team -->
-            <!-- subscribe -->
-            @*<section class="subscribe" id="subscribe">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-5 d-flex subscribe-left p-sm-5 py-4">
-                                <div class="image mr-3">
-                                    <img src="images/mail.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="text">
-                                    <h3>Subscribe To Our Newsletter</h3>
-                                </div>
-                            </div>
-                            <div class="col-lg-7 subscribe-right p-sm-5 py-3">
-                                <form action="#" method="post">
-                                    <input type="email" name="email" placeholder="Enter your email here" required="">
-                                    <button class="btn1"><span class="fa fa-paper-plane" aria-hidden="true"></span></button>
-                                </form>
-                                <p>we never share your email with anyone else</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>*@
-            <!-- //subscribe -->
-            <!-- footer -->
-            <footer>
-                <div class="footer-layer py-sm-5 pt-5 pb-3">
-                    <div class="align-items-center justify-content-center py-md-0">
-                        <div class="footer-grid_section text-center">
-                            <div class="footer-title mb-3">
-                                <a href="#"><img src="images/s2.png" alt=""> Owl learning</a>
-                            </div>
-                            <div class="footer-text">
-                                <p style="font-size:large">
-                                    Tu mejor opci&oacute;n para estudiar ingl&eacute;s con profesores certificados y los mejores planes de estudio.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!-- //footer -->
-            <!-- copyright -->
-
-
-            <section class="copyright">
-                <div class="container py-1">
-                    <div class="">
-
-                        <div class="row ">
-
-                            <div class="col-lg-6  text-center d-flex flex-column align-items-center justify-content-start">
-                                <h4 style="color: #677c68 ">OWL LEARNING - TODOS LOS DERECHOS RESERVADOS</h4>
-                            </div>
-
-                            <div class="col-lg-6  text-center d-flex flex-column align-items-center justify-content-start">
-                                <div>
-
-                                    <a style="color: #677c68;" href="https://www.facebook.com/theowllearning"><svg width="20px" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-square" class="svg-inline--fa fa-facebook-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path></svg></a>
-                                    <a style="color: #677c68;" href="https://www.instagram.com/theowllearning"><svg width="20px" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram-square" class="svg-inline--fa fa-instagram-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z"></path></svg></a>
-                                    <a style="color: #677c68;" href="https://api.whatsapp.com/send?phone=50660140605&app=facebook&entry_point=page_cta&fbclid=IwAR3EPf0yl_oS30UKDQQNWkSeA-_UIxdwrsmTgGJIGzjLZHMpqITTPTSV6SQ"><svg width="20px" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="whatsapp-square" class="svg-inline--fa fa-whatsapp-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224 122.8c-72.7 0-131.8 59.1-131.9 131.8 0 24.9 7 49.2 20.2 70.1l3.1 5-13.3 48.6 49.9-13.1 4.8 2.9c20.2 12 43.4 18.4 67.1 18.4h.1c72.6 0 133.3-59.1 133.3-131.8 0-35.2-15.2-68.3-40.1-93.2-25-25-58-38.7-93.2-38.7zm77.5 188.4c-3.3 9.3-19.1 17.7-26.7 18.8-12.6 1.9-22.4.9-47.5-9.9-39.7-17.2-65.7-57.2-67.7-59.8-2-2.6-16.2-21.5-16.2-41s10.2-29.1 13.9-33.1c3.6-4 7.9-5 10.6-5 2.6 0 5.3 0 7.6.1 2.4.1 5.7-.9 8.9 6.8 3.3 7.9 11.2 27.4 12.2 29.4s1.7 4.3.3 6.9c-7.6 15.2-15.7 14.6-11.6 21.6 15.3 26.3 30.6 35.4 53.9 47.1 4 2 6.3 1.7 8.6-1 2.3-2.6 9.9-11.6 12.5-15.5 2.6-4 5.3-3.3 8.9-2 3.6 1.3 23.1 10.9 27.1 12.9s6.6 3 7.6 4.6c.9 1.9.9 9.9-2.4 19.1zM400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM223.9 413.2c-26.6 0-52.7-6.7-75.8-19.3L64 416l22.5-82.2c-13.9-24-21.2-51.3-21.2-79.3C65.4 167.1 136.5 96 223.9 96c42.4 0 82.2 16.5 112.2 46.5 29.9 30 47.9 69.8 47.9 112.2 0 87.4-72.7 158.5-160.1 158.5z"></path></svg></a>
-
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                </div>
-            </section>
-            <!-- //copyright -->
-            <!-- move top -->
-            <div class="move-top text-right">
-                <a href="#home" class="move-top">
-                    <span class="fa fa-angle-up  mb-3" aria-hidden="true"></span>
-                </a>
-            </div>
-            <!-- move top -->
-
     </div>
 
-    
+
+
+
+
+    <script>
+        var overlay_id = "overlay-sidebar";
+        document.getElementById(overlay_id).addEventListener(
+            "click",
+            function (event) {
+                var overlay_id = "overlay-sidebar";
+                var e = event || window.event;
+                var overlayElement = document.getElementById(overlay_id);
+                var overlayContainer = overlayElement.getElementsByClassName("sidebar");
+                var clickedDiv = e.toElement || e.target;
+                var dismissButton = clickedDiv.parentElement.id == overlay_id;
+                var clickOutsideOverlay = false;
+                if (overlayContainer.length > 0) {
+                    clickOutsideOverlay = !overlayContainer[0].contains(clickedDiv) || overlayContainer[0] == clickedDiv;
+                }
+                if (dismissButton || clickOutsideOverlay) {
+                    HideOverlay("sidebar", "animate-disappear");
+                }
+            },
+            false
+        );
+    </script>
+    <script>
+        ShowOverlay = function (overlayName, animationName) {
+            overlayName = "overlay-" + overlayName;
+            var cssClasses = document.getElementById(overlayName).className.split(" ");
+            var last = cssClasses.slice(-1)[0];
+            if (last.lastIndexOf("animate") == -1) {
+                document.getElementById(overlayName).className =
+                    document.getElementById(overlayName).className + " " + animationName;
+            }
+            if (window.loadAsyncSrc != undefined) {
+                loadAsyncSrc();
+            }
+        };
+        HideOverlay = function (overlayName, animationName) {
+            overlayName = "overlay-" + overlayName;
+            var cssClasses = document.getElementById(overlayName).className.split(" ");
+            var last = cssClasses.slice(-1)[0];
+            if (last.lastIndexOf("animate") != -1) {
+                cssClasses.splice(-1);
+                cssClasses.push(animationName);
+                document.getElementById(overlayName).className = cssClasses.join(" ");
+
+                cssClasses.splice(-1);
+                setTimeout(function () {
+                    document.getElementById(overlayName).className = cssClasses.join(" ");
+                }, 1100);
+            }
+            var vids = document.getElementsByTagName("video");
+            if (vids) {
+                for (var i = 0; i < vids.length; i++) {
+                    var video = vids.item(i);
+                    video.pause();
+                }
+            }
+        };
+    </script>
 </body>
 </html>

@@ -8,114 +8,98 @@
 
 <html>
 <head>
-
-    <link href="~/css/bootstrap4/main_styles.css" rel="stylesheet" type="text/css">
-    <link href="~/css/responsive.css" rel="stylesheet" type="text/css">
-    <link href="~/css/style2.css" rel='stylesheet' type='text/css' /><!-- custom css -->
-    <link href="~/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
-
-
-    <link href="~/css/bootstrap4/main_styles.css" rel="stylesheet" type="text/css"> <!-- header css -->
-
-    <title>ValidationCode</title>
-    <meta name="viewport" content="width=device-width" />
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <link href="~/css/ValidationCodeCss/restablecer-contrasena.css" rel="stylesheet" />
+    <link href="~/css/homeCss/home.css" rel="stylesheet" />
+    <link href="~/css/Cruds/crud-general2.css" rel="stylesheet" />
+    <link href="~/css/styleguide.css" rel="stylesheet" />
+    <link href="~/css/globals.css" rel="stylesheet" />
+    <link href="~/css/css-boots/bootstrap.css" rel="stylesheet" />
+    <meta name="author" content="AnimaApp.com - Design to code, Automated." />
 </head>
+
 <body>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
-
-
-    <!-- header -->
-    <header class="header d-flex flex-row">
-
-        <div class="header_content d-flex flex-row align-items-center">
-            <!-- Logo -->
-            <div class="logo_container">
-                <div class="logoA">
-                    <img src="~/images/logo.png" width="140px" />
-                </div>
-            </div>
-
-            <!-- Main Navigation -->
-
-            <nav class="main_nav_container">
-                <div class="main_nav">
-                    <ul class="main_nav_list">
-                        <li class="main_nav_item"><a href="~/Home/index">Inicio</a></li>
-
-                    </ul>
-                </div>
-            </nav>
-
-        </div>
-
-        <div class="header_side d-flex flex-row justify-content-center ">
-            <div>
-                @if (Request.IsAuthenticated)
-                {
-                    <form class="form-inline">
-
-                        <a href="@Url.Action("Salir", "Account")" class="main_nav_item btn btn-outline-danger">Salir</a>
-                    </form>
-                }
-
-                else
-                {
-                    <form class="form-inline">
-                        <div>
-                            <a class="main_nav_item btn btn-outline-light" href="~/Account/Login">Iniciar Sesion</a>
-                        </div>
-                        &nbsp;&nbsp;
-
-                    </form>
-                }
-            </div>
-        </div>
-    </header>
-
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
+        <input type="hidden" id="anPageName" name="page" value="restablecer-contrasena" />
+        <div class="container-center-horizontal">
+            <div class="restablecer-contrasena screen">
+                <div class="caja-enKkQJ">
 
-        <div class="row justify-content-center">
-            <div class="col-md-7 col-lg-5">
-                <div class="login-wrap py-5">
-                    <h3 class="text-center mb-0 py-3">Ingrese su correo electrónico registrado en el sistema</h3>
-                    <form action="#" class="login-form">
+                    <img class="trazado-4-fAYW2n" src="~/img/trazado-4@1x.png" />
+                    <div class="ingrese-su-correo-elctronico-fAYW2n">Ingrese su Correo Electr&oacute;nico</div>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                        <div class="col-lg-auto col-md-8 px-lg-3 px-0">
-                            <div class=" ml-lg-5">
+                    <div class="">
+                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control rectngulo-24-fAYW2n border-1px-willow-grove", @placeholder = "Correo Electrónico" } })
+                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
 
-                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+                    <h3 class="validacion" style="color:red" ;>@ViewBag.Respuesta</h3>
 
-                                <div class="form-group">
-                                    <div class="col-md-10">
-                                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Correo Electrónico" } })
-                                        @Html.ValidationMessageFor(model => model.email, "", new { @style = "color: #EAD1C5" })
-                                    </div>
-                                </div>
+                    <input type="submit" value="Enviar Código" class="rectngulo-25-fAYW2n border-1px-schist" />
+                    <div>
+                    </div>
+                </div>
+                <img class="trazado-16-enKkQJ" src="~/img/trazado-16-2@1x.png" />
+                <img class="trazado-15-enKkQJ" src="~/img/trazado-15-5@1x.png" />
+                <div class="container-center-horizontal">
+                    <div class="crud-general2 screen">
 
-                                <div class="form-group">
-                                    <div class="col-md-offset-2 col-md-6 text-center">
-                                        <input type="submit" value="Enviar Código " class="btn form-control btn-primary rounded submit px-3" />
-                                    </div>
-                                </div>
+                        <div class="grupo-20">
 
-                                <h3 style="color:#EAD1C5" ;>@ViewBag.Respuesta</h3>
+                            <div class="layout segoeui-regular-normal-ebb-22px">
+
+                                <a href="@Url.Action("Index", "Home")">
+                                    <div class="inicio">Inicio</div>
+                                </a>
 
                             </div>
                         </div>
+                    </div>
+                </div>
+                 
+              
+               
+            </div>
+        </div>
 
-
-                    </form>
+        @*
+        <div class=" validacion">
+            <h3 class="" style="color:red" ;>@ViewBag.Respuesta</h3>
+        </div>
+            *@
+        <div class="container-center-horizontal">
+            <div class="restablecer-contrasena-responsive screen">
+                <div class="layout-xkRQEk">
+                    <div class="grupo-29-BMzpqd">
+                        <div class="grupo-28-ujxgDy">
+                            <div class="rectngulo-1-HrHRWD border-1px-willow-grove"></div>
+                        </div>
+                        <div class="inicio-ujxgDy">Inicio</div>
+                    </div>
+                </div>
+                <div class="grupo-16-xkRQEk">
+                    <div class="caja-s7OBer">
+                        <img class="trazado-4-xws5wH" src="~/img/trazado-4-1@1x.png" />
+                        <div class="ingrese-su-correo-elctronico-xws5wH">Ingrese el codigo de verificaci&oacute;n</div>
+                        <div class="rectngulo-24-xws5wH border-1px-willow-grove"></div>
+                        <div class="rectngulo-25-xws5wH border-1px-schist"></div>
+                        <div class="enviar-cdigo-xws5wH">Verificar</div>
+                    </div>
+                    <img class="trazado-16-s7OBer" src="~/img/trazado-16-3@1x.png" />
+                    <img class="trazado-15-s7OBer" src="~/img/trazado-15-5@1x.png" />
                 </div>
             </div>
         </div>
 
-    }
 
+    }
 </body>
 </html>

@@ -1,5 +1,5 @@
 ﻿@model mysqltest.Models.FC_Module
-@Html.Partial("_Crudslayout")
+
 @{
     Layout = null;
 }
@@ -13,7 +13,11 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Asignar Archivo a Módulo</title>
-    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/css/Cruds/crud-general2.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/styleguide.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/globals.css" />
+    <link href="~/css/Pagination.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/css/css-boots/bootstrap.css" />
 
     <link href="~/Scripts/jquery.datetimepicker.min.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-1.12.4.min.js"></script>
@@ -25,22 +29,37 @@
 </head>
 
 
+<body style="margin: 0; background: #ffffff">
+    <input type="hidden" id="anPageName" name="page" value="crud-general2" />
+    <div class="container-center-horizontal">
+        <div class="crud-general2 screen">
 
-<body>
+            <div class="grupo-20">
+
+                <div class="layout segoeui-regular-normal-ebb-22px">
+
+                    <a href="@Url.Action("Index", "Admin")">
+                        <div class="registrarse">Administracion</div>
+                    </a>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-        <div class="container-fluid" style="margin-top: 3%;">
+        <div class="row justify-content-center" style="margin-top: 3%;">
 
 
-            <div class="jumbotron jumbotron-fluid" style="background-color: #667b68;">
+            <div class="col-lg-4 px-lg-3 pt-4 card" style="style= border: 1xp; border-color: #667b68;">
                 <div class="container">
 
                     <div class="form-horizontal">
-                        <h2 style="color: #EAE5E0;">ASIGNAR ARCHIVO A MÓDULO </h2>
+                        <h2 style="color: ;">ASIGNAR ARCHIVO A MÓDULO </h2>
                         <hr />
 
                         <div class="form-group">
@@ -61,10 +80,10 @@
 
 
 
-                        <div class="form-group">
+                        <div class="form-group pb-3">
                             <div class="col-md-offset-2 col-md-10" style="margin-top:5%">
                                 <a style=" margin-left: 2%" class="main_nav_item btn btn-outline-dark" href="@Url.Action("IndexPlus","Module")">Regresar</a>
-                                <input style=" margin-left: 18%" type="submit" value="Asignar" class="btn btn-outline-dark" />
+                                <input style=" margin-left: " type="submit" value="Asignar" class="btn btn-outline-dark" />
                             </div>
                         </div>
                     </div>

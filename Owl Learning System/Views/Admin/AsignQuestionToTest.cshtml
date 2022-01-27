@@ -1,5 +1,5 @@
 ﻿@model mysqltest.Models.question_vt
-@Html.Partial("_Crudslayout")
+
 @{
     Layout = null;
 }
@@ -10,29 +10,43 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Asignar Pregunta a Prueba</title>
-    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
+    <link href="~/css/homeCss/home.css" rel="stylesheet" />
+    <link href="~/css/Cruds/crud-general2.css" rel="stylesheet" />
+    <link href="~/css/styleguide.css" rel="stylesheet" />
+    <link href="~/css/globals.css" rel="stylesheet" />
+    <link href="~/css/css-boots/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
 
+    <div class="container-center-horizontal">
+        <div class="crud-general2 screen">
 
+            <div class="grupo-20">
 
+                <div class="layout segoeui-regular-normal-ebb-22px">
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-        <div class="container-fluid" style="margin-top: 5%;">
+        <div class="row justify-content-center" style="margin-top: 3%;">
 
 
-            <div class="jumbotron jumbotron-fluid" style="background-color: #667b68;">
+            <div class="col-lg-5 px-lg-3 pt-4 card" style="style= border: 1xp; border-color: #667b68;">
                 <div class="container">
 
                     <div class="form-horizontal">
-                        <h2 style="color: #EAE5E0;">Asignar pregunta a prueba</h2>
+                        <h2 style="color: ;">Asignar pregunta a prueba</h2>
                         <hr />
 
                         <div class="form-group">
-                            <h3 class="control-label col-md-2">Prueba</h3>
+                            <h3 class="control-label col-md-auto">Prueba</h3>
                             <div class="col-md-12">
                                 @Html.DropDownListFor(model => model.virtual_test, new SelectList(ViewBag.test, "virtual_test_id", "name"), new { @class = "form-control text-dark" })
                                 @Html.ValidationMessageFor(model => model.virtual_test, "", new { @class = "text-danger" })
@@ -49,7 +63,7 @@
                         else
                         {
                             <div class="form-group">
-                                <h3 class="control-label col-md-2">Pregunta</h3>
+                                <h3 class="control-label col-md-auto">Pregunta</h3>
                                 <div class="col-md-12">
                                     @Html.DropDownListFor(model => model.question, new SelectList(ViewBag.question, "question_id", "question"), new { @class = "form-control text-dark" })
                                     @Html.ValidationMessageFor(model => model.question, "", new { @class = "text-danger" })
@@ -57,12 +71,12 @@
                             </div>
                         }
 
-                        <div class="form-group">
+                        <div class="form-group pb-3">
                             <div class="col-md-offset-2 col-md-10" style="margin-top:5%">
                                 <a style=" margin-left: 2%" class="main_nav_item btn btn-outline-dark" href="@Url.Action("Index","VirtualTest")">Regresar</a>
                                 @if (ViewBag.list == 1)
                                 {
-                                    <input input style=" margin-left: 23%" type="submit" value="Asignar" class="btn btn-outline-dark" />
+                                    <input input style=" margin-left: " type="submit" value="Asignar" class="btn btn-outline-dark" />
                                 }
                             </div>
                         </div>

@@ -1,5 +1,5 @@
 ﻿@model mysqltest.Models.course_assignment
-@Html.Partial("_Crudslayout")
+
 @{
     Layout = null;
 }
@@ -10,27 +10,43 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Asignar Curso a Usuario</title>
-    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
+    <link href="~/css/homeCss/home.css" rel="stylesheet" />
+    <link href="~/css/Cruds/crud-general2.css" rel="stylesheet" />
+    <link href="~/css/styleguide.css" rel="stylesheet" />
+    <link href="~/css/globals.css" rel="stylesheet" />
+    <link href="~/css/css-boots/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
 
+    <div class="container-center-horizontal">
+        <div class="crud-general2 screen">
+
+            <div class="grupo-20">
+
+                <div class="layout segoeui-regular-normal-ebb-22px">
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-        <div class="container-fluid" style="margin-top: 5%;">
+        <div class="row justify-content-center" style="margin-top: 3%;">
 
 
-            <div class="jumbotron jumbotron-fluid" style="background-color: #667b68;">
+            <div class="col-lg-3 px-lg-3 pt-4 card" style="style= border: 1xp; border-color: #667b68;">
                 <div class="container">
 
                     <div class="form-horizontal">
-                        <h2 style="color: #EAE5E0;">Asignar Curso a Profesor</h2>
+                        <h2 style="color: ;">Asignar Curso a Profesor</h2>
                         <hr />
 
                         <div class="form-group">
-                            <h3 class="control-label col-md-2">Profesor</h3>
+                            <h3 class="control-label col-md-auto">Profesor</h3>
                             <div class="col-md-12">
                                 @Html.DropDownListFor(model => model.user_id, new SelectList(ViewBag.user, "user_id", "email"), new { @class = "form-control text-dark" })
                                 @Html.ValidationMessageFor(model => model.user_id, "", new { @class = "text-danger" })
@@ -38,7 +54,7 @@
                         </div>
 
                         <div class="form-group">
-                            <h3 class="control-label col-md-2">Curso</h3>
+                            <h3 class="control-label col-md-auto">Curso</h3>
                             <div class="col-md-12">
                                 @Html.DropDownListFor(model => model.course_id, new SelectList(ViewBag.course, "course_id", "name"), new { @class = "form-control text-dark" })
                                 @Html.ValidationMessageFor(model => model.course_id, "", new { @class = "text-danger" })
@@ -49,9 +65,8 @@
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-12" style="margin-top:5%">
                                 <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("IndexProf","User")">Regresar</a>
-                                <input type="submit" value="Validar Horarios Disponibles" class="btn btn-success" />
-                                <br /><br />
-                                <h4 style="color: #EAD1C5"><b>@ViewBag.error</b></h4>
+                                <input type="submit" value="Validar Horarios Disponibles" class="btn btn-outline-success" />
+                                <h4 class="pt-2 pb-3" style="color: #EAD1C5"><b>@ViewBag.error</b></h4>
                             </div>
                         </div>
                     </div>

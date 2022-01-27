@@ -1,5 +1,4 @@
 ﻿@model mysqltest.Models.users
-@Html.Partial("_registerlayout")
 @{
     Layout = null;
     ViewBag.Title = "Registration";
@@ -9,105 +8,192 @@
 <html>
 <head>
     <!-- css files -->
-    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
-    
-    <!-- //css files -->
-    <!-- google fonts -->
-    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
-    <!-- //google fonts -->
+    <link href="~/css/RegistrationCss/registrarse.css" type="text/css" rel="stylesheet" />
+    <link href="~/css/styleguide.css" type="text/css" rel="stylesheet" />
+    <link href="~/css/globals.css" type="text/css" rel="stylesheet" />
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 </head>
-<body>
+<body style="margin: 0; background: #ffffff">
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
 
-  
+
+
+    <input type="hidden" id="anPageName" name="page" value="registrarse" />
+
+
 
     @using (Html.BeginForm())
     {
 
         @Html.AntiForgeryToken()
 
-        <section class="ftco-section pt-3 mt-3">
-            <div class="container">
 
-                <div class="row justify-content-center">
-                    <div class="col-md-6 col-lg-8">
-                        <div class="login-wrap py-5">
-                            <h3 class="text-center mb-0">Registro</h3>
-                            <h5 class="text-center" style="color: #EAD1C5;">@ViewBag.Error</h5>
-                            <br />
-                            <form action="#" class="login-form">
+        <div class="container-center-horizontal">
+            <div class="registrarse screen">
+                <div class="rectngulo-41-Nkx9BY border-1px-willow-grove"></div>
+                <img class="trazado-3-Nkx9BY" src="~/img/trazado-3@1x.png" />
+                <form action="#" class="login-form">
+                    <div class="grupo-1-Nkx9BY">
 
-                                <div class="col-lg-auto col-md-12 px-lg-3 px-0">
-                                    <div>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
 
-                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.dni, new { htmlAttributes = new { @class = "form-control", @placeholder = "Cédula" } })
-                                                @Html.ValidationMessageFor(model => model.dni, "", new { @style = "color: #EAD1C5" })
-                                            </div>
-                                        </div>
+                            <div class="">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.dni, new { htmlAttributes = new { @class = "rectngulo-34-HC3ojC border-1px-willow-grove", @placeholder = "Cédula", @style = "width: 325px;height:60px; " } })
 
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.first_name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre" } })
-                                                @Html.ValidationMessageFor(model => model.first_name, "", new { @style = "color: #EAD1C5" })
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.last_name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Apellidos" } })
-                                                @Html.ValidationMessageFor(model => model.last_name, "", new { @style = "color: #EAD1C5" })
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.phone_number, new { htmlAttributes = new { @class = "form-control", @placeholder = "Número telefónico" } })
-                                                @Html.ValidationMessageFor(model => model.phone_number, "", new { @style = "color: #EAD1C5" })
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Correo" } })
-                                                @Html.ValidationMessageFor(model => model.email, "", new { @style = "color: #EAD1C5" })
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Contraseña" } })
-                                                @Html.ValidationMessageFor(model => model.password, "", new { @style = "color: #EAD1C5" })
-                                            </div>
-
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="col-md-offset-2 col-md-12 ">
-                                                <input type="submit" value="Registrarse" class="btn form-control btn-primary rounded submit px-3" />
-                                            </div>
-                                        </div>
-
-                                    </div>
                                 </div>
-                            </form>
-                            <div class="w-100 text-center mt-4 text">
-                                <a href="@Url.Action("Login", "Account")" class="">¿Tienes una cuenta? Inicia Sesión</a>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.first_name, new { htmlAttributes = new { @class = "rectngulo-37-HC3ojC border-1px-willow-grove", @placeholder = "Nombre", @style = "width: 325px;height:60px; " } })
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.last_name, new { htmlAttributes = new { @class = "rectngulo-36-HC3ojC border-1px-willow-grove", @placeholder = "Apellido", @style = "width: 325px;height:60px; " } })
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.phone_number, new { htmlAttributes = new { @class = "rectngulo-35-HC3ojC border-1px-willow-grove", @placeholder = "Número telefónico ", @style = "width: 325px;height:60px; " } })
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "rectngulo-38-HC3ojC border-1px-willow-grove", @placeholder = "Correo Electrónico", @style = "width: 325px;height:60px; " } })
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "rectngulo-39-HC3ojC border-1px-willow-grove", @placeholder = "Contraseña", @style = "width: 325px;height:60px; " } })
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+                </form>
+
+
+                <div class="crear-cuenta-Nkx9BY">
+                    Crear cuenta
+                    <h5>@ViewBag.Error</h5>
+                </div>
+
+                <div class="validar-cedula-Nkx9BY">
+                    @Html.ValidationMessageFor(model => model.dni, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="validar-Numertelefono-Nkx9BY">
+                    @Html.ValidationMessageFor(model => model.first_name, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="validar-Apellidos-Nkx9BY">
+                    @Html.ValidationMessageFor(model => model.last_name, "", new { @class = "text-danger" })
+
+                </div>
+
+
+                <div class="validar-Nombre-Nkx9BY">
+                    @Html.ValidationMessageFor(model => model.phone_number, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="validar-correo-Nkx9BY ">
+                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="validar-contraseña-Nkx9BY ">
+                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+
+                </div>
+
+
+
+
+                <img class="logo-png-Nkx9BY" src="~/img/logo-png@1x.png" />
+                <div class="grupo-24-Nkx9BY">
+                    <img class="trazado-17-lCrM5c" src="~/img/trazado-17-3@1x.png" />
+                    <a href="@Url.Action("index","Home")">
+                        <div class="inicio-lCrM5c montserrat-normal-ebb-22px">
+                            <div class="inicio-OCbvnJ smart-layers-pointers montserrat-normal-ebb-22px">Inicio</div>
+
+                        </div>
+                    </a>
+                </div>
+                <div class="button-raised-f-disabled-theme-Nkx9BY">
+                    <a href="@Url.Action("Login", "Account")" class="mdc-button__label">
+                        <button type="button" class="mdc-button mdc-button--raised" data-id="anima-widget">
+                            <span class="mdc-button__ripple"></span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">login</i>Iniciar
+                        </button>
+                    </a>
+                    <script>
+                        mdc.autoInit();
+                        new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-Nkx9BY .mdc-button"));
+                    </script>
+                </div>
+                <div class="button-raised-f-disabled-theme-picLfk">
+                    <button type="submit" class="mdc-button mdc-button--raised" data-id="anima-widget">
+                        <span class="mdc-button__ripple"></span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">add</i><span class="mdc-button__label">Registrarse</span>
+                    </button>
+                    <script>
+                        mdc.autoInit();
+                        new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-picLfk .mdc-button"));
+                    </script>
                 </div>
             </div>
+        </div>
+        <div class="container-center-horizontal">
+            <div class="registrarse-responsive screen">
+                <div class="grupo-10-RZYm7o">
+                    <img class="trazado-14-fgmeNq" src="~/img/trazado-14@1x.png" />
 
-        </section>
+
+                </div>
+                <div class="crear-cuenta-fgmeNq">Crear cuenta</div>
+                <img class="trazado-12-fgmeNq" src="~/img/trazado-12-1@1x.png" />
+                <img class="logo-png-fgmeNq" src="~/img/logo-png-1@1x.png" />
+                <img class="trazado-16-fgmeNq" src="~/img/trazado-16-3@1x.png" />
+                <div class="button-raised-f-disabled-theme-fgmeNq">
+                    <button type="submit" class="mdc-button mdc-button--raised" data-id="anima-widget">
+                        <span class="mdc-button__ripple"></span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">add</i><span class="mdc-button__label">Registarse</span>
+                    </button>
+                    <script>
+                        mdc.autoInit();
+                        new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-fgmeNq .mdc-button"));
+                    </script>
+                </div>
+                <img class="trazado-15-fgmeNq" src="~/img/trazado-15-3@1x.png" />
+
+            </div>
+
+        </div>
+
     }
+
+
+
 </body>
 </html>
