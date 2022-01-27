@@ -36,7 +36,6 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        @Html.HiddenFor(model => model.user_id)
         @Html.HiddenFor(model => model.course_assign_id)
 
         <div class="container-fluid" style="margin-top:5%;">

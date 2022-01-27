@@ -1,5 +1,5 @@
 ﻿@model mysqltest.Models.users
-
+@Html.Partial("_loginlayout")
 @{
 
     Layout = null;
@@ -9,216 +9,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    <link href="~/css/LoguinCss/loguin.css" type="text/css" rel="stylesheet" />
-    <link href="~/css/styleguide.css" type="text/css" rel="stylesheet" />
-    <link href="~/css/globals.css" type="text/css" rel="stylesheet" />
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
-          rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
-          rel="stylesheet" />
+    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
 </head>
-
-
-
-
-<body style="margin: 0; background: #ffffff">
-
+<body>
+   
     @using (Html.BeginForm())
     {
+        <section class="ftco-section pt-5 mt-5">
+            <div class="container">
 
-        @Html.AntiForgeryToken()
-
-
-        <input type="hidden" id="anPageName" name="page" value="loguin" />
-        <div class="container-center-horizontal">
-            <div class="loguin screen">
-                <div class="rectngulo-23-i3hSiC border-1px-willow-grove">
-
-                </div>
-                <div class="iniciar-sesin-i3hSiC">Iniciar sesión</div>
-                <img class="user-i3hSiC" src="~/img/user@1x.png" />
-
-                <div class="rectngulo-24-i3hSiC border-1px-willow-grove">
-                    @Html.EditorFor(model => model.email, new { @class = " ", @placeholder = "Correo", @Style = "" })
-                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
-                </div>
-
-                <div>
-                    @Html.PasswordFor(model => model.password, new { @class = "rectngulo-26-i3hSiC border-1px-willow-grove", @placeholder = "Contraseña" })
-                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
-                </div>
-
-                <img class="padlock-i3hSiC" src="~/img/padlock@1x.png" />
-                <div class="iniciar-i3hSiC">Iniciar</div>
-                <img class="trazado-13-i3hSiC" src="~/img/trazado-13@1x.png" />
-                <img class="logo-png-i3hSiC" src="~/img/logo-png-1@1x.png" />
-                <a href="@Url.Action("ValidationCode","Account")" id="">
-                    <div class="olvidaste-tu-contrasea-i3hSiC">Olvidaste tu contraseña?</div>
-                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "validacion-correo-i3hSiC" })
-                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "validacion-contrasea-i3hSiC" })
-                </a>
-                <div class="grupo-21-i3hSiC"><img class="trazado-17-ngNLxD" src="~/img/trazado-17-3@1x.png" /></div>
-                <div class="button-raised-f-disabled-theme-i3hSiC">
-                    <button class="mdc-button mdc-button--raised" id="loginbutton" data-id="anima-widget">
-                        <span class="mdc-button__ripple"></span>
-                        <i class="material-icons mdc-button__icon" aria-hidden="true">login</i><span class="mdc-button__label">Iniciar</span>
-                    </button>
-                    <script>
-                        mdc.autoInit();
-                        new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-i3hSiC .mdc-button"));
-                    </script>
-                </div>
-                <a class="">
-                    <div class="button-raised-f-disabled-theme-L5xAjy">
-                        <a href="@Url.Action("Registration","Account")" class="mdc-button mdc-button--raised" data-id="anima-widget">
-                            <span class="mdc-button__ripple"></span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">add</i><span class="mdc-button__label">Registarse</span>
-                        </a>
-                        <script>
-                            mdc.autoInit();
-                            new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-L5xAjy .mdc-button"));
-                        </script>
-                    </div>
-
-                </a>
-                    
-                
-                <a href="@Url.Action("Index", "Home")">
-                    <div class="inicio-i3hSiC montserrat-normal-ebb-22px">Inicio</div>
-                </a>
-            </div>
-        </div>
-        <div class="container-center-horizontal">
-            <div class="loguin-responsive screen">
-                <div class="grupo-9-0TzOa9">
-                    <div class="grupo-22-DMx85U">
-                        <div class="rectngulo-1-Bcolrb border-1px-willow-grove"></div>
-                        <a href="@Url.Action("index", "Home")">
-                            <div class="inicio-Bcolrb smart-layers-pointers montserrat-normal-ebb-22px">Inicio</div>
-                        </a>
-                        <div class="button-raised-f-disabled-theme-Bcolrb">
-                            <a href="@Url.Action("Registration","Account")">
-                                <button class="mdc-button mdc-button--raised" data-id="anima-widget">
-                                    <span class="mdc-button__ripple"></span>
-                                    <i class="material-icons mdc-button__icon" aria-hidden="true">add</i><span class="mdc-button__label">Registarse</span>
-                                </button>
-
-                                <script>
-                                    mdc.autoInit();
-                                    new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-Bcolrb .mdc-button"));
-                                </script>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="grupo-8-0TzOa9">
-                    <div class="rectngulo-23-5IEdD5 border-1px-willow-grove"></div>
-                    <div class="iniciar-sesin-5IEdD5">Iniciar sesión</div>
-                    <img class="user-5IEdD5" src="~/img/user-1@1x.png" />
-                    <div class="">
-                        @Html.TextBoxFor(model => model.email, new { @class = "form-control rectngulo-24-5IEdD5 border-1px-willow-grove", placeholder = "Correo", })
-                        
-                    </div>
-                    <div class="">
-                        @Html.PasswordFor(model => model.password, new { @class = "rectngulo-26-5IEdD5 border-1px-willow-grove", placeholder = "Contraseña", })
-                        
-                    </div>
-                    <img class="padlock-5IEdD5" src="~/img/padlock-1@1x.png" />
-                    <img class="trazado-12-5IEdD5" src="~/img/trazado-12@1x.png" />
-                    <img class="logo-png-5IEdD5" src="~/img/logo-png-3@1x.png" />
-                    <div class="olvidaste-tu-contrasea-5IEdD5">Olvidaste tu contraseña?</div>
-                    <img class="trazado-16-5IEdD5" src="~/img/trazado-16-2@1x.png" />
-                    <img class="trazado-15-5IEdD5" src="~/img/trazado-15-2@1x.png" />
-                    <div class="button-raised-f-disabled-theme-5IEdD5">
-                        <a href="@Url.Action("Index","Home")"></a>
-                        <button type="submit" class="mdc-button mdc-button--raised" data-id="anima-widget">
-                            <span class="mdc-button__ripple"></span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">login</i><span class="mdc-button__label">Iniciar</span>
-                        </button>
-                        <script>
-                            mdc.autoInit();
-                            new mdc.ripple.MDCRipple(document.querySelector(".button-raised-f-disabled-theme-5IEdD5 .mdc-button"));
-                        </script>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
-</body>
+                <div class="row justify-content-center" ;">
+                    <div class="col-md-6 col-lg-5">
+                        <div class="login-wrap py-5">
+                            <h3 class="text-center mb-0">Inicio de Sesión</h3>
+                            <p class="text-center">Inicie sesión ingresando la información a continuación</p>
 
 
+                            <form action="#" class="login-form">
 
-
-
-@*<section class="ftco-section pt-5 mt-5">
-        <div class="container">
-
-            <div class="row justify-content-center" ;">
-                <div class="col-md-6 col-lg-5">
-                    <div class="login-wrap py-5">
-                        <h3 class="text-center mb-0">Inicio de sesion</h3>
-                        <p class="text-center">Inicie sesión ingresando la información a continuación</p>
-                        <form action="#" class="login-form">
-
-                            <div class="col-lg-auto col-md-8 px-lg-3 px-0">
-                                <div class=" ml-lg-5">
-                                    <div class="form-group">
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.email, new {  @class = "form-control", @placeholder = "Correo"  })
-                                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                <div class="col-lg-auto col-md-8 px-lg-3 px-0">
+                                    <div class=" ml-lg-5">
+                                        <div class="form-group">
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Correo" } })
+                                                @Html.ValidationMessageFor(model => model.email, "", new { @style = "color: #EAD1C5" })
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-10">
-                                            @Html.PasswordFor(model => model.password, new { @class = "form-control", placeholder = "Contraseña" })
-                                            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                        <div class="form-group">
+                                            <div class="col-md-10">
+                                                @Html.PasswordFor(model => model.password, new { @class = "form-control", placeholder = "Contraseña" })
+                                                @Html.ValidationMessageFor(model => model.password, "", new { @style = "color: #EAD1C5" })
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group error">
-                                        @if (@ViewBag.Failedcount != null)
-                                        {
-                                            <label> Failed Attempt count is: @ViewBag.Failedcount</label>
-                                        }
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
 
-                                        @if (@ViewBag.NotValidUser != null)
-                                        {
-
-                                            <label> @ViewBag.NotValidUser</label>
-                                        }
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-offset-2 col-md-10">
-
-                                            <input type="submit" value="Login" class="btn form-control btn-primary rounded submit px-3" />
-
+                                                <input type="submit" value="Iniciar Sesión" class="btn form-control btn-primary rounded submit px-3" />
+                                                <a href="~/Account/ValidationCode" class="align-content-center">¿Olvidó su contraseña?</a>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="col-md-auto">
-                                        <a href="~/Account/ValidationCode" class="">¿Olvidó su contraseña?</a>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
 
+                            </form>
+                            <br />
+                            <h5 class="text-center" style="color: #EAD1C5;">@ViewBag.Error</h5>
+                        </div>
+                        
                     </div>
+                    
                 </div>
             </div>
-        </div>
-    </section>*@
-
-
-
-
-</html>
-<style type="text/css">
-
-
-    input#email {
-        width: 325px;
-        height: 29px;
-        border: none;
+        </section>
     }
-</style>
+
+
+</body>
+</html>

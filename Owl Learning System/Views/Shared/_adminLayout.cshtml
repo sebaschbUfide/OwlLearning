@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <title>OWL LEARNING</title>
+    <title>Admin</title>
     <!-- for-mobile-apps -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -22,7 +22,7 @@
     <!-- Script files -->
     <!-- //Script files -->
     <!-- css files -->
-    <link href="~/css/css_slider.css" type="text/css" rel="stylesheet" media="all">
+    <link href="~/css/index Admin/IndexCss.css" rel="stylesheet" />
     <link href="~/css/style2.css" rel='stylesheet' type='text/css' /><!-- custom css -->
     <link href="~/css/style.css" rel='stylesheet' type='text/css' /><!-- custom css -->
     <link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
@@ -40,23 +40,15 @@
     <div class="">
         <nav class="">
             <!-- Logo -->
-            <div class="logo"
-                <a href="@Url.Action("Index", "Home")"> <img src="~/images/logo.png" width="150" /> </a>
+            <div> class="logo"
+                <a href="@Url.Action("Index", "Home")"> <img src="~/images/logo.png" width="15%" /> </a>
             </div>
             <!--//Logo -->
             <!-- Main Navigation -->
-            <ul class=" nav-links mr-12 pr-12">
-                <li class="main_nav_item "><a href="#about">Acerca de Nosotros</a></li>
-                <li class="main_nav_item "><a href="#cursos">Cursos</a></li>
-
-
-                @if (Request.IsAuthenticated)
-                {
-                    if (!Session["role"].ToString().Equals("3"))
-                    {
-                       <li class="main_nav_item"><a href="@Url.Action("Index", "Admin")">Administración</a></li>
-                    }
-                }
+            <ul class="nav-links mr-5 pr-5">
+                <li class="main_nav_item"><a href="@Url.Action("Create","Courses")">Crear Curso</a></li>
+                <li class="main_nav_item"><a href="@Url.Action("Create","Schedule")">Crear Horario</a></li>
+                <li class="main_nav_item"><a href="@Url.Action("Create","VirtualTest")">Crear Curso</a></li>
             </ul>
             <!--//Main Navigation -->
             <!-- Menu hamburguesa -->
@@ -72,24 +64,15 @@
 
                     @if (Request.IsAuthenticated)
                     {
-                        <div class="row">
-                            <div class="col">
-                                <form class=" text-center d-flex flex-column align-items-center justify-content-center">
-                                    <div>
-                                        <a href="@Url.Action("Index","UserProfile")" class="main_nav_item btn btn-outline-light">
-                                            @Html.ViewContext.HttpContext.User.Identity.Name
-                                        </a>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="col">
-                                <form class="  text-center d-flex flex-column align-items-end justify-content-end">
-                                    <div>
-                                        <a href="@Url.Action("Salir", "Account")" class="main_nav_item btn btn-danger">Salir</a>
-                                    </div>
-                                </form>
-                            </div>
+
+                        <div class="col">
+                            <form class=" text-center d-flex flex-column align-items-center justify-content-center">
+                                <div>
+                                    <a href="@Url.Action("Salir", "Account")" class="main_nav_item btn btn-danger">Salir</a>
+                                </div>
+                            </form>
                         </div>
+
                         <!--//perfil / salir -->
                     }
 
@@ -100,7 +83,7 @@
 
                             <form class=" text-center d-flex flex-column align-items-center justify-content-center">
                                 <div>
-                                    <a class="nav-link btn btn-outline-light" href="@Url.Action("Login", "Account")">Iniciar Sesión</a>
+                                    <a class="nav-link btn btn-outline-light" href="@Url.Action("Login", "Account")">IniciarSesion</a>
                                 </div>
                             </form>
 
@@ -115,14 +98,13 @@
                         </div>
                     }
                     <!-- //login / register -->
+
                 </div>
             </div>
         </nav>
     </div>
-    @RenderBody()
-    <!-- Script files -->
-    <script src="~/Js/navResponsive.js"></script>
-    <!-- //Script files -->
+
+
 </body>
 
 </html>

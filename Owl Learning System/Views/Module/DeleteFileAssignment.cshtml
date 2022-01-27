@@ -10,25 +10,36 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Eliminar Asignación de Archivo</title>
-    <link href="~/css/homeCss/home.css" rel="stylesheet" />
-    <link href="~/css/Cruds/crud-general2.css" rel="stylesheet" />
-    <link href="~/css/styleguide.css" rel="stylesheet" />
-    <link href="~/css/globals.css" rel="stylesheet" />
-    <link href="~/css/css-boots/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+    <link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+    <link href="~/css/bootstrap4/main_styles.css" rel="stylesheet" type="text/css">
 </head>
 <body style="background-color: #ffffff;">
 
     <!-- header -->
-    <div class="container-center-horizontal">
-        <div class="crud-general2 screen">
+    <header class="header d-flex flex-row">
 
-            <div class="grupo-20">
-
-                <div class="layout segoeui-regular-normal-ebb-22px">
-
+        <div class="header_content d-flex flex-row align-items-center">
+            <!-- Logo -->
+            <div class="logo_container">
+                <div class="logoA">
+                    <img src="~/images/logo.png" width="140px" />
+                </div>
             </div>
+            <nav class="main_nav_container">
+                <div class="main_nav">
+                    <ul class="main_nav_list">
+                        <li class="main_nav_item"><a href="@Url.Action("IndexPlus","Module")">Modulo</a></li>
+
+                    </ul>
+                </div>
+            </nav>
         </div>
-    </div>
+
+    </header>
 
     @using (Html.BeginForm())
     {
@@ -37,18 +48,18 @@
 
         <div class="form-actions no-color">
 
-            <div class="row justify-content-center" style="margin-top: 3%;">
+            <div class="container-fluid" style="margin-top: 3%;">
 
 
-                <div class="col-lg-8 px-lg-3 pt-4 card" style=" border: ; border-color: #667b68;">
+                <div class="jumbotron" style="background-color: #667b68;">
                     <div class="container">
 
                         <div class="form-horizontal">
-                            <h2 style="color: ;">Eliminar asignacion prueba-modulo</h2>
+                            <h2 style="color: #EAE5E0;">Eliminar asignacion prueba-modulo</h2>
                         </div>
                         <hr />
 
-                        <table class="table table-striped table-bordered " style="background-color: #D2DCCD;  margin-top: 4% ">
+                        <table class="table table-striped table-bordered" style="background-color: #EAE5E0; width: 100%;  margin-top:4%">
                             <thead class="thead-light">
                                 <tr class="text-center">
                                     <th>Módulo</th>
@@ -65,9 +76,9 @@
                             </tr>
 
                         </table>
-                        <div class="form-group pb-3">
+                        <div class="form-group">
                             <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("FileAssignInd","Module", new { id = ViewBag.fileid})">Regresar</a>
-                            <input type="submit" value="Eliminar" class="btn btn-outline-danger" />
+                            <input type="submit" value="Eliminar" class="btn btn-danger" />
                         </div>
 
                     </div>

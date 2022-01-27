@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<mysqltest.Models.questions>
-
+@Html.Partial("_Crudslayout")
 @{
     Layout = null;
 }
@@ -9,48 +9,31 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Prueba</title>
-    <link rel="stylesheet" type="text/css" href="~/css/Cruds/crud-general2.css" />
-    <link rel="stylesheet" type="text/css" href="~/css/styleguide.css" />
-    <link rel="stylesheet" type="text/css" href="~/css/globals.css" />
-    <link href="~/css/Pagination.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="~/css/css-boots/bootstrap.css" />
+    <title>Cursos</title>
+    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
 
 </head>
-<body style="margin: 0; background: #ffffff">
-    <input type="hidden" id="anPageName" name="page" value="crud-general2" />
-    <div class="container-center-horizontal">
-        <div class="crud-general2 screen">
-
-            <div class="grupo-20">
-
-            </div>
-        </div>
-    </div>
+<body>
 
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-        <h2 style="color: #677C78; margin-top: 2%;" class="text-center">Prueba virtual</h2>
+        <div class="container-fluid" style="margin-top:5%;">
 
-        <div class="container-fluid" style="margin:2%;">
+            <nav class="navbar  navbar-light bg-light" style="margin-right:2.5%; margin-left:2.5%;">
+                <a class="main_nav_item btn btn-success" href="@Url.Action("CheckVirtualTest", "Admin", new { user = ViewBag.user, vt= ViewBag.vt})">Terminar Intento</a>
+                <h3 style="color: #677C78">Total de Preguntas: @ViewBag.qty_q</h3>
+            </nav>
 
-            <a class="btn btn-outline-dark" href="@Url.Action("CheckVirtualTest", "Admin", new { user = ViewBag.user, vt= ViewBag.vt})">Terminar Intento</a>
-            <span>Total de Preguntas:<b> @ViewBag.qty_q</b> </span>
-
-        </div>
-
-        <div style=" width: 95%; margin-left: 3%;">
-
-            <table class="table table-hover">
+            <table class="table table-striped table-bordered table-hove">
 
 
                 @if (ViewBag.check == 1)
                 {
 
 
-                    <thead class="table-dark">
+                    <thead class="thead-dark">
                         <tr class="text-center">
                             <th>Pregunta</th>
                             <th>Respuesta Seleccionada</th>
@@ -99,11 +82,10 @@
                 }
 
             </table>
-       
 
 
-            </div>
-            }
+        </div>
+    }
 </body>
 
 </html>

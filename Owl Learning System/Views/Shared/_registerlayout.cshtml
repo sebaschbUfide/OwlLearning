@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Register</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" />
+
+    <!-- Script -->
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Script -->
+    <!-- Script files -->
+    <!-- //Script files -->
+    <!-- css files -->
+    <link href="~/css/bootstrap4/main_styles.css" rel="stylesheet" type="text/css">
+    <link href="~/css/responsive.css" rel="stylesheet" type="text/css">
+    <link href="~/css/style2.css" rel='stylesheet' type='text/css' /><!-- custom css -->
+    <link href="~/css/style.css" rel='stylesheet' type='text/css' /><!-- custom css -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+    <link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width" />
+    <!-- //css files -->
+    <!-- //css files -->
+    <!-- google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+    <!-- //google fonts -->
+</head>
+<body>
+    <div class="">
+        <nav class="">
+            <!-- Logo -->
+            <div class="logo"
+                <a href="@Url.Action("Index", "Home")"> <img src="~/images/logo.png" /> </a>
+            </div>
+            <!--//Logo -->
+            <!-- Main Navigation -->
+            <ul class="nav-links ">
+                <li class="main_nav_item"><a href="@Url.Action("index", "Home")">Inicio</a></li>
+            </ul>
+            <!--//Main Navigation -->
+            <!-- Menu hamburguesa -->
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <!--//Menu hamburguesa -->
+            <!-- perfil y salir-->
+            <div class="ml-5 pl-3 justify-content-end">
+                <div class="row main_nav py-3">
+
+                    <!-- //register -->
+
+                    <div class="col-1">
+
+                        <form class=" text-center d-flex flex-column align-items-center justify-content-center">
+
+                            <a class="nav-link btn btn-outline-light" href="@Url.Action("Login", "Account")">Iniciar Sesión</a>
+
+                        </form>
+                    </div>
+
+                    <!-- //register -->
+
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+</body>
+
+</html>

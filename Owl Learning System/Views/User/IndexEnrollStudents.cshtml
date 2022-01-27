@@ -5,7 +5,7 @@
 @using PagedList.Mvc;
 @model PagedList.IPagedList<course_assignment>
 
-
+@Html.Partial("_UsuariosLayout")
 @{
 
     Layout = null;
@@ -17,42 +17,29 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Usuarios Estudiantes</title>
-    <link rel="stylesheet" type="text/css" href="~/css/Cruds/crud-general2.css" />
-    <link rel="stylesheet" type="text/css" href="~/css/styleguide.css" />
-    <link rel="stylesheet" type="text/css" href="~/css/globals.css" />
+    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
     <link href="~/css/Pagination.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="~/css/css-boots/bootstrap.css" />
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    *@
 </head>
-<body style="margin: 0; background: #ffffff">
-    <input type="hidden" id="anPageName" name="page" value="crud-general2" />
-    <div class="container-center-horizontal">
-        <div class="crud-general2 screen">
+<body>
 
-            <div class="grupo-20">
-
-                <div class="layout segoeui-regular-normal-ebb-22px">
-
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container-fluid" style="margin-top:5%;">
 
-        <h2 style="color: #677C78; margin-top: 3%;" class="text-center">ADMINISTRACIÓN DE ESTUDIANTES MATRICULADOS</h2>
+        <h2 style="color: #677C78;" " class="text-center">ADMINISTRACIÓN DE ESTUDIANTES MATRICULADOS</h2>
 
         <div class="row g-0" style="margin-top:2%; margin-left:1%;">
 
             <div class="col-md-9">
-                <a class="main_nav_item btn  btn-outline-dark" href="@Url.Action("Index","Admin")">Volver atrás</a>
-                <a class="main_nav_item btn  btn-outline-dark" href="@Url.Action("PreEnrolledStudents","Admin")">Estudiantes Prematriculados</a>
+                <a class="main_nav_item btn btn-outline-warning" href="@Url.Action("Index","Admin")">Volver atrás</a>
+                <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("PreEnrolledStudents","Admin")">Estudiantes Prematriculados</a>
             </div>
 
             <div class="col-md-3">
 
-
-                <form class="form-inline my-2 my-lg-0 " style="margin: 10%; padding: 5%;">
+                <form class="form-inline my-2 my-lg-0 " style="margin-right: 0%">
                     <input class="form-control mr-sm-2 text-dark" type="text" id="search" placeholder="Buscar" onkeyup="myFunction()">
-
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#667b68" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                 </form>
             </div>
 
@@ -105,7 +92,7 @@
                             @Html.DisplayFor(modelItem => item.users.last_name), @Html.DisplayFor(modelItem => item.users.first_name)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.users.email) | @Html.DisplayFor(modelItem => item.users.phone_number)
+                            @Html.DisplayFor(modelItem => item.users.email) / @Html.DisplayFor(modelItem => item.users.phone_number)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.courses.name)

@@ -1,5 +1,5 @@
 ﻿@model mysqltest.Models.module_vt
-
+@Html.Partial("_Crudslayout")
 @{
     Layout = null;
 }
@@ -10,11 +10,11 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Editar Asignación de Prueba</title>
-    <link href="~/css/homeCss/home.css" rel="stylesheet" />
-    <link href="~/css/Cruds/crud-general2.css" rel="stylesheet" />
-    <link href="~/css/styleguide.css" rel="stylesheet" />
-    <link href="~/css/globals.css" rel="stylesheet" />
-    <link href="~/css/css-boots/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
+
+
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <link href="~/Scripts/jquery.datetimepicker.min.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-1.12.4.min.js"></script>
@@ -25,31 +25,37 @@
 
 </head>
 <body>
-    <div class="container-center-horizontal">
-        <div class="crud-general2 screen">
-
-            <div class="grupo-20">
-
-                <div class="layout segoeui-regular-normal-ebb-22px">
-
-                    
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- header -->
 
+    <header class="header d-flex flex-row">
+
+        <div class="header_content d-flex flex-row align-items-center">
+            <!-- Logo -->
+            <div class="logo_container">
+                <div class="logoA">
+                    <img src="~/images/logo.png" width="140px" />
+                </div>
+            </div>
+            <nav class="main_nav_container">
+                <div class="main_nav">
+
+
+                </div>
+            </nav>
+        </div>
+
+    </header>
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-        <div class="row justify-content-center" style="margin-top: 3%;">
+        <div class="container-fluid" style="margin-top: 3%;">
 
-            <div class="col-lg-4 px-lg-3 pt-4 card" style="style= border: 1xp; border-color: #667b68;">
+            <div class="jumbotron jumbotron-fluid" style="background-color: #667b68;">
                 <div class="container">
 
                     <div class="form-horizontal">
-                        <h2 style="color: ;">Editar Asignación de Prueba</h2>
+                        <h2 style="color: #EAE5E0;">Editar Asignación de Prueba</h2>
                         <p style="color: #EAD1C5;">@ViewBag.Error</p>
                         <hr />
 
@@ -122,10 +128,10 @@
                         </div>
 
                         <div>
-                            <div class="form-group pb-3">
+                            <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10" style="margin-top:7%">
                                     <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("TestsAssignedInd","Admin", new {id = Model.module})">Regresar</a>
-                                    <input style=" margin-left: " type="submit" value="Editar" class="btn btn-outline-dark" />
+                                    <input style=" margin-left: 25%" type="submit" value="Editar" class="btn btn-outline-dark" />
                                 </div>
                             </div>
                         </div>

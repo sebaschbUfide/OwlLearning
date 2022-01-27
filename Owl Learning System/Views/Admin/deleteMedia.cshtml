@@ -1,5 +1,5 @@
 ﻿@model mysqltest.Models.multimedia
-
+@Html.Partial("_Crudslayout")
 @{
     Layout = null;
 }
@@ -10,26 +10,10 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Eliminar Asignación de Pregunta</title>
-    <link href="~/css/homeCss/home.css" rel="stylesheet" />
-    <link href="~/css/Cruds/crud-general2.css" rel="stylesheet" />
-    <link href="~/css/styleguide.css" rel="stylesheet" />
-    <link href="~/css/globals.css" rel="stylesheet" />
-    <link href="~/css/css-boots/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
 </head>
 <body style="background-color: #ffffff;">
 
-    <div class="container-center-horizontal">
-        <div class="crud-general2 screen">
-
-            <div class="grupo-20">
-
-                <div class="layout segoeui-regular-normal-ebb-22px">
-
-                 
-                </div>
-            </div>
-        </div>
-    </div>
 
     @using (Html.BeginForm())
     {
@@ -38,20 +22,20 @@
 
         <div class="form-actions no-color">
 
-            <div class="row justify-content-center" style="margin-top: 3%;">
+            <div class="container-fluid" style="margin-top: 3%;">
 
 
-                <div class="col-lg-7 px-lg-3 pt-4 card" style="style= border: 1xp; border-color: #667b68;">
+                <div class="jumbotron jumbotron-fluid" style="background-color: #667b68;">
                     <div class="container">
 
                         <div class="form-horizontal">
-                            <h2 style="color: ;">Editar Estado de Recurso Multimedia</h2>
+                            <h2 style="color: #EAE5E0;">Editar Estado de Recurso Multimedia</h2>
                         </div>
 
 
                         <hr />
 
-                        <table class="table table-striped table-bordered" style="background-color: #D2DCCD;">
+                        <table class="table table-striped table-bordered" style="background-color: #EAE5E0;">
                             <thead class="thead-light">
                                 <tr class="text-center">
                                     <th>Decripción</th>
@@ -78,17 +62,17 @@
 
                         </table>
 
-                        <div class="form-group pb-5">
+                        <div class="form-group">
                             <h5 class="control-label col-md-2">Estado</h5>
-                            <div class="col-md-1">
+                            <div class="col-md-10">
                                 @Html.DropDownListFor(model => model.Estado, new SelectList(ViewBag.status2), new { @class = "form-control text-dark" })
                                 @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
-                        <div class="form-group pb-3">
+                        <div class="form-group">
                             <a class="main_nav_item btn btn-outline-dark" href="@Url.Action("CheckMedia","Admin")">Regresar</a>
-                            <input type="submit" value="Editar" class="btn btn-outline-dark" />
+                            <input type="submit" value="Editar" class="btn btn-danger" />
                         </div>
 
 

@@ -50,8 +50,6 @@
 
 
 
-
-
         <thead class="thead-dark">
             <tr class="text-center">
                 <th>Módulo</th>
@@ -60,8 +58,6 @@
                 <th>Evaluaciones Disponibles</th>
             </tr>
         </thead>
-
-
 
         @if (ViewBag.check == 1)
         {
@@ -75,18 +71,14 @@
                         <a class="btn btn-outline-dark " href="@Url.Action("CheckMediaModule", "Admin", new { id = item.module_id, idc = @ViewBag.course })">Ver Multimedia</a>
                     </td>
                     <td>
-                        <a class="btn btn-outline-dark " href="@Url.Action("FileListModule", "Admin", new { id = item.module_id, idc = ViewBag.course })">Ver Archivos</a>
+                        <a class="btn btn-outline-dark " href="@Url.Action("FileListModule", "Admin", new { id = item.module_id, idc =  ViewBag.course })">Ver Archivos</a>
                     </td>
                     <td>
-                        <a class="btn btn-outline-dark " href="@Url.Action("TestsAssignedInd", "Admin", new { id = item.module_id, idc = ViewBag.course })">Ver Evaluaciones</a>
+                        <a class="btn btn-outline-dark " href="@Url.Action("TestsAssignedInd", "Admin", new { id = item.module_id, idc =  ViewBag.course })">Ver Evaluaciones</a>
                     </td>
-
-
 
                 </tr>
             }
-
-
 
         }
         else
@@ -98,9 +90,8 @@
             </tr>
         }
 
-
-
     </table>
+
 
 </body>
 

@@ -1,5 +1,5 @@
 ﻿@model mysqltest.Models.course_schedule
-
+@Html.Partial("_Crudslayout")
 @{
     Layout = null;
 }
@@ -10,43 +10,28 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Asignar Horario a Curso</title>
-    <link href="~/css/homeCss/home.css" rel="stylesheet" />
-    <link href="~/css/Cruds/crud-general2.css" rel="stylesheet" />
-    <link href="~/css/styleguide.css" rel="stylesheet" />
-    <link href="~/css/globals.css" rel="stylesheet" />
-    <link href="~/css/css-boots/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/navStyle/navStyle.css" rel="stylesheet" />
 </head>
 <body>
 
-    <div class="container-center-horizontal">
-        <div class="crud-general2 screen">
-
-            <div class="grupo-20">
-
-                <div class="layout segoeui-regular-normal-ebb-22px">
-
-                </div>
-            </div>
-        </div>
-    </div>
-
+   
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-        <div class="row justify-content-center" style="margin-top: 3%;">
+        <div class="container-fluid" style="margin-top: 3%;">
 
 
-            <div class="col-lg-3 px-lg-3 pt-4 card" style="style= border: 1xp; border-color: #667b68;">
+            <div class="jumbotron jumbotron-fluid" style="background-color: #667b68;">
                 <div class="container">
 
                     <div class="form-horizontal">
-                        <h2 style="color: ;">Asignar horario a curso</h2>
+                        <h2 style="color: #EAE5E0;">Asignar horario a curso</h2>
                         <p style="color: #EAD1C5;">@ViewBag.Error</p>
                         <hr />
 
                         <div class="form-group">
-                            <h3 class="control-label col-md-auto">Curso</h3>
+                            <h3 class="control-label col-md-2">Curso</h3>
                             <div class="col-md-12">
                                 @Html.DropDownListFor(model => model.course_id, new SelectList(ViewBag.course, "course_id", "name"), new { @class = "form-control text-dark" })
                                 @Html.ValidationMessageFor(model => model.course_id, "", new { @style = "color: #EAD1C5" })
@@ -54,7 +39,7 @@
                         </div>
 
                         <div class="form-group">
-                            <h3 class="control-label col-md-auto">Horario</h3>
+                            <h3 class="control-label col-md-2">Horario</h3>
                             <div class="col-md-12">
                                 @Html.DropDownListFor(model => model.schedule_id, new SelectList(ViewBag.schedule, "schedule_id", "day"), new { @class = "form-control text-dark" })
                                 @Html.ValidationMessageFor(model => model.schedule_id, "", new { @style = "color: #EAD1C5" })
@@ -62,7 +47,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-offset-2 col-md-12 pb-3" style="margin-top:5%">
+                            <div class="col-md-offset-2 col-md-12" style="margin-top:5%">
                                 <a class="btn btn-outline-dark " href="@Url.Action("Index","Courses")">Regresar</a>
                                 <input style=" margin-left: 2%" type="submit" value="Asignar" class="btn btn-outline-dark" />
                             </div>

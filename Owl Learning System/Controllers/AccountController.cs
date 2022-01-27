@@ -1,9 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using FluentEmail.Core;
+using FluentEmail.Smtp;
 using mysqltest.Models;
 using Owlapp.Tools;
 
@@ -114,7 +119,6 @@ namespace Owlapp.Controllers
                             Session["UserId"] = lg.user_id.ToString();
                             Session["Nombre"] = lg.first_name.ToString() + " " + lg.last_name;
                             Session["role"] = query2.role_id.ToString();
-
                             FormsAuthentication.SetAuthCookie(u.email, u.rememberme);
                             return RedirectToAction("Index", "Home");
                         }
@@ -228,7 +232,6 @@ namespace Owlapp.Controllers
         {
             return View();
         }
-
         #region VerificacodigodeValidacion
         [HttpPost]
         public ActionResult VerifyValidationCode(pass_verif_code pvc)
