@@ -1,0 +1,138 @@
+/* screen - curso-avanzado */
+
+.curso-avanzado {
+    align-items: center;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    height: 526px;
+    width: 1280px;
+}
+
+    .curso-avanzado .grupo-20 {
+        align-items: flex-start;
+        background: #667b68;
+        background-position: 50% 50%;
+        background-size: cover;
+        display: flex;
+        height: 70px;
+        justify-content: flex-end;
+        min-width: 1280px;
+        padding: 19.2px 394px;
+    }
+
+    .curso-avanzado .layout {
+        align-items: flex-end;
+        display: flex;
+        height: 30px;
+        min-width: 490px;
+    }
+
+    .curso-avanzado .inicio {
+        letter-spacing: 0;
+        line-height: 22px;
+        margin-bottom: -6px;
+        min-height: 32px;
+        min-width: 54px;
+        white-space: nowrap;
+        color: #ffffff;
+    }
+
+    .curso-avanzado .registrarse {
+        letter-spacing: 0;
+        line-height: 22px;
+        margin-bottom: -6px;
+        margin-left: 106px;
+        min-height: 32px;
+        min-width: 108px;
+        white-space: nowrap;
+        color: #ffffff;
+    }
+
+    .curso-avanzado .iniciar-sesin {
+        letter-spacing: 0;
+        line-height: 22px;
+        margin-bottom: -6px;
+        margin-left: 93px;
+        min-height: 32px;
+        min-width: 129px;
+        white-space: nowrap;
+        color: #ffffff;
+    }
+
+    .curso-avanzado .banner {
+        align-items: flex-start;
+        background-color: var(--white);
+        display: flex;
+        margin-right: 16.5px;
+        margin-top: 55px;
+        min-width: 1018px;
+    }
+
+
+    .curso-avanzado .overlap-group {
+        align-items: flex-end;
+        background-color: var(--willow-grove);
+        display: flex;
+        height: 256px;
+        min-width: 577px;
+        padding: 39.5px 79px;
+    }
+
+    .curso-avanzado .text-3 {
+        letter-spacing: 0;
+        line-height: 38px;
+        min-height: 155px;
+        min-width: 303px;
+        white-space: nowrap;
+    }
+
+    .curso-avanzado .owlavanzado {
+        height: 201px;
+        margin-left: 59px;
+        margin-top: 12.5px;
+        object-fit: cover;
+        width: 272px;
+    }
+
+    .curso-avanzado .lnea-1 {
+        height: 1px;
+        margin-top: 36px;
+        object-fit: cover;
+        width: 79px;
+    }
+
+    .curso-avanzado .cursos-disponibles {
+        letter-spacing: 0;
+        line-height: 35px;
+        margin-right: 14.5px;
+        margin-top: 52px;
+        min-height: 49px;
+        min-width: 291px;
+        white-space: nowrap;
+    }
+
+    .curso-avanzado .buscar {
+        align-items: flex-end;
+        align-self: flex-end;
+        display: flex;
+        height: 38px;
+        justify-content: space-between;
+        margin-right: 139.25px;
+        margin-top: 7px;
+        width: 332px;
+    }
+
+    .curso-avanzado .loupe {
+        margin-bottom: 3px;
+        object-fit: cover;
+        width: 35px;
+    }
+
+    .curso-avanzado .lnea-2 {
+        height: 3.5px;
+        margin-bottom: -0.5px;
+        margin-right: 0;
+        object-fit: cover;
+        width: 271.01px;
+    }

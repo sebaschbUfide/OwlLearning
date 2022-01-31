@@ -1,0 +1,568 @@
+/* screen - registrarse */
+
+.registrarse {
+    background-color: var(--white);
+    height: 961px;
+    overflow: hidden;
+    overflow-x: hidden;
+    position: relative;
+    width: 1280px;
+}
+
+    .registrarse .rectngulo-41-Nkx9BY {
+        background-color: var(--white);
+        height: 731px;
+        left: 190px;
+        position: absolute;
+        top: 144px;
+        width: 901px;
+    }
+
+    .registrarse .trazado-3-Nkx9BY {
+        background-color: transparent;
+        height: 731px;
+        left: 625px;
+        object-fit: cover;
+        position: absolute;
+        top: 144px;
+        width: 466px;
+    }
+
+    .registrarse .grupo-1-Nkx9BY {
+        background-color: transparent;
+        height: 489px;
+        left: 250px;
+        position: absolute;
+        top: 258px;
+        width: 340px;
+    }
+
+    .registrarse .rectngulo-34-HC3ojC {
+        background-color: var(--white);
+        border-radius: 13px;
+        height: 63px;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+    }
+
+    .registrarse .rectngulo-35-HC3ojC {
+        background-color: var(--white);
+        border-radius: 13px;
+        bottom: calc(40.14% - 25px);
+        height: 63px;
+        left: 0px;
+        position: absolute;
+        width: 100%;
+    }
+
+    .registrarse .rectngulo-36-HC3ojC {
+        background-color: var(--white);
+        border-radius: 13px;
+        height: 63px;
+        left: 0px;
+        position: absolute;
+        top: calc(39.91% - 25px);
+        width: 100%;
+    }
+
+    .registrarse .rectngulo-37-HC3ojC {
+        background-color: var(--white);
+        border-radius: 13px;
+        height: 63px;
+        left: 0px;
+        position: absolute;
+        top: calc(19.95% - 13px);
+        width: 100%;
+    }
+
+    .registrarse .rectngulo-38-HC3ojC {
+        background-color: var(--white);
+        border-radius: 13px;
+        bottom: calc(20.19% - 13px);
+        height: 63px;
+        left: 0px;
+        position: absolute;
+        width: 100%;
+    }
+
+    .registrarse .rectngulo-39-HC3ojC {
+        background-color: var(--white);
+        border-radius: 13px;
+        bottom: 0px;
+        height: 63px;
+        left: 0px;
+        position: absolute;
+        width: 100%;
+    }
+
+    .registrarse .crear-cuenta-Nkx9BY {
+        background-color: transparent;
+        color: var(--willow-grove);
+        font-family: var(--font-family-segoeui-regular);
+        font-size: 43px;
+        font-style: normal;
+        font-weight: 400;
+        height: auto;
+        left: 292px;
+        letter-spacing: 0.00px;
+        line-height: 43px;
+        position: absolute;
+        text-align: center;
+        top: 178px;
+        white-space: nowrap;
+        width: auto;
+    }
+
+    .registrarse .validar-cedula-Nkx9BY {
+        background-color: transparent;
+        color: var(--willow-grove);
+        font-family: var(--font-family-segoeui-regular);
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        height: auto;
+        left: 251px;
+        letter-spacing: 0.00px;
+        line-height: 43px;
+        position: absolute;
+        text-align: center;
+        top: 228px;
+        white-space: nowrap;
+        width: auto;
+    }
+
+   
+    .registrarse .validar-Nombre-Nkx9BY {
+        background-color: transparent;
+        color: var(--willow-grove);
+        font-family: var(--font-family-segoeui-regular);
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        height: auto;
+        left: 251px;
+        letter-spacing: 0.00px;
+        line-height: 43px;
+        position: absolute;
+        text-align: center;
+        top: 485px;
+        white-space: nowrap;
+        width: auto;
+    }
+    .registrarse .validar-Apellidos-Nkx9BY {
+        background-color: transparent;
+        color: var(--willow-grove);
+        font-family: var(--font-family-segoeui-regular);
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        height: auto;
+        left: 251px;
+        letter-spacing: 0.00px;
+        line-height: 43px;
+        position: absolute;
+        text-align: center;
+        top: 397px;
+        white-space: nowrap;
+        width: auto;
+    }
+
+ .registrarse .validar-Numertelefono-Nkx9BY {
+        background-color: transparent;
+        color: var(--willow-grove);
+        font-family: var(--font-family-segoeui-regular);
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        height: auto;
+        left: 251px;
+        letter-spacing: 0.00px;
+        line-height: 43px;
+        position: absolute;
+        text-align: center;
+        top: 312px;
+        white-space: nowrap;
+        width: auto;
+    }
+
+    .registrarse .validar-correo-Nkx9BY {
+        background-color: transparent;
+        color: var(--willow-grove);
+        font-family: var(--font-family-segoeui-regular);
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        height: auto;
+        left: 251px;
+        letter-spacing: 0.00px;
+        line-height: 43px;
+        position: absolute;
+        text-align: center;
+        top: 569px;
+        white-space: nowrap;
+        width: auto;
+    }
+
+
+    .registrarse .validar-contraseña-Nkx9BY {
+        background-color: transparent;
+        color: var(--willow-grove);
+        font-family: var(--font-family-segoeui-regular);
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        height: auto;
+        left: 251px;
+        letter-spacing: 0.00px;
+        line-height: 43px;
+        position: absolute;
+        text-align: center;
+        top: 654px;
+        white-space: nowrap;
+        width: auto;
+    }
+
+    .registrarse .logo-png-Nkx9BY {
+        background-color: transparent;
+        height: 276px;
+        left: 761px;
+        object-fit: cover;
+        position: absolute;
+        top: 364px;
+        width: 276px;
+    }
+
+    .registrarse .grupo-24-Nkx9BY {
+        background-color: transparent;
+        height: 70px;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 1280px;
+    }
+
+    .registrarse .trazado-17-lCrM5c {
+        background-color: transparent;
+        height: 100%;
+        left: 0px;
+        object-fit: cover;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+    }
+
+    .registrarse .inicio-lCrM5c {
+        background-color: transparent;
+        bottom: calc(41.46% - 12px);
+        height: 29px;
+        left: 144px;
+        letter-spacing: 0.00px;
+        line-height: 22px;
+        position: absolute;
+        text-align: left;
+        white-space: nowrap;
+        width: 67px;
+    }
+
+    .registrarse .button-raised-f-disabled-theme-Nkx9BY {
+        background-color: transparent;
+        border-radius: 12px;
+        height: 35px;
+        left: 1100px;
+        position: absolute;
+        top: 18px;
+        width: 113px;
+    }
+
+    .registrarse .button-raised-f-disabled-theme-picLfk {
+        background-color: transparent;
+        border-radius: 12px;
+        height: 35px;
+        left: 342px;
+        position: absolute;
+        top: 776px;
+        width: 141px;
+    }
+
+.button-raised-f-disabled-theme-Nkx9BY {
+    height: auto !important;
+    width: auto !important;
+}
+
+    .button-raised-f-disabled-theme-Nkx9BY .mdc-button {
+        --mdc-theme-primary: #A3B898;
+    }
+
+.button-raised-f-disabled-theme-picLfk {
+    height: auto !important;
+    width: auto !important;
+}
+
+    .button-raised-f-disabled-theme-picLfk .mdc-button {
+        --mdc-theme-primary: #A3B898;
+    }
+/* screen - registrarse-responsive */
+
+.registrarse-responsive {
+    background-color: var(--white);
+    height: 816px;
+    overflow: hidden;
+    overflow-x: hidden;
+    position: relative;
+    width: 428px;
+}
+
+    .registrarse-responsive .grupo-10-RZYm7o {
+        background-color: transparent;
+        height: 675px;
+        left: 37px;
+        position: absolute;
+        top: 80px;
+        width: 355px;
+    }
+
+    .registrarse-responsive .trazado-14-fgmeNq {
+        background-color: transparent;
+        height: calc(100.00% - 36px);
+        left: 0px;
+        object-fit: cover;
+        position: absolute;
+        top: 36px;
+        width: 100%;
+    }
+
+    .registrarse-responsive .grupo-1-fgmeNq {
+        background-color: transparent;
+        bottom: calc(34.59% - 125px);
+        height: 362px;
+        position: absolute;
+        right: 46px;
+        width: 246px;
+    }
+
+    .registrarse-responsive .rectngulo-34-F7jBrJ {
+        background-color: var(--white);
+        border-radius: 13px;
+        height: 47px;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+    }
+
+    .registrarse-responsive .rectngulo-35-F7jBrJ {
+        background-color: var(--white);
+        border-radius: 13px;
+        bottom: calc(40.00% - 19px);
+        height: 47px;
+        left: 0px;
+        position: absolute;
+        width: 100%;
+    }
+
+    .registrarse-responsive .rectngulo-36-F7jBrJ {
+        background-color: var(--white);
+        border-radius: 13px;
+        height: 47px;
+        left: 0px;
+        position: absolute;
+        top: calc(40.00% - 19px);
+        width: 100%;
+    }
+
+    .registrarse-responsive .rectngulo-37-F7jBrJ {
+        background-color: var(--white);
+        border-radius: 13px;
+        height: 47px;
+        left: 0px;
+        position: absolute;
+        top: calc(20.00% - 9px);
+        width: 100%;
+    }
+
+    .registrarse-responsive .rectngulo-38-F7jBrJ {
+        background-color: var(--white);
+        border-radius: 13px;
+        bottom: calc(20.00% - 9px);
+        height: 47px;
+        left: 0px;
+        position: absolute;
+        width: 100%;
+    }
+
+    .registrarse-responsive .rectngulo-39-F7jBrJ {
+        background-color: var(--white);
+        border-radius: 13px;
+        bottom: 0px;
+        height: 46px;
+        left: 0px;
+        position: absolute;
+        width: 100%;
+    }
+
+    .registrarse-responsive .crear-cuenta-fgmeNq {
+        background-color: transparent;
+        color: var(--willow-grove);
+        font-family: var(--font-family-montserrat);
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        height: 41px;
+        letter-spacing: 0.00px;
+        line-height: 32px;
+        position: absolute;
+        right: calc(46.52% - 97px);
+        text-align: center;
+        top: calc(21.52% - 9px);
+        white-space: nowrap;
+        width: 208px;
+    }
+
+    .registrarse-responsive .trazado-12-fgmeNq {
+        background-color: transparent;
+        height: 112px;
+        left: -9px;
+        object-fit: cover;
+        position: absolute;
+        top: 30px;
+        width: calc(100.00% + 18px);
+    }
+
+    .registrarse-responsive .logo-png-fgmeNq {
+        background-color: transparent;
+        height: 73px;
+        object-fit: cover;
+        position: absolute;
+        right: calc(49.14% - 36px);
+        top: 0px;
+        width: 73px;
+    }
+
+    .registrarse-responsive .trazado-16-fgmeNq {
+        background-color: transparent;
+        bottom: 0px;
+        height: 104px;
+        left: 0px;
+        object-fit: cover;
+        position: absolute;
+        width: 104px;
+    }
+
+    .registrarse-responsive .button-raised-f-disabled-theme-fgmeNq {
+        background-color: transparent;
+        border-radius: 18px;
+        bottom: 61px;
+        height: 27px;
+        left: calc(50.00% - 55px);
+        position: absolute;
+        width: 109px;
+    }
+
+    .registrarse-responsive .trazado-15-fgmeNq {
+        background-color: transparent;
+        bottom: 0px;
+        height: 104px;
+        object-fit: cover;
+        position: absolute;
+        right: 0px;
+        width: 104px;
+    }
+
+    .registrarse-responsive .grupo-23-RZYm7o {
+        background-color: transparent;
+        height: 70px;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 428px;
+    }
+
+    .registrarse-responsive .grupo-11-xX3BLm {
+        background-color: transparent;
+        height: 100%;
+        left: 0px;
+        position: relative;
+        top: 0px;
+        width: 100%;
+    }
+
+    .registrarse-responsive .grupo-33-k8wI9C {
+        background-color: transparent;
+        height: 100%;
+        left: 0px;
+        position: relative;
+        top: 0px;
+        width: 100%;
+    }
+
+    .registrarse-responsive .rectngulo-1-OCbvnJ {
+        background-color: var(--willow-grove);
+        height: 100%;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+    }
+
+    .registrarse-responsive .inicio-OCbvnJ {
+        background-color: transparent;
+        bottom: calc(46.44% - 13px);
+        cursor: pointer;
+        height: 29px;
+        left: calc(27.87% - 17px);
+        letter-spacing: 0.00px;
+        line-height: 22px;
+        pointer-events: auto;
+        position: absolute;
+        text-align: left;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+        width: 62px;
+    }
+
+        .registrarse-responsive .inicio-OCbvnJ:hover {
+            color: #A3B898
+        }
+
+    .registrarse-responsive .button-raised-f-disabled-theme-OCbvnJ {
+        background-color: transparent;
+        border-radius: 18px;
+        cursor: pointer;
+        height: 36px;
+        position: absolute;
+        right: 62px;
+        top: calc(44.97% - 16px);
+        width: 176px;
+    }
+
+.button-raised-f-disabled-theme-fgmeNq {
+    height: auto !important;
+    width: auto !important;
+}
+
+    .button-raised-f-disabled-theme-fgmeNq .mdc-button {
+        --mdc-theme-primary: #A3B898;
+    }
+
+.button-raised-f-disabled-theme-OCbvnJ {
+    height: auto !important;
+    width: auto !important;
+}
+
+    .button-raised-f-disabled-theme-OCbvnJ .mdc-button {
+        --mdc-theme-primary: #A3B898;
+    }
+
+@media screen and (max-width: 1279px) {
+    .screen.registrarse {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .screen.registrarse-responsive {
+        display: none;
+    }
+}

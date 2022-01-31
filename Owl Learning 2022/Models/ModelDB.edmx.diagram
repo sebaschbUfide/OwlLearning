@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9bbe9164186840889aaa8258f86e9e0c" Name="Diagram1">
+        <EntityTypeShape EntityType="owldbModel.answer_vt" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.course_assignment" Width="1.5" PointX="6" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.course_schedule" Width="1.5" PointX="6" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.course_type" Width="1.5" PointX="1.5" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.courses" Width="1.5" PointX="3.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.FC_Module" Width="1.5" PointX="8.25" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.FileControl" Width="1.5" PointX="6" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.logs" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.Mod_Content" Width="1.5" PointX="10.5" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.module_vt" Width="1.5" PointX="8.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.modules" Width="1.5" PointX="6" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.Multi_Modulo" Width="1.5" PointX="8.25" PointY="35.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.multimedia" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.pass_verif_code" Width="1.5" PointX="3" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.question_vt" Width="1.5" PointX="0.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.questions" Width="1.5" PointX="1.5" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.role_user" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.roles" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.schedules" Width="1.5" PointX="3.75" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.test_type" Width="1.5" PointX="1.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.users" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.virtual_tests" Width="1.5" PointX="3.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="owldbModel.vt_scored_record" Width="1.5" PointX="6" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="owldbModel.answer_vt_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.answer_vt_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.answer_vt_ibfk_3" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.course_assignment_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.course_assignment_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.course_assignment_ibfk_3" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.course_cs_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.schedule_cs_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.name_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.course_module_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.FC_Module_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.FC_Module_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.Mod_Content_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.user_logs_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.Mod_Content_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.Mod_Content_ibfk_3" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.module_id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.virtual_test_id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.Multi_Modulo_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.user_pvc_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.question_id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.vt_q_id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.role_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.user_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.test_type_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.vt_scored_record_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="owldbModel.vt_scored_record_ibfk_2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,154 @@
+/* screen - crud-general */
+
+.crud-general {
+  align-items: center;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  height: 650px;
+  width: 1280px;
+}
+
+.trazado-17-lCrM5c {
+    background-color: transparent;
+    height: 100%;
+    left: 0px;
+    object-fit: cover;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}
+.crud-general .grupo-20 {
+    align-items: flex-start;
+    background: #667b68;
+    background-position: 50% 50%;
+    background-size: cover;
+    display: flex;
+    height: 70px;
+    justify-content: flex-end;
+    min-width: 1280px;
+    padding: 19.2px 394px;
+}
+
+.crud-general .layout {
+  align-items: flex-end;
+  display: flex;
+  height: 30px;
+  min-width: 490px;
+}
+
+.crud-general .inicio {
+  letter-spacing: 0;
+  line-height: 22px;
+  margin-bottom: -6px;
+  min-height: 32px;
+  min-width: 54px;
+  white-space: nowrap;
+}
+
+.crud-general .registrarse {
+  letter-spacing: 0;
+  line-height: 22px;
+  margin-bottom: -6px;
+  margin-left: 106px;
+  min-height: 32px;
+  min-width: 108px;
+  white-space: nowrap;
+}
+
+.crud-general .iniciar-sesin {
+  letter-spacing: 0;
+  line-height: 22px;
+  margin-bottom: -6px;
+  margin-left: 93px;
+  min-height: 32px;
+  min-width: 129px;
+  white-space: nowrap;
+}
+
+.crud-general .overlap-group1 {
+  height: 256px;
+  margin-right: 16.5px;
+  margin-top: 108px;
+  position: relative;
+  width: 1018px;
+}
+
+.crud-general .banner {
+  align-items: flex-start;
+  background-color: var(--white);
+  display: flex;
+  height: 256px;
+  left: 0;
+  min-width: 1018px;
+  position: absolute;
+  top: 0;
+}
+
+.crud-general .overlap-group {
+  align-items: flex-end;
+  background-color: var(--willow-grove);
+  display: flex;
+  height: 256px;
+  min-width: 577px;
+  padding: 39.5px 79px;
+}
+
+.crud-general .text-4 {
+  letter-spacing: 0;
+  line-height: 38px;
+  min-height: 155px;
+  min-width: 303px;
+  white-space: nowrap;
+}
+
+.crud-general .logo {
+  height: 222px;
+  left: 609px;
+  object-fit: cover;
+  position: absolute;
+  top: 17px;
+  width: 387px;
+}
+
+.crud-general .lnea-1 {
+  height: 1px;
+  margin-top: 36px;
+  object-fit: cover;
+  width: 79px;
+}
+
+.crud-general .cursos-disponibles {
+  letter-spacing: 0;
+  line-height: 35px;
+  margin-right: 14.5px;
+  margin-top: 52px;
+  min-height: 49px;
+  min-width: 291px;
+  white-space: nowrap;
+}
+
+.crud-general .buscar {
+  align-items: flex-end;
+  align-self: flex-end;
+  display: flex;
+  height: 38px;
+  justify-content: space-between;
+  margin-right: 139.25px;
+  margin-top: 7px;
+  width: 332px;
+}
+
+.crud-general .loupe {
+  margin-bottom: 3px;
+  object-fit: cover;
+  width: 35px;
+}
+
+.crud-general .lnea-2 {
+  height: 3.5px;
+  margin-bottom: -0.5px;
+  margin-right: 0;
+  object-fit: cover;
+  width: 271.01px;
+}

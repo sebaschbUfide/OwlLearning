@@ -1,0 +1,322 @@
+﻿/* screen - restablecer-contrasena */
+
+.restablecer-contrasena {
+    background-color: var(--white);
+    height: 670px;
+    overflow: hidden;
+    overflow-x: hidden;
+    position: relative;
+    width: 1280px;
+}
+
+    .restablecer-contrasena .caja-enKkQJ {
+        background-color: transparent;
+        height: 383px;
+        left: 262px;
+        position: absolute;
+        top: 159px;
+        width: 755px;
+    }
+
+    .restablecer-contrasena .trazado-4-fAYW2n {
+        background-color: transparent;
+        height: calc(100.00% + 18px);
+        left: -9px;
+        object-fit: cover;
+        position: absolute;
+        top: -6px;
+        width: calc(100.00% + 18px);
+    }
+
+    .restablecer-contrasena .ingrese-su-correo-elctronico-fAYW2n {
+        background-color: transparent;
+        color: var(--willow-grove);
+        font-family: var(--font-family-segoeui-regular);
+        font-size: 44px;
+        font-style: normal;
+        font-weight: 400;
+        height: 60px;
+        left: 96px;
+        letter-spacing: 0.00px;
+        line-height: 44px;
+        position: absolute;
+        text-align: left;
+        top: 57px;
+        white-space: nowrap;
+        width: calc(100.00% - 191px);
+    }
+
+    .restablecer-contrasena .rectngulo-24-fAYW2n {
+        background-color: var(--white);
+        border-radius: 10px;
+        height: 44px;
+        left: 167px;
+        position: absolute;
+        top: calc(44.16% - 19px);
+        width: calc(100.00% - 334px);
+    }
+
+    .restablecer-contrasena .rectngulo-25-fAYW2n {
+        background-color: var(--schist);
+        border-radius: 7px;
+        bottom: calc(26.22% - 15px);
+        cursor: pointer;
+        height: 59px;
+        left: calc(49.92% - 115px);
+        position: absolute;
+        width: 230px;
+    }
+
+    .restablecer-contrasena .enviar-cdigo-fAYW2n {
+        background-color: transparent;
+        bottom: calc(26.01% - 10px);
+        color: var(--white);
+        font-family: var(--font-family-segoeui-regular);
+        font-size: 27px;
+        font-style: normal;
+        font-weight: 400;
+        height: 38px;
+        letter-spacing: 0.00px;
+        line-height: 27px;
+        position: absolute;
+        right: calc(49.90% - 82px);
+        text-align: center;
+        white-space: nowrap;
+        width: 164px;
+    }
+
+    .restablecer-contrasena .trazado-16-enKkQJ {
+        background-color: transparent;
+        height: 140px;
+        left: 263px;
+        object-fit: cover;
+        position: absolute;
+        top: 402px;
+        width: 140px;
+    }
+
+    .restablecer-contrasena .trazado-15-enKkQJ {
+        background-color: transparent;
+        height: 140px;
+        left: 877px;
+        object-fit: cover;
+        position: absolute;
+        top: 159px;
+        width: 140px;
+    }
+
+    .restablecer-contrasena .grupo-25-enKkQJ {
+        background-color: transparent;
+        height: 70px;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 1280px;
+    }
+
+    .restablecer-contrasena .trazado-17-94YmLo {
+        background-color: transparent;
+        height: 100%;
+        left: 0px;
+        object-fit: cover;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+    }
+
+    .restablecer-contrasena .grupo-34-enKkQJ {
+        background-color: transparent;
+        height: 27px;
+        left: 138px;
+        position: absolute;
+        top: 22px;
+        width: 67px;
+    }
+
+    .restablecer-contrasena .inicio-2fSAtB {
+        background-color: transparent;
+        height: calc(100.00% + 2px);
+        left: 0px;
+        letter-spacing: 0.00px;
+        line-height: 22px;
+        position: absolute;
+        text-align: left;
+        top: 2px;
+        white-space: nowrap;
+        width: calc(100.00% + 2px);
+    }
+/* screen - restablecer-contrasena-responsive */
+
+.restablecer-contrasena-responsive {
+    background-color: var(--white);
+    height: 434px;
+    overflow: hidden;
+    overflow-x: hidden;
+    position: relative;
+    width: 428px;
+}
+
+    .restablecer-contrasena-responsive .layout-xkRQEk {
+        background-color: transparent;
+        height: 70px;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 428px;
+    }
+
+    .restablecer-contrasena-responsive .grupo-29-BMzpqd {
+        background-color: transparent;
+        height: 100%;
+        left: 0px;
+        position: relative;
+        top: 0px;
+        width: 100%;
+    }
+
+    .restablecer-contrasena-responsive .grupo-28-ujxgDy {
+        background-color: transparent;
+        height: 100%;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+    }
+
+    .restablecer-contrasena-responsive .rectngulo-1-HrHRWD {
+        background-color: var(--willow-grove);
+        height: 100%;
+        left: 0px;
+        position: relative;
+        top: 0px;
+        width: 100%;
+    }
+
+    .restablecer-contrasena-responsive .inicio-ujxgDy {
+        background-color: transparent;
+        bottom: calc(36.84% - 12px);
+        height: 32px;
+        left: calc(24.33% - 13px);
+        letter-spacing: 0.00px;
+        line-height: 22px;
+        position: absolute;
+        text-align: left;
+        white-space: nowrap;
+        width: 54px;
+    }
+
+    .restablecer-contrasena-responsive .grupo-16-xkRQEk {
+        background-color: transparent;
+        height: 299px;
+        left: 36px;
+        position: absolute;
+        top: 80px;
+        width: 355px;
+    }
+
+    .restablecer-contrasena-responsive .caja-s7OBer {
+        background-color: transparent;
+        height: 100%;
+        left: 1px;
+        position: absolute;
+        top: 0px;
+        width: calc(100.00% - 1px);
+    }
+
+    .restablecer-contrasena-responsive .trazado-4-xws5wH {
+        background-color: transparent;
+        height: calc(100.00% + 18px);
+        left: -9px;
+        object-fit: cover;
+        position: absolute;
+        top: -6px;
+        width: calc(100.00% + 18px);
+    }
+
+    .restablecer-contrasena-responsive .ingrese-su-correo-elctronico-xws5wH {
+        background-color: transparent;
+        color: var(--willow-grove);
+        font-family: var(--font-family-segoeui-regular);
+        font-size: var(--font-size-xxl);
+        font-style: normal;
+        font-weight: 400;
+        height: 29px;
+        letter-spacing: 0.00px;
+        line-height: 20px;
+        position: absolute;
+        right: 43px;
+        text-align: left;
+        top: calc(19.63% - 6px);
+        white-space: nowrap;
+        width: 258px;
+    }
+
+    .restablecer-contrasena-responsive .rectngulo-24-xws5wH {
+        background-color: var(--white);
+        border-radius: 10px;
+        height: 31px;
+        left: 51px;
+        position: absolute;
+        top: calc(44.16% - 14px);
+        width: calc(100.00% - 102px);
+    }
+
+    .restablecer-contrasena-responsive .rectngulo-25-xws5wH {
+        background-color: var(--schist);
+        border-radius: 7px;
+        bottom: calc(26.22% - 11px);
+        height: 41px;
+        left: calc(49.83% - 80px);
+        position: absolute;
+        width: 160px;
+    }
+
+    .restablecer-contrasena-responsive .enviar-cdigo-xws5wH {
+        background-color: transparent;
+        bottom: calc(26.39% - 7px);
+        color: var(--white);
+        font-family: var(--font-family-segoeui-regular);
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        height: 26px;
+        left: calc(49.37% - 54px);
+        letter-spacing: 0.00px;
+        line-height: 18px;
+        position: absolute;
+        text-align: center;
+        white-space: nowrap;
+        width: 110px;
+    }
+
+    .restablecer-contrasena-responsive .trazado-16-s7OBer {
+        background-color: transparent;
+        bottom: 1px;
+        height: 97px;
+        left: 0px;
+        object-fit: cover;
+        position: absolute;
+        width: 97px;
+    }
+
+    .restablecer-contrasena-responsive .trazado-15-s7OBer {
+        background-color: transparent;
+        height: 97px;
+        object-fit: cover;
+        position: absolute;
+        right: 1px;
+        top: 0px;
+        width: 97px;
+    }
+
+@media screen and (max-width: 1279px) {
+    .screen.restablecer-contrasena {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .screen.restablecer-contrasena-responsive {
+        display: none;
+    }
+}

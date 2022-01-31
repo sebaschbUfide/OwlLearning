@@ -1,0 +1,310 @@
+/* screen - verificar-codigo */
+
+.verificar-codigo {
+  background-color: var(--white);
+  height: 693px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 1280px;
+}
+
+.verificar-codigo .caja-vHSh90 {
+  background-color: transparent;
+  height: 400px;
+  left: 257px;
+  position: absolute;
+  top: 156px;
+  width: 767px;
+}
+
+.verificar-codigo .trazado-4-WxkLOA {
+  background-color: transparent;
+  height: calc(100.00% + 18px);
+  left: -9px;
+  object-fit: cover;
+  position: absolute;
+  top: -6px;
+  width: calc(100.00% + 18px);
+}
+
+.verificar-codigo .ingrese-el-cdig-de-verificacion-WxkLOA {
+  background-color: transparent;
+  color: var(--willow-grove);
+  font-family: var(--font-family-segoeui-regular);
+  font-size: 39px;
+  font-style: normal;
+  font-weight: 400;
+  height: 54px;
+  left: 106px;
+  letter-spacing: 0.00px;
+  line-height: 39px;
+  position: absolute;
+  text-align: left;
+  top: 66px;
+  white-space: nowrap;
+  width: calc(100.00% - 210px);
+}
+
+.verificar-codigo .rectngulo-24-WxkLOA {
+  background-color: var(--white);
+  border-radius: 10px;
+  height: 44px;
+  left: calc(50.00% - 168px);
+  position: absolute;
+  top: calc(43.62% - 19px);
+  width: 335px;
+}
+
+.verificar-codigo .rectngulo-25-WxkLOA {
+  background-color: var(--schist);
+  border-radius: 7px;
+  bottom: calc(24.60% - 15px);
+  height: 59px;
+  left: calc(50.00% - 115px);
+  position: absolute;
+  width: 230px;
+}
+
+.verificar-codigo .aceptar-WxkLOA {
+  background-color: transparent;
+  bottom: calc(24.56% - 9px);
+  color: var(--white);
+  font-family: var(--font-family-segoeui-regular);
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 400;
+  height: 38px;
+  letter-spacing: 0.00px;
+  line-height: 27px;
+  position: absolute;
+  right: calc(49.85% - 47px);
+  text-align: center;
+  white-space: nowrap;
+  width: 94px;
+}
+
+.verificar-codigo .trazado-15-vHSh90 {
+  background-color: transparent;
+  height: 140px;
+  left: 883px;
+  object-fit: cover;
+  position: absolute;
+  top: 156px;
+  width: 140px;
+}
+
+.verificar-codigo .trazado-16-vHSh90 {
+  background-color: transparent;
+  height: 140px;
+  left: 257px;
+  object-fit: cover;
+  position: absolute;
+  top: 416px;
+  width: 140px;
+}
+
+.verificar-codigo .grupo-25-vHSh90 {
+  background-color: transparent;
+  height: 70px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1280px;
+}
+
+.verificar-codigo .trazado-17-1ierao {
+  background-color: transparent;
+  height: 100%;
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+
+.verificar-codigo .grupo-34-vHSh90 {
+  background-color: transparent;
+  height: 27px;
+  left: 138px;
+  position: absolute;
+  top: 22px;
+  width: 67px;
+}
+
+.verificar-codigo .inicio-Y96v5e {
+  background-color: transparent;
+  height: calc(100.00% + 2px);
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 22px;
+  position: absolute;
+  text-align: left;
+  top: 2px;
+  white-space: nowrap;
+  width: calc(100.00% + 2px);
+}
+/* screen - verificar-codigo-responsive */
+
+.verificar-codigo-responsive {
+  background-color: var(--white);
+  height: 504px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 428px;
+}
+
+.verificar-codigo-responsive .layout-h2t9Oz {
+  background-color: transparent;
+  height: 55px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 428px;
+}
+
+.verificar-codigo-responsive .grupo-26-pi4cx9 {
+  background-color: transparent;
+  height: 100%;
+  left: 0px;
+  position: relative;
+  top: 0px;
+  width: 100%;
+}
+
+.verificar-codigo-responsive .rectngulo-1-DYKRo7 {
+  background-color: var(--willow-grove);
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+
+.verificar-codigo-responsive .inicio-DYKRo7 {
+  background-color: transparent;
+  bottom: calc(28.26% - 9px);
+  height: 32px;
+  left: calc(24.40% - 13px);
+  letter-spacing: 0.00px;
+  line-height: 22px;
+  position: absolute;
+  text-align: left;
+  white-space: nowrap;
+  width: 54px;
+}
+
+.verificar-codigo-responsive .grupo-15-h2t9Oz {
+  background-color: transparent;
+  height: 311px;
+  left: 37px;
+  position: absolute;
+  top: 80px;
+  width: 355px;
+}
+
+.verificar-codigo-responsive .caja-1auUSQ {
+  background-color: transparent;
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+
+.verificar-codigo-responsive .trazado-4-KpxPJJ {
+  background-color: transparent;
+  height: calc(100.00% + 18px);
+  left: -9px;
+  object-fit: cover;
+  position: absolute;
+  top: -6px;
+  width: calc(100.00% + 18px);
+}
+
+.verificar-codigo-responsive .rectngulo-24-KpxPJJ {
+  background-color: var(--white);
+  border-radius: 10px;
+  height: 32px;
+  left: 65px;
+  position: absolute;
+  top: calc(44.16% - 14px);
+  width: calc(100.00% - 131px);
+}
+
+.verificar-codigo-responsive .rectngulo-25-KpxPJJ {
+  background-color: var(--schist);
+  border-radius: 7px;
+  bottom: calc(26.22% - 11px);
+  height: 43px;
+  left: calc(49.77% - 83px);
+  position: absolute;
+  width: 166px;
+}
+
+.verificar-codigo-responsive .aceptar-KpxPJJ {
+  background-color: transparent;
+  bottom: calc(26.00% - 7px);
+  color: var(--white);
+  font-family: var(--font-family-segoeui-regular);
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  height: 28px;
+  left: calc(49.79% - 33px);
+  letter-spacing: 0.00px;
+  line-height: 19px;
+  position: absolute;
+  text-align: center;
+  white-space: nowrap;
+  width: 66px;
+}
+
+.verificar-codigo-responsive .ingrese-el-cdig-de-verificacion-KpxPJJ {
+  background-color: transparent;
+  color: var(--willow-grove);
+  font-family: var(--font-family-segoeui-regular);
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  height: 28px;
+  letter-spacing: 0.00px;
+  line-height: 19px;
+  position: absolute;
+  right: 26px;
+  text-align: left;
+  top: calc(27.43% - 8px);
+  white-space: nowrap;
+  width: 273px;
+}
+
+.verificar-codigo-responsive .trazado-16-1auUSQ {
+  background-color: transparent;
+  bottom: 1px;
+  height: 101px;
+  left: 1px;
+  object-fit: cover;
+  position: absolute;
+  width: 101px;
+}
+
+.verificar-codigo-responsive .trazado-15-1auUSQ {
+  background-color: transparent;
+  height: 101px;
+  object-fit: cover;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  width: 101px;
+}
+@media screen and (max-width: 1279px) {
+  .screen.verificar-codigo { 
+    display: none;
+   }
+}
+@media screen and (min-width: 1280px) {
+  .screen.verificar-codigo-responsive { 
+    display: none;
+   }
+}

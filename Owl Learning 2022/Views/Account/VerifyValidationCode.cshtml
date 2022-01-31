@@ -1,0 +1,100 @@
+﻿@model Owl_Learning_2022.Models.pass_verif_code
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <link href="~/css/ValidationCodeCss/restablecer-contrasena.css" rel="stylesheet" />
+    <link href="~/css/homeCss/home.css" rel="stylesheet" />
+    <link href="~/css/Cruds/crud-general2.css" rel="stylesheet" />
+    <link href="~/css/styleguide.css" rel="stylesheet" />
+    <link href="~/css/globals.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        <body style="margin: 0; background: #ffffff">
+            <input type="hidden" id="anPageName" name="page" value="restablecer-contrasena" />
+            <div class="container-center-horizontal">
+                <div class="restablecer-contrasena screen">
+                    <div class="caja-enKkQJ">
+
+                        <img class="trazado-4-fAYW2n" src="~/img/trazado-4@1x.png" />
+                        <div class="ingrese-su-correo-elctronico-fAYW2n">Ingrese el codigo de verificaci&oacute;n</div>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="W">
+                                @Html.EditorFor(model => model.verification_code, new { htmlAttributes = new { @class = "form-control rectngulo-24-fAYW2n border-1px-willow-grove" } })
+                                @Html.ValidationMessageFor(model => model.verification_code, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <input type="submit" value="Validar Código" class="rectngulo-25-fAYW2n border-1px-schist" />
+                    </div>
+                    <img class="trazado-16-enKkQJ" src="~/img/trazado-16-2@1x.png" />
+                    <img class="trazado-15-enKkQJ" src="~/img/trazado-15-5@1x.png" />
+                    <div class="container-center-horizontal">
+                        <div class="crud-general2 screen">
+
+                            <div class="grupo-20">
+
+                                <div class="layout segoeui-regular-normal-ebb-22px">
+
+                                    <a href="@Url.Action("Index","Home")">
+                                        <div class="inicio">Inicio</div>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-center-horizontal">
+                <div class="restablecer-contrasena-responsive screen">
+                    <div class="layout-xkRQEk">
+                        <div class="grupo-29-BMzpqd">
+                            <div class="grupo-28-ujxgDy">
+                                <div class="rectngulo-1-HrHRWD border-1px-willow-grove"></div>
+                            </div>
+                            <div class="inicio-ujxgDy">Inicio</div>
+                        </div>
+                    </div>
+                    <div class="grupo-16-xkRQEk">
+                        <div class="caja-s7OBer">
+                            <img class="trazado-4-xws5wH" src="~/img/trazado-4-1@1x.png" />
+                            <div class="ingrese-su-correo-elctronico-xws5wH">Ingrese el codigo de verificaci&oacute;n</div>
+                            <div class="rectngulo-24-xws5wH border-1px-willow-grove"></div>
+                            <div class="rectngulo-25-xws5wH border-1px-schist"></div>
+                            <div class="enviar-cdigo-xws5wH">Verificar</div>
+                        </div>
+
+                        <img class="trazado-16-s7OBer" src="~/img/trazado-16-3@1x.png" />
+                        <img class="trazado-15-s7OBer" src="~/img/trazado-15-5@1x.png" />
+                    </div>
+
+                </div>
+            </div>
+        </body>
+    }
+
+</body>
+</html>

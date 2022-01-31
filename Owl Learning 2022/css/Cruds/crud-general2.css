@@ -1,0 +1,122 @@
+/* screen - crud-general2 */
+
+.crud-general2 {
+    align-items: center;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    height: 105px;
+    width: 1280px;
+}
+.home .cursos-xKYaxx {
+    background-color: transparent;
+    cursor: pointer;
+    height: calc(100.00% + 2px);
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: 25px;
+    pointer-events: auto;
+    position: absolute;
+    text-align: left;
+    top: 2px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    width: calc(100.00% + 2px);
+}
+
+    .home .cursos-xKYaxx:hover {
+        color: #A3B898
+    }
+
+    .crud-general2 .grupo-20 {
+        align-items: flex-start;
+        background: #667b68;
+        background-position: 50% 50%;
+        background-size: cover;
+        display: flex;
+        height: 70px;
+        justify-content: flex-end;
+        min-width: 1280px;
+        padding: 19.2px 394px;
+    }
+
+    .crud-general2 .layout {
+        align-items: flex-end;
+        display: flex;
+        height: 30px;
+        min-width: 490px;
+    }
+
+    .crud-general2 .inicio {
+        letter-spacing: 0;
+        line-height: 22px;
+        margin-bottom: -6px;
+        min-height: 32px;
+        min-width: 54px;
+        white-space: nowrap;
+        color: white;
+    }
+
+.crud-general2 .registrarse {
+    letter-spacing: 0;
+    line-height: 22px;
+    margin-bottom: -6px;
+    margin-left: 106px;
+    min-height: 32px;
+    min-width: 108px;
+    white-space: nowrap;
+    color: white;
+}
+
+.crud-general2 .iniciar-sesin {
+    letter-spacing: 0;
+    line-height: 22px;
+    margin-bottom: -6px;
+    margin-left: 93px;
+    min-height: 32px;
+    min-width: 129px;
+    white-space: nowrap;
+    color: white;
+}
+
+    .crud-general2 .lnea-1 {
+        height: 1px;
+        margin-top: 50px;
+        object-fit: cover;
+        width: 79px;
+    }
+
+    .crud-general2 .cursos-disponibles {
+        letter-spacing: 0;
+        line-height: 35px;
+        margin-left: 2.0px;
+        margin-top: 36px;
+        min-height: 49px;
+        min-width: 291px;
+        white-space: nowrap;
+    }
+
+    .crud-general2 .buscar {
+        align-items: flex-end;
+        align-self: flex-end;
+        display: flex;
+        height: 38px;
+        justify-content: space-between;
+        margin-right: 120.25px;
+        margin-top: 73px;
+        width: 332px;
+    }
+
+    .crud-general2 .loupe {
+        margin-bottom: 3px;
+        object-fit: cover;
+        width: 35px;
+    }
+
+    .crud-general2 .lnea-2 {
+        height: 3.5px;
+        margin-bottom: -0.5px;
+        margin-right: 0;
+        object-fit: cover;
+        width: 271.01px;
+    }

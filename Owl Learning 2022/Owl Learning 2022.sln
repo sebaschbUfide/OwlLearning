@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31402.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owl Learning 2022", "Owl Learning 2022\Owl Learning 2022.csproj", "{D78A4F8A-5A09-4092-9FC2-689D5D0CEE3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D78A4F8A-5A09-4092-9FC2-689D5D0CEE3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D78A4F8A-5A09-4092-9FC2-689D5D0CEE3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D78A4F8A-5A09-4092-9FC2-689D5D0CEE3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D78A4F8A-5A09-4092-9FC2-689D5D0CEE3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FFFBE63-6286-41F9-AA5C-D2578617BBE9}
+	EndGlobalSection
+EndGlobal
